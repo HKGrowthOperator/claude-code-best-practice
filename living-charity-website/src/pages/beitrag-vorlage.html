@@ -9,9 +9,9 @@
 -->
 
 <!-- ============================================================
-     DYNAMISCHE BEITRAGSVORLAGE
-     In WordPress: single.php / Block-Template "Einzelner Beitrag".
-     Feldnamen in [eckigen Klammern] siehe content-model.md.
+     DYNAMISCHE BEITRAGSVORLAGE (CPT updates / native Posts)
+     Feldnamen in [eckigen Klammern] siehe docs/wordpress-blueprint.md.
+     Nur echte Beiträge mit echtem Datum — keine Demo-Inhalte.
      ============================================================ -->
 
 <div class="container container--text">
@@ -25,21 +25,22 @@
   <article>
     <header class="page-head">
       <p class="card__meta" style="margin-bottom:var(--space-3)">
-        <span class="badge">[category] Neuigkeit / Rückblick / Projekt-Update</span>
+        <span class="badge">[update_category] Neuigkeit / Projekt-Update / Rückblick / Pressemitteilung</span>
         <time datetime="">[date] — echtes Veröffentlichungsdatum</time>
       </p>
-      <h1><span class="content-todo">[INHALT VON LIVING CHARITY ERFORDERLICH]</span> Beitragstitel [title]</h1>
+      <h1>Beitragstitel [title]</h1>
       <p class="lead">[excerpt] — Teaser in ein bis zwei Sätzen.</p>
     </header>
 
     <div class="section--sm flow-lg">
-      <!-- [image]: optionales Beitragsbild mit Alt-Text und Bildnachweis;
-           ohne Bild wird keine leere Bildfläche gerendert. -->
+      <!-- [image]: optionales Beitragsbild mit Quellen-Badge (Originalaufnahme /
+           Illustration) und Bildnachweis; ohne Bild keine leere Bildfläche. -->
       <div class="flow">
         <p>[body] — der Beitragstext. Kurze Absätze, Zwischenüberschriften ab
-        etwa 300 Wörtern, verständliche Sprache. Zahlen nur mit Quelle.</p>
+        etwa 300 Wörtern, verständliche Sprache. Zahlen nur mit Quelle; zitierte
+        Aussagen Dritter mit Quellen-Badge und Link.</p>
         <p class="text-sm text-muted">Bezieht sich der Beitrag auf ein Projekt
-        [relatedProject], wird hier automatisch die Projektkarte verlinkt.</p>
+        [relatedProject], wird hier die Projektkarte verlinkt.</p>
       </div>
       <hr class="rule">
       <p class="text-sm text-muted">Veröffentlicht von {{site.org.name}} ·
