@@ -900,6 +900,7 @@ a.external-link::after { content: " ↗"; font-size: 0.85em; }
 .page-head { padding-block: var(--space-6) 0; }
 .page-head h1 { margin-block: var(--space-3) var(--space-4); max-width: 22ch; }
 .page-head .lead { max-width: 56ch; }
+.page-head__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
 
 /* ---------- Leerzustand / Fehlerzustand / Ladezustand ---------- */
 
