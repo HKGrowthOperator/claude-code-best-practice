@@ -30,11 +30,17 @@
   <div class="container site-header__bar">
     <a class="brand" href="/" aria-label="Living Charity e. V. — zur Startseite">
       <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-        <!-- Neutrale typografische Bildmarke (Platzhalter bis das echte
-             Vereinslogo vorliegt — interner Status: confirmation-required) -->
-        <rect width="40" height="40" rx="8" fill="#f2f4ef"/>
-        <text x="20" y="27" text-anchor="middle" font-family="Manrope, sans-serif" font-size="17" font-weight="800" fill="#173f35">LC</text>
-        <rect x="8" y="31" width="24" height="2.5" rx="1.25" fill="#b86548"/>
+        <!-- Nachgezeichnete Näherung der echten Bildmarke der Altseite
+             (dunkelgrüner Kreis mit Wellenlinien). Original-Vektordatei und
+             verbindliche Farbwerte weiterhin anfordern (LB-08). -->
+        <circle cx="20" cy="20" r="17.5" fill="#10352c" stroke="#f2f4ef" stroke-width="1.2"/>
+        <g clip-path="url(#lc-mark-clip)" stroke="#f2f4ef" stroke-width="2.3" fill="none" stroke-linecap="round">
+          <path d="M2 12 Q 15 4 38 8"/>
+          <path d="M1 19 Q 16 11 39 14"/>
+          <path d="M1 26 Q 18 17 39 20"/>
+          <path d="M4 32 Q 20 24 37 27"/>
+        </g>
+        <defs><clipPath id="lc-mark-clip"><circle cx="20" cy="20" r="16.4"/></clipPath></defs>
       </svg>
       <span class="brand__name">Living Charity
         <span class="brand__sub">Eingetragener Verein · Bergneustadt</span>
@@ -141,11 +147,16 @@
     <div class="site-footer__grid">
       <div class="site-footer__brand">
         <a class="brand" href="/">
-          <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-            <rect width="40" height="40" rx="8" fill="#f2f4ef" opacity="0.12"/>
-            <text x="20" y="27" text-anchor="middle" font-family="Manrope, sans-serif" font-size="17" font-weight="800" fill="#f2f4ef">LC</text>
-            <rect x="8" y="31" width="24" height="2.5" rx="1.25" fill="#b86548"/>
-          </svg>
+      <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <circle cx="20" cy="20" r="17.5" fill="#10352c" stroke="rgba(242,244,239,0.4)" stroke-width="1"/>
+        <g clip-path="url(#lc-mark-clip-f)" stroke="#f2f4ef" stroke-width="2.3" fill="none" stroke-linecap="round">
+          <path d="M2 12 Q 15 4 38 8"/>
+          <path d="M1 19 Q 16 11 39 14"/>
+          <path d="M1 26 Q 18 17 39 20"/>
+          <path d="M4 32 Q 20 24 37 27"/>
+        </g>
+        <defs><clipPath id="lc-mark-clip-f"><circle cx="20" cy="20" r="16.4"/></clipPath></defs>
+      </svg>
           <span class="brand__name">Living Charity
             <span class="brand__sub">Eingetragener Verein</span>
           </span>
