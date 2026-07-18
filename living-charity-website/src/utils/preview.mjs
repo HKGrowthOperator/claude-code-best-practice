@@ -39,6 +39,20 @@ const pages = {};
 
 /* ---------- Assets inline ---------- */
 const b64 = (p) => readFileSync(join(OUT, p)).toString("base64");
+
+/* Bilder in den Seiten-Bodies als Data-URIs einbetten — im Artifact-iframe
+   können /assets/…-Pfade nicht aufgelöst werden (Logo erschien sonst kaputt). */
+const imgCache = {};
+const inlineImages = (html) =>
+  html.replace(/(src=")(\/assets\/img\/[\w.-]+\.(?:png|jpg|jpeg|webp|svg))(")/g, (m, pre, path, post) => {
+    if (!imgCache[path]) {
+      const ext = path.split(".").pop();
+      const mime = ext === "svg" ? "image/svg+xml" : ext === "jpg" ? "image/jpeg" : `image/${ext}`;
+      imgCache[path] = `data:${mime};base64,${b64(path.slice(1))}`;
+    }
+    return pre + imgCache[path] + post;
+  });
+for (const route of Object.keys(pages)) pages[route].body = inlineImages(pages[route].body);
 let css = readFileSync(join(OUT, "assets", "css", "main.css"), "utf8");
 for (const f of ["manrope-var.woff2", "source-sans-3-var.woff2", "newsreader-italic-var.woff2"]) {
   css = css.replace(`url("/assets/fonts/${f}")`, `url("data:font/woff2;base64,${b64("assets/fonts/" + f)}")`);
