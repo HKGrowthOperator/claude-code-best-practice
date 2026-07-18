@@ -84,4 +84,6 @@ console.log(`\nFertig. Nächste Schritte (manuell im WP-Admin):
  3. Fonts aus public/assets/fonts/ ins Theme kopieren (lokal hosten!)
  4. „${manifest.pages.find((p) => p.front)?.slug}" als statische Startseite setzen
  5. Menü laut src/data/navigation.json anlegen
- 6. Kontaktformular durch Formular-Plugin ersetzen (migration-guide Schritt 4)`);
+ 6. Kontaktformular durch Formular-Plugin ersetzen (docs/migration-guide.md Schritt 4)
+ 7. Meta-Descriptions: liegen im Feld "Auszug" (excerpt) — nach SEO-Plugin-
+    Installation einmalig in dessen Description-Felder übernehmen`);
