@@ -1,0 +1,81 @@
+<!--META
+{
+  "path": "/plant-ceylon/",
+  "title": "Plant Ceylon — Einen Baum pflanzen, Wirkung sichtbar machen",
+  "description": "Plant Ceylon verbindet die Pflanzung tropischer Bäume in Sri Lanka mit einem persönlichen Nachweis. Acht Baumarten, dokumentierte Pflanzung, langfristige Wirkung.",
+  "breadcrumb": "Plant Ceylon"
+}
+-->
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><a href="/projekte/">Projekte</a></li>
+      <li><span aria-current="page">Plant Ceylon</span></li>
+    </ol>
+  </nav>
+  <header class="page-head">
+    <p class="overline">Langfristiges Projekt · <span class="badge badge--pruefung" style="vertical-align:middle">In Prüfung</span></p>
+    <h1>{{site.plantCeylon.headline}}</h1>
+    <p class="lead">{{site.plantCeylon.intro}}</p>
+  </header>
+</div>
+
+<section class="section section--sm">
+  <div class="container">
+    <div class="split">
+      <div class="reveal">
+        <h2 style="margin-bottom:var(--space-5)">So soll es ablaufen</h2>
+        {{@plant-steps}}
+        <p class="text-sm text-muted" style="margin-top:var(--space-5)">{{site.plantCeylon.proofNote}}</p>
+      </div>
+      <div class="flow reveal">
+        <h2>Acht Baumarten zur Auswahl</h2>
+        {{@tree-grid}}
+        <p class="text-sm text-muted">{{site.plantCeylon.legalNote}}</p>
+        <p class="source-line">
+          <span class="source-badge source-badge--extern">Externe Projektseite</span>
+          <a class="external-link" href="{{site.plantCeylon.url}}" target="_blank" rel="noopener">Plant Ceylon kennenlernen</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper section--sm">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="overline">Einordnung</p>
+      <h2>Was die Beiträge bewirken sollen</h2>
+      <p>Nach Angaben des Projekts sollen die Beiträge für Pflanzung,
+      Organisation, Dokumentation, Pflege und die Unterstützung beteiligter
+      Menschen eingesetzt werden. Der Baum soll einem Namen oder einer Widmung
+      zugeordnet werden; der Nachweis soll per WhatsApp oder E-Mail übermittelt
+      werden können, auch anonyme Bestellungen sollen möglich sein.</p>
+      <p class="text-sm text-muted">Diese Angaben sind Projektbeschreibungen des
+      Betreibers. Die rechtliche und finanzielle Zuordnung — einschließlich der
+      Frage, ob der Beitrag eine Spende oder ein Kaufpreis ist und ob eine
+      Zuwendungsbestätigung möglich ist — wird vor der Veröffentlichung
+      transparent ergänzt.</p>
+    </div>
+    <div class="proof-grid reveal-stagger">
+      <div class="proof-item reveal"><span class="source-badge source-badge--original">Originalaufnahme</span><h3>Pflanz-Dokumentation</h3><p>Unbearbeitete Fotos und Videos der Pflanzflächen mit Ort und Datum — werden ergänzt, sobald verifiziertes Material vorliegt.</p></div>
+      <div class="proof-item reveal"><span class="source-badge">Projektbericht</span><h3>Regelmäßige Updates</h3><p>Fortschritte, Pflege und Wirkung der Pflanzungen — in Vorbereitung.</p></div>
+      <div class="proof-item reveal"><span class="source-badge source-badge--illustration">Illustration</span><h3>Bildmaterial in Prüfung</h3><p>Bis verifizierte Originalaufnahmen vorliegen, verzichtet diese Seite bewusst auf Projektfotos.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-forest cta-final">
+  <div class="container">
+    <div class="reveal">
+      <h2>Fragen zu Plant Ceylon?</h2>
+      <p>Wir beantworten sie gern — auch zur geplanten Zuordnung des Projekts.</p>
+    </div>
+    <div class="cta-final__actions reveal">
+      <a class="btn btn--primary" href="/kontakt/?thema=plant-ceylon">Kontakt aufnehmen <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost external-link" href="{{site.plantCeylon.url}}" target="_blank" rel="noopener">Zur Projektseite</a>
+    </div>
+  </div>
+</section>
