@@ -322,6 +322,7 @@ hr.rule { border: 0; border-top: 1px solid var(--line); margin-block: var(--spac
   border: 1.5px solid transparent;
   border-radius: var(--radius-sm);
   font-family: var(--font-display);
+  hyphens: manual; /* Buttons nie automatisch trennen */
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.005em;
@@ -416,15 +417,17 @@ hr.rule { border: 0; border-top: 1px solid var(--line); margin-block: var(--spac
 }
 .site-footer .brand__sub { color: var(--on-dark-muted); }
 
-.site-nav__list { display: flex; align-items: center; gap: clamp(0.1rem, 0.8vw, 0.75rem); list-style: none; padding: 0; margin: 0; }
+.site-nav__list { display: flex; align-items: center; gap: clamp(0.1rem, 0.8vw, 0.75rem); list-style: none; padding: 0; margin: 0; max-width: none; }
+/* Flex-Kinder dürfen nie schrumpfen — sonst quetscht sich der CTA mehrzeilig. */
+.site-nav__list li { flex: none; }
 .site-nav__link {
   display: inline-flex;
   align-items: center;
   min-height: var(--touch-target);
-  padding: 0.4rem 0.7rem;
+  padding: 0.4rem 0.55rem;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: var(--ink);
   text-decoration: none;
   border-radius: var(--radius-xs);
@@ -433,7 +436,7 @@ hr.rule { border: 0; border-top: 1px solid var(--line); margin-block: var(--spac
 .site-nav__link:hover { color: var(--brand); background: var(--ivory); }
 .site-nav__link[aria-current="page"] { color: var(--brand-strong); box-shadow: inset 0 -2px 0 var(--brand); }
 
-.site-nav__cta { margin-left: 0.5rem; background: var(--brand); color: #fff; }
+.site-nav__cta { margin-left: 0.5rem; background: var(--brand); color: #fff; white-space: nowrap; }
 .site-nav__cta:hover { background: var(--brand-strong); color: #fff; }
 
 .nav-toggle {
@@ -451,7 +454,7 @@ hr.rule { border: 0; border-top: 1px solid var(--line); margin-block: var(--spac
 }
 .nav-toggle__line { display: block; height: 2px; background: var(--ink); border-radius: 1px; transition: transform var(--duration-quick) var(--ease-out), opacity var(--duration-quick) var(--ease-out); }
 
-@media (max-width: 62rem) {
+@media (max-width: 71rem) {
   .nav-toggle { display: flex; }
   .site-nav {
     position: absolute;
