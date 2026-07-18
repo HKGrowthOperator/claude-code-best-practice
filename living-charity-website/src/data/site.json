@@ -1,0 +1,52 @@
+{
+  "_kommentar": "Globale Einstellungen. Entspricht in WordPress der Options-Seite 'Vereinsdaten' (siehe wordpress-blueprint/content-model.md). Werte mit needsConfirmation=true tragen im Frontend sichtbare Marker bzw. sind deaktiviert.",
+  "org": {
+    "name": "Living Charity e. V.",
+    "shortName": "Living Charity",
+    "foundedYear": "2010",
+    "register": {
+      "court": "Amtsgericht Köln",
+      "number": "VR 16395"
+    },
+    "address": {
+      "street": "Kölner Straße 64",
+      "zip": "51702",
+      "city": "Bergneustadt",
+      "country": "DE"
+    },
+    "email": "info@livingcharity.de",
+    "phone": null,
+    "phoneNote": "Click-to-Call ist vorbereitet und wird aktiviert, sobald eine bestätigte Telefonnummer vorliegt.",
+    "socialLinks": [],
+    "socialNote": "Nur verifizierte Profile eintragen; leer = keine Icons im Frontend."
+  },
+  "bank": {
+    "_hinweis": "Sensibel. Nur auf der Spendenseite ausspielen. IBAN-Prüfsumme rechnerisch gültig (mod 97 = 1), trotzdem kundenseitig gegen Kontoauszug bestätigen.",
+    "accountHolder": "Living Charity e. V.",
+    "bankName": "Sparkasse Gummersbach-Bergneustadt",
+    "iban": "DE18 3845 0000 1000 2149 63",
+    "bic": "WELADED1GMB",
+    "needsConfirmation": true
+  },
+  "domain": {
+    "canonicalBase": "https://www.livingcharity.de",
+    "needsConfirmation": true,
+    "note": "Wunschdomain vor Livegang bestätigen; bis dahin nur als Canonical-Vorbereitung."
+  },
+  "cta": {
+    "primary": { "label": "Jetzt helfen", "href": "/spenden/" },
+    "secondary": { "label": "Living Charity kennenlernen", "href": "/ueber-uns/" },
+    "projects": { "label": "Projekte ansehen", "href": "/projekte/" },
+    "contact": { "label": "Kontakt aufnehmen", "href": "/kontakt/" }
+  },
+  "legal": {
+    "impressumReady": false,
+    "datenschutzReady": false
+  },
+  "features": {
+    "showEvents": true,
+    "showTestimonials": false,
+    "showTransparencyPage": false,
+    "donationProvider": "none"
+  }
+}
