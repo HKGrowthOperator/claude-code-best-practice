@@ -1,55 +1,73 @@
-# QA-Bericht — Vorabversion Living Charity e. V.
+# QA-Bericht — Vorabversion Living Charity e. V. (v2)
 
-Stand: 18.07.2026 · Prüfumgebung: Chromium (Playwright, echte Viewport-Emulation),
-Node-Prüfskript `src/utils/check.mjs`, rechnerische Kontrastprüfung (WCAG-Formel).
+Stand: 18.07.2026 · Prüfumgebung: Chromium (Playwright, echte
+Viewport-Emulation), Node-Prüfskript `src/utils/check.mjs`, rechnerische
+Kontrastprüfung. Barrierefreiheit im Detail: docs/accessibility-report.md.
 
-## 1. Automatisierte Prüfungen (alle 14 Seiten)
+## 1. Automatisierte Prüfungen (alle 17 Seiten)
 
 | Geprüfter Bereich | Methode | Ergebnis | Gefundener Fehler | Korrektur |
 | --- | --- | --- | --- | --- |
-| Interne Links & Assets | check.mjs (alle href/src gegen Dateisystem) | ✅ 0 kaputte Verweise | — | — |
-| Bilder ohne Alt-Text | check.mjs | ✅ 0 | — | — |
-| Überschriften-Hierarchie | check.mjs (genau 1×h1, keine Sprünge) | ✅ | 4 Seiten mit h1→h3-Sprung | Leerzustände/Infokarten auf h2 umgestellt (gleiche Optik) |
-| Tonalitäts-Denyliste (verbotene Floskeln) | check.mjs | ✅ 0 Treffer | — | — |
-| Horizontaler Überlauf 320/375/390/430/768/820/1024/1280/1440/1728 px | Playwright, scrollWidth-Messung je Seite × Breite | ✅ 0 px auf allen 14 Seiten | /datenschutz/ lief bei 320 px um 51 px über (lange Komposita) | `hyphens: auto` + `overflow-wrap` für Fließtext ergänzt |
-| Konsolen-Fehler (JS/Netz) | Playwright console/pageerror-Listener | ✅ 0 auf allen Seiten | — | — |
-| HTTP-Status aller Seiten | Playwright | ✅ 200 (404-Seite absichtlich vorhanden) | — | — |
-| Mobile Navigation | Playwright-Klicktest | ✅ öffnet, `aria-expanded` korrekt, Escape schließt + Fokus zurück auf Button | — | — |
-| Kontaktformular leer absenden | Playwright | ✅ Fehlermeldung, Fokus springt aufs erste Fehlerfeld, `aria-invalid` gesetzt | — | — |
-| Kontaktformular gültig absenden | Playwright | ✅ Erfolgsmeldung mit ehrlichem Vorabversion-Hinweis (kein Backend) | — | — |
-| Honeypot-Spamschutz | Code-Review + Verhalten | ✅ gefülltes Honeypot-Feld → stilles Verwerfen | — | — |
-| IBAN-Kopierknopf | Playwright + Clipboard-Read | ✅ kopiert `DE18384500001000214963` (ohne Leerzeichen) | — | — |
-| IBAN-Prüfsumme | mod-97-Berechnung | ✅ gültig (Rest 1) — ersetzt nicht die Bestätigung durch den Verein | — | — |
-| Tastatur/Skip-Link | Playwright (erstes Tab-Ziel) | ✅ „Zum Inhalt springen" | — | — |
-| Farbkontraste (18 Token-Paare) | WCAG-Kontrastformel | ✅ alle ≥ 4.5:1 (min. 4.90:1) | — | — |
-| Reveal-Animationen bei `prefers-reduced-motion` | CSS-Review + Playwright `reducedMotion:'reduce'` | ✅ Inhalte sofort sichtbar, keine Transitionen | — | — |
-| Ohne JavaScript | `no-js`-Klasse im Layout | ✅ alle Inhalte sichtbar (Reveals opt-in via JS) | — | — |
-| Platzhalter-Konsistenz | check.mjs Marker-Report | ✅ 61 offene Marker, alle absichtlich und gelistet | — | vor Livegang → 0 (Skript erzwingt Übersicht) |
+| Verbotene Altdaten (34 Projekte, 13.000, 348, 5.000+, 8/400 Veranstaltungen, 4 Demo-Events) | check.mjs Denyliste (sichtbar + versteckt) | ✅ 0 Treffer | — | Denyliste verhindert Wiedereinschleppen dauerhaft |
+| Sichtbare Platzhalter-Marker im Frontend | check.mjs (Kommentare ausgenommen) | ✅ 0 sichtbar (2 interne Kommentar-Notizen zu LB-01/02) | — | — |
+| KI-Bild-Schutz (ChatGPT_Image / plantceylon-CDN) | check.mjs | ✅ 0 Treffer | — | technisch gesperrt |
+| Externe Links (Kennzeichnung, target, noopener) | check.mjs | ✅ | — | — |
+| Interne Links & Assets | check.mjs | ✅ 0 kaputte Verweise | — | — |
+| Überschriften-Hierarchie | check.mjs | ✅ | 1 Sprung (/projekte/) | visually-hidden h2 ergänzt |
+| Floskel-/Tonalitäts-Denyliste (inkl. „garantiert eine Familie") | check.mjs | ✅ 0 | — | — |
+| Horizontaler Überlauf, 10 Breakpoints × 17 Seiten (320–1728 px) | Playwright scrollWidth | ✅ 0 px überall | /spenden/ bei 320/375 px (Grid-Min-Content durch „Spendenbescheinigung") | `min-width: 0` für Grid-Kinder |
+| Konsolen-/Seitenfehler | Playwright Listener | ✅ 0 | — | — |
+| Farbkontraste (22 Paare, neue Palette) | WCAG-Formel | ✅ alle Textpaare ≥ 4.5:1 | 2 Paare unter AA (Muted auf Sand 3.91; Pausiert-Badge 3.67) | Töne abgedunkelt (5.11 / 5.3) |
+| Mobile Navigation | Playwright | ✅ öffnet, `aria-expanded`, Escape schließt | — | — |
+| Kontaktformular leer/gültig | Playwright | ✅ Fehlerfokus + Meldung; gültig → Weiterleitung /danke/ | — | — |
+| Themen-Vorbelegung `?thema=plant-ceylon` | Playwright | ✅ Select vorausgewählt | — | — |
+| IBAN-/BIC-Kopierknöpfe | Playwright + Clipboard | ✅ IBAN `DE18384500001000214963` | — | — |
+| Betragsauswahl | Playwright | ✅ aria-pressed + Verwendungszweck-Update („Orientierungsbetrag 25 €") | — | — |
+| Suche (Index, Treffer, Leere-Treffer-Text) | Playwright `?q=Sri Lanka` | ✅ 10 Treffer mit Auszügen | — | — |
+| Skip-Link / erstes Tab-Ziel | Playwright | ✅ | — | — |
+| Reduced Motion / No-JS | Playwright + Code | ✅ | — | — |
 
-## 2. Performance-Bewertung (statisch belegbar)
+## 2. Visuelle Prüfung (Screenshots 390 / 768 / 1440, Briefing Abschnitt 23)
 
-Lighthouse-Messungen benötigen die spätere Hosting-Umgebung; diese Eigenschaften
-sind bereits im Code sichergestellt:
+Bewertet auf Typografie, Weißraum, Bildverhältnisse, Hierarchie,
+Glaubwürdigkeit, Wiederholungen, KI-Template-Wirkung:
 
-- **Kein externes Byte:** 0 Third-Party-Requests (Fonts lokal, keine Tracker, keine CDNs).
-- **Gewichte:** CSS ~30 KB unkomprimiert, JS ~5 KB, Fonts 3 × ~30–44 KB WOFF2 (variable, Latin-Subset), Bilder derzeit ausschließlich Inline-SVG.
-- **Kein Layout-Shift:** Bildflächen haben feste `aspect-ratio`; Fonts mit `font-display: swap` + `preload`.
-- **Hero priorisiert:** Above-the-fold-Grafik ist Inline-SVG (0 Requests); echte Hero-Fotos später mit `fetchpriority="high"` + `loading="eager"` einbinden, alle übrigen `loading="lazy"` (in image-requirements.md vermerkt).
-- **Animationen GPU-schonend:** ausschließlich `opacity`/`transform`, IntersectionObserver statt Scroll-Handler.
+- **1440 px (Startseite, Spenden):** Editorial-Rhythmus trägt — Wechsel aus
+  Ivory/Forest/Sand/Paper-Flächen statt Kartenwüste; 5-€-Ziffer in
+  Newsreader-Kursive ist die eine typografische Geste; Terrakotta bleibt
+  selten. Keine Pill-Buttons, kaum Schatten, feine Linien.
+- **768 px (Plant Ceylon):** Schritte und Baumraster brechen kontrolliert um;
+  Prüfstatus-Badge bleibt sichtbar.
+- **390 px (Startseite):** Mobile ist keine Zweitseite — Trust-Strip, Hero,
+  Impact-Modul und Donation Panel bleiben vollwertig; IBAN bricht sauber um.
+- Wiederholungsprüfung: „Möglichkeiten zu helfen" ist das einzige
+  6er-Kartenraster; alle übrigen Sektionen haben eigene Layout-Formen.
 
-## 3. Browser-Matrix
+## 3. Performance (statisch belegbar)
+
+- 0 Third-Party-Requests (Fonts lokal: Manrope 25 KB, Source Sans 3 29 KB,
+  Newsreader Italic 147 KB — Newsreader lädt ohne Preload, nur Akzent).
+- CSS ~34 KB, JS ~9 KB unkomprimiert; Bilder ausschließlich Inline-SVG.
+- Kein Layout-Shift: feste `aspect-ratio` auf Bildflächen, `font-display: swap`
+  + Preload der zwei Hauptfonts.
+- Animationen nur `opacity`/`transform` via IntersectionObserver.
+- Lighthouse-Ziele (≥ 90/95/95/95) sind auf dem Zielhosting zu messen —
+  Voraussetzungen sind geschaffen (siehe Offene Punkte).
+
+## 4. Browser-Matrix
 
 | Browser | Status |
 | --- | --- |
-| Chromium (Desktop + Android-Viewports) | ✅ getestet (Playwright) |
-| Firefox, Safari (macOS/iOS), Edge | ⚠ offen — in dieser Umgebung nicht verfügbar. Risikoarm, da nur breit unterstützte Features verwendet werden (CSS Grid, clamp, aspect-ratio, IntersectionObserver, `<details>`); `color-mix()` und `overflow-x: clip` haben harmlose Fallbacks. Vor Livegang einmal manuell prüfen (Checkliste unten). |
+| Chromium (Desktop + Mobile-Viewports) | ✅ getestet |
+| Safari (macOS/iOS), Firefox, Edge, Android Chrome | ⚠ offen — in dieser Umgebung nicht verfügbar; verwendete Features breit unterstützt (Grid, clamp, aspect-ratio, `<details>`, IntersectionObserver). Vor Livegang Smoke-Test lt. Checkliste. |
 
-## 4. Offene Punkte (vor Livegang)
+## 5. Offene Punkte (vor Livegang)
 
-1. **61 Inhalts-Marker auflösen** — `node src/utils/check.mjs` listet alle; Livegang erst bei 0.
-2. **robots.txt umstellen** — Vorabversion blockiert Indexierung absichtlich; Umstellung siehe Dateikommentar/seo-plan.
-3. **Safari/Firefox/Edge-Smoke-Test** — Startseite, Spenden, Kontakt (Formular), mobile Navigation.
-4. **Lighthouse-Lauf auf dem Zielhosting** — Zielwerte: Performance ≥ 90, Accessibility ≥ 95, Best Practices ≥ 95, SEO ≥ 95. Die Voraussetzungen (Punkt 2) sind geschaffen.
-5. **Screenreader-Stichprobe** (NVDA oder VoiceOver): Formular-Fehlermeldungen, Navigation, Spendenbox.
-6. **OG-Bild als PNG exportieren** (1200×630) — SVG wird nicht von allen Plattformen gerendert.
-7. **Altseiten-Audit-Lücken** — die Live-Altseite war aus der Entwicklungsumgebung netzwerkbedingt nicht abrufbar (Policy-403); falls dort weitere Inhalte existieren (z. B. Texte, die übernommen werden sollen), bitte als Export bereitstellen. Für den Neuaufbau nicht blockierend.
+1. Launch-Blocker LB-01 … LB-11 auflösen (docs/launch-blockers.md).
+2. Browser-Smoke-Test Safari/Firefox/Edge/iOS/Android: Startseite, Spenden
+   (Kopierknöpfe!), Kontakt (Formular), Suche, mobile Navigation.
+3. Lighthouse-Lauf auf Zielhosting; ggf. Newsreader subsetten (nur kursive
+   Ziffern/Grundzeichen), falls Performance-Budget gerissen wird.
+4. Screenreader-Stichprobe (siehe accessibility-report.md).
+5. OG-Bild als PNG exportieren (LB-19).
+6. `robots.txt` freischalten (LB-10).
