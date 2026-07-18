@@ -14,7 +14,7 @@ bei jeder Kontrolle setzen.
 - **Abgerufene Information:** Anschrift, E-Mail, Vorstandsnamen, Bankverbindung, Selbstbeschreibung; außerdem die NICHT übernommenen Altzahlen (34 Projekte, 13.000 Menschen, 348 bzw. 5.000+ Unterstützer, 8 bzw. 400 Veranstaltungen) und Demo-Veranstaltungen
 - **Verwendungsort:** Stammdaten (confirmed-data.md); Altzahlen/Demo-Events: nirgends (Denyliste in check.mjs)
 - **Bestätigungsstatus:** Stammdaten confirmation-required; Altzahlen verworfen
-- **Letztes Prüfdatum:** 18.07.2026 (Hinweis: aus der Entwicklungsumgebung nur eingeschränkt abrufbar; Inhalte lt. Briefing des Auftraggebers)
+- **Letztes Prüfdatum:** 18.07.2026 — vollständig gesichtet über 9 Screenshots des Auftraggebers (Details: docs/audit-report.md Abschnitt 5). Zusätzlich belegt: echte Bildmarke (Kreis mit Wellenlinien), echte dokumentarische Sri-Lanka-Fotos (Rechte zu klären), Fake-Testimonial, unverifizierte Social-Icons, Demo-Event-Daten (12.06./05.07./02.09./10.11.2026)
 
 ## Q2 — Plant Ceylon
 
