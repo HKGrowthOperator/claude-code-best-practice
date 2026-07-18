@@ -50,6 +50,17 @@ wordpress-blueprint/  Content-Modell, Blöcke, Migrationsanleitung,
 - **SEO-Grundlage:** Titel/Descriptions je Seite, Canonicals, Open Graph, NGO- und Breadcrumb-Schema, generierte sitemap.xml.
 - **Anti-Halluzination:** dynamische Listen (Projekte, Beiträge, Termine) sind leer und zeigen ehrliche Leerzustände statt erfundener Beispieldaten; die Altseiten-Zahlen (13.000/5.000/400) wurden bewusst nicht übernommen (Begründung: docs/audit-report.md).
 
+## Vorschau & WordPress-Push
+
+- `npm run preview` erzeugt `public/preview/index.html` — **eine** Datei mit
+  allen 14 Seiten, echter Navigation und Viewport-Umschalter (Mobil/Tablet/
+  Laptop/Voll), ohne Server öffenbar und als Review-Link teilbar.
+- `npm run export:wp` erzeugt `wordpress-export/` (Gutenberg-HTML je Seite +
+  Manifest + Theme-Assets); `npm run push:wp` überträgt die Seiten als
+  Entwürfe per REST-API in die Living-Charity-WordPress-Instanz — mit
+  Sicherheitsbremse gegen falsche Zielinstanzen. Details:
+  [wordpress-export/README.md](wordpress-export/README.md).
+
 ## Nächste Schritte
 
 1. Inhalte gemäß client-checklist.md einsammeln (Blocker: Logo, Satzungszweck, Projekte, Rechtstexte).
