@@ -5,9 +5,13 @@
  *  - fügt Layout (src/layouts/base.html) + Seiten (src/pages/*.html) zusammen
  *  - ersetzt Partials      {{> name}}            aus src/components/<name>.html
  *  - ersetzt Datenpfade    {{site.org.name}}     aus src/data/*.json
- *  - ruft Renderer auf     {{@nav-main}} u. a.   (dynamische Listen, Leerzustände)
+ *  - ruft Renderer auf     {{@impact5}} u. a.    (dynamische Module, Leerzustände)
  *  - baut <head> (Title, Description, Canonical, Open Graph, JSON-LD)
- *  - bündelt CSS zu public/assets/css/main.css, erzeugt sitemap.xml
+ *  - bündelt CSS, erzeugt sitemap.xml, robots.txt und den Suchindex
+ *
+ * Redaktionsregel: Im Frontend erscheinen KEINE Warnhinweise/Marker.
+ * Unbestätigte Angaben werden intern über status-Felder in src/data/*.json
+ * und docs/launch-blockers.md geführt.
  *
  * Aufruf:  node src/utils/build.mjs
  */
@@ -44,7 +48,7 @@ function lookup(path) {
   return path.split(".").reduce((o, k) => (o == null ? undefined : o[k]), data);
 }
 
-/* ---------- Renderer für dynamische Listen ---------- */
+/* ---------- Renderer ---------- */
 const renderers = {
   "nav-main": (page) =>
     data.nav.main
@@ -60,17 +64,34 @@ const renderers = {
       })
       .join("\n"),
 
+  /* 5-Euro-Impact — fremde, transparent zitierte Aussage mit Quellenlink */
+  "impact5": () => {
+    const c = data.site.claim5;
+    return `<section class="impact5" aria-label="Was ein kleiner Beitrag bewirken kann">
+      <div class="container impact5__grid">
+        <p class="impact5__figure reveal">${esc(c.figure)}<small>Ein Tag Nahrung — laut Spendenaufruf</small></p>
+        <div class="impact5__body reveal">
+          <h2>${esc(c.headline)}</h2>
+          <p>${esc(c.body)}</p>
+          <p class="impact5__note">${esc(c.note)}</p>
+          <p class="source-line">
+            <span class="source-badge source-badge--extern">Externe Quelle</span>
+            <a class="external-link" href="${c.sourceUrl}" target="_blank" rel="noopener">${esc(c.sourceLabel)}</a>
+          </p>
+        </div>
+      </div>
+    </section>`;
+  },
+
+  /* Projektübersicht bzw. redaktionelle Leerlösung (Briefing-Wortlaut) */
   "projects-grid": () => {
     const list = data.projectsData.projects;
     if (!list.length) {
+      const e = data.projectsData.emptyState;
       return `<div class="empty-state reveal">
-        <h2>Die Projektliste wird derzeit zusammengestellt</h2>
-        <p>Wir bereiten die Darstellung unserer Projekte mit Ort, Ziel und aktuellem Stand vor.
-        Bis dahin beantworten wir Fragen zu unserer Arbeit gern persönlich.</p>
-        <p class="content-todo-block" style="margin-top:1rem"><strong>[INHALT VON LIVING CHARITY ERFORDERLICH]</strong>
-        Echte Projekte (Titel, Ort, Ausgangslage, Ziel, Stand, Bilder mit Rechten) liefern —
-        Struktur und Vorlage sind fertig, siehe Projekt-Detailvorlage.</p>
-        <a class="btn btn--primary" href="/kontakt/">Kontakt aufnehmen <span class="btn__arrow" aria-hidden="true">→</span></a>
+        <h2>${esc(e.title)}</h2>
+        <p>${esc(e.text)}</p>
+        <a class="btn btn--primary" href="/kontakt/">Fragen zur aktuellen Hilfsaktion <span class="btn__arrow" aria-hidden="true">→</span></a>
       </div>`;
     }
     return `<div class="grid grid--cards reveal-stagger">` + list.map(projectCard).join("") + `</div>`;
@@ -79,36 +100,14 @@ const renderers = {
   "posts-list": () => {
     const list = data.postsData.posts;
     if (!list.length) {
+      const e = data.postsData.emptyState;
       return `<div class="empty-state reveal">
-        <h2>Noch keine Beiträge veröffentlicht</h2>
-        <p>Sobald es Neuigkeiten aus dem Verein oder den Projekten gibt, erscheinen sie hier —
-        ehrlich datiert und klar gekennzeichnet als Neuigkeit, Rückblick oder Projekt-Update.</p>
+        <h2>${esc(e.title)}</h2>
+        <p>${esc(e.text)}</p>
         <a class="btn btn--ghost" href="/kontakt/">Fragen? Kontakt aufnehmen</a>
       </div>`;
     }
     return `<div class="grid grid--cards reveal-stagger">` + list.map(postCard).join("") + `</div>`;
-  },
-
-  "events-list": () => {
-    const now = new Date().toISOString().slice(0, 10);
-    const upcoming = data.eventsData.events.filter((e) => e.start && e.start >= now);
-    const past = data.eventsData.events.filter((e) => e.start && e.start < now);
-    let html = "";
-    if (!upcoming.length) {
-      html += `<div class="empty-state reveal">
-        <h2>Aktuell ist kein öffentlicher Termin geplant</h2>
-        <p>Wir kündigen Veranstaltungen hier an, sobald Ort und Datum feststehen.
-        Wenn Sie eine eigene Aktion zugunsten von Living Charity planen, sprechen Sie uns an.</p>
-        <a class="btn btn--primary" href="/kontakt/">Kontakt aufnehmen <span class="btn__arrow" aria-hidden="true">→</span></a>
-      </div>`;
-    } else {
-      html += `<div class="grid grid--cards reveal-stagger">` + upcoming.map(eventCard).join("") + `</div>`;
-    }
-    if (past.length) {
-      html += `<h2 style="margin-top:var(--space-8)">Rückblicke</h2>
-      <div class="grid grid--cards">` + past.map(eventCard).join("") + `</div>`;
-    }
-    return html;
   },
 
   "team-list": () =>
@@ -116,53 +115,69 @@ const renderers = {
     data.teamData.members
       .map((m) => {
         const initials = m.name.split(/\s+/).map((p) => p[0]).slice(0, 2).join("");
-        const note = m.personalNote
-          ? `<p class="text-sm" style="margin-top:.5rem">${esc(m.personalNote)}</p>`
-          : "";
-        const confirm = m.approved ? "" : `<p style="margin-top:.5rem"><span class="content-todo">Porträt, persönlicher Satz und Freigabe fehlen [BITTE DURCH DEN AUFTRAGGEBER BESTÄTIGEN]</span></p>`;
         return `<div class="team-card reveal">
           <div class="team-card__portrait" aria-hidden="true">${initials}</div>
           <div>
             <p class="team-card__name">${esc(m.name)}</p>
             <p class="team-card__role">${esc(m.role)}</p>
-            ${note}${confirm}
           </div>
         </div>`;
       })
       .join("") +
     `</div>`,
 
-  "donation-box": () => {
+  /* Donation Panel: IBAN/BIC-Kopierknöpfe, Betragsauswahl, QR-Vorbereitung */
+  "donation-panel": () => {
     const b = data.site.bank;
-    const confirm = b.needsConfirmation
-      ? `<p style="margin-top:1rem"><span class="content-todo">Bankverbindung vor Livegang gegen Kontoauszug prüfen [BITTE DURCH DEN AUFTRAGGEBER BESTÄTIGEN]</span></p>`
-      : "";
-    return `<div class="donation-box">
-      <p class="donation-box__label">Spendenkonto</p>
+    const amounts = data.site.donation.amounts
+      .map((a, i) => `<button type="button" aria-pressed="${i === 0 ? "true" : "false"}" data-amount="${a}">${a} €</button>`)
+      .join("");
+    return `<div class="donation-panel">
+      <p class="donation-panel__label">Spenden per Überweisung</p>
+      <p class="text-sm text-muted" style="margin-top:.5rem">Wählen Sie einen Betrag als Orientierung — überwiesen wird ganz normal über Ihre Bank.</p>
+      <div class="amount-picker" role="group" aria-label="Spendenbetrag als Orientierung wählen">${amounts}<button type="button" aria-pressed="false" data-amount="frei">Freier Betrag</button></div>
       <dl>
-        <dt>Kontoinhaber</dt><dd>${esc(b.accountHolder)}</dd>
-        <dt>Bank</dt><dd>${esc(b.bankName)}</dd>
+        <dt>Empfänger</dt><dd>${esc(b.accountHolder)}</dd>
         <dt>IBAN</dt><dd><span class="iban" id="iban-value">${esc(b.iban)}</span></dd>
-        <dt>BIC</dt><dd>${esc(b.bic)}</dd>
-        <dt>Verwendungszweck</dt><dd><span class="content-todo">[INHALT VON LIVING CHARITY ERFORDERLICH] gewünschte Verwendungszwecke</span></dd>
+        <dt>BIC</dt><dd><span id="bic-value">${esc(b.bic)}</span></dd>
+        <dt>Bank</dt><dd>${esc(b.bankName)}</dd>
+        <dt>Verwendungszweck</dt><dd id="purpose-value">Spende Living Charity</dd>
       </dl>
-      <button type="button" class="btn btn--primary copy-btn" data-copy-target="iban-value" data-copy-plain="${b.iban.replace(/\s/g, "")}">
-        IBAN kopieren
-        <span class="copy-btn__feedback" role="status">Kopiert ✓</span>
-      </button>
-      ${confirm}
+      <div class="donation-panel__actions">
+        <button type="button" class="btn btn--primary copy-btn" data-copy-target="iban-value" data-copy-plain="${b.iban.replace(/\s/g, "")}">IBAN kopieren<span class="copy-btn__feedback" role="status">Kopiert ✓</span></button>
+        <button type="button" class="btn btn--ghost copy-btn" data-copy-target="bic-value" data-copy-plain="${b.bic}">BIC kopieren<span class="copy-btn__feedback" role="status">Kopiert ✓</span></button>
+      </div>
+      <div style="display:flex; gap:1rem; align-items:center; margin-top:var(--space-5); flex-wrap:wrap">
+        <div class="qr-slot" aria-hidden="true"><span>QR-Überweisung<br>(Girocode) folgt nach Bestätigung der Bankverbindung</span></div>
+        <p class="text-sm text-muted" style="flex:1; min-width:14rem">${esc(data.site.donation.certificateNote)}</p>
+      </div>
     </div>`;
   },
+
+  /* Plant Ceylon: 4 Schritte + Baumarten */
+  "plant-steps": () =>
+    `<ol class="steps reveal">` +
+    data.site.plantCeylon.steps
+      .map((s) => `<li><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></li>`)
+      .join("") +
+    `</ol>`,
+
+  "tree-grid": () =>
+    `<div class="tree-grid reveal-stagger">` +
+    data.site.plantCeylon.trees
+      .map((t) => `<div class="tree-item reveal"><strong>${esc(t)}</strong><span>${esc(data.site.plantCeylon.price)}</span></div>`)
+      .join("") +
+    `</div>`,
 };
 
 function projectCard(p) {
   const statusLabel = data.projectsData.statusLabels[p.status] || p.status;
   return `<article class="card reveal">
-    <div class="card__media">${mediaPlaceholder(p.title)}</div>
+    <div class="card__media"><div class="media-pending">Originale Projektaufnahme wird ergänzt.</div></div>
     <div class="card__body">
-      <p class="card__meta"><span class="badge badge--${p.status}">${esc(statusLabel)}</span><span>${esc(p.region)}</span></p>
+      <p class="card__meta"><span class="badge badge--${p.status}">${esc(statusLabel)}</span><span>${esc(p.region || "")}</span></p>
       <h3 class="card__title"><a href="/projekte/${p.slug}/">${esc(p.title)}</a></h3>
-      <p class="card__excerpt">${esc(p.excerpt)}</p>
+      <p class="card__excerpt">${esc(p.short_description || "")}</p>
       <span class="card__link">Zum Projekt <span aria-hidden="true">→</span></span>
     </div>
   </article>`;
@@ -176,22 +191,6 @@ function postCard(p) {
     </div>
   </article>`;
 }
-function eventCard(e) {
-  return `<article class="card reveal">
-    <div class="card__body">
-      <p class="card__meta"><span class="badge">${esc(e.type)}</span><time datetime="${e.start}">${fmtDate(e.start)}</time></p>
-      <h3 class="card__title"><a href="/veranstaltungen/${e.slug}/">${esc(e.title)}</a></h3>
-      <p class="card__excerpt">${esc(e.location)}</p>
-    </div>
-  </article>`;
-}
-function mediaPlaceholder(label) {
-  return `<svg viewBox="0 0 600 400" role="img" aria-label="Bildfläche — echtes Projektfoto erforderlich" preserveAspectRatio="xMidYMid slice">
-    <rect width="600" height="400" fill="#e4efe9"/>
-    <path d="M0 400 C150 300 450 340 600 260 L600 400 Z" fill="#cfe2d8"/>
-    <text x="300" y="200" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#175b4f">Bildfläche · ${esc(label).slice(0, 40)}</text>
-  </svg>`;
-}
 function fmtDate(iso) {
   if (!iso) return "";
   return new Date(iso + "T12:00:00").toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" });
@@ -199,7 +198,6 @@ function fmtDate(iso) {
 
 /* ---------- Template-Engine (bewusst minimal) ---------- */
 function render(tpl, page) {
-  // Partials zuerst (können selbst Platzhalter enthalten)
   for (let i = 0; i < 5; i++) {
     const before = tpl;
     tpl = tpl.replace(/\{\{>\s*([\w-]+)\s*\}\}/g, (_, name) => partial(name));
@@ -221,7 +219,7 @@ function render(tpl, page) {
   return tpl;
 }
 
-/* ---------- <head>-Bausteine ---------- */
+/* ---------- <head> ---------- */
 function headFor(page) {
   const base = data.site.domain.canonicalBase.replace(/\/$/, "");
   const canonical = base + page.path;
@@ -230,7 +228,7 @@ function headFor(page) {
     "@context": "https://schema.org",
     "@type": "NGO",
     name: org.name,
-    foundingDate: org.foundedYear,
+    foundingDate: "2010-06-16",
     email: org.email,
     identifier: `${org.register.court} ${org.register.number}`,
     address: {
@@ -266,7 +264,7 @@ ${page.noindex ? '<meta name="robots" content="noindex,follow">' : `<link rel="c
 <meta property="og:image" content="${base}/assets/img/og-default.svg">
 <meta property="og:locale" content="de_DE">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/assets/fonts/alegreya-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/source-sans-3-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/main.css">
 <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>${breadcrumb}`;
@@ -276,15 +274,14 @@ ${page.noindex ? '<meta name="robots" content="noindex,follow">' : `<link rel="c
 const layout = readFileSync(join(SRC, "layouts", "base.html"), "utf8");
 const pages = readdirSync(join(SRC, "pages")).filter((f) => f.endsWith(".html"));
 const builtPaths = [];
+const searchIndex = [];
 
-// CSS bündeln
 const css = ["tokens.css", "base.css", "components.css"]
   .map((f) => readFileSync(join(SRC, "styles", f), "utf8"))
   .join("\n\n");
 mkdirSync(join(OUT, "assets", "css"), { recursive: true });
 writeFileSync(join(OUT, "assets", "css", "main.css"), css);
 
-// JS kopieren
 mkdirSync(join(OUT, "assets", "js"), { recursive: true });
 cpSync(join(SRC, "utils", "main.js"), join(OUT, "assets", "js", "main.js"));
 
@@ -307,11 +304,22 @@ for (const file of pages) {
     : join(OUT, page.path.replace(/^\/|\/$/g, ""), "index.html");
   mkdirSync(dirname(outPath), { recursive: true });
   writeFileSync(outPath, html);
-  if (!page.noindex && page.path !== "/404.html") builtPaths.push(page.path);
+  if (!page.noindex && page.path !== "/404.html") {
+    builtPaths.push(page.path);
+    // Suchindex: Titel, Pfad, sichtbarer Text (komprimiert)
+    const text = html
+      .replace(/<script[\s\S]*?<\/script>/g, " ")
+      .replace(/<style[\s\S]*?<\/style>/g, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\s+/g, " ")
+      .slice(0, 4000);
+    searchIndex.push({ path: page.path, title: page.title.split("—")[0].trim(), text });
+  }
   console.log(`✓ ${page.path}`);
 }
 
-// sitemap.xml
+writeFileSync(join(OUT, "assets", "search-index.json"), JSON.stringify(searchIndex));
+
 const base = data.site.domain.canonicalBase.replace(/\/$/, "");
 writeFileSync(
   join(OUT, "sitemap.xml"),
@@ -319,8 +327,6 @@ writeFileSync(
     builtPaths.sort().map((p) => `  <url><loc>${base}${p}</loc></url>`).join("\n") +
     `\n</urlset>\n`
 );
-
-// robots.txt — Vorabversion: nicht indexieren; vor Livegang umstellen (siehe docs/seo-plan.md)
 writeFileSync(
   join(OUT, "robots.txt"),
   `# VORABVERSION: Indexierung gesperrt.\n# Vor Livegang ersetzen durch:\n#   User-agent: *\n#   Allow: /\n#   Sitemap: ${base}/sitemap.xml\nUser-agent: *\nDisallow: /\n`
