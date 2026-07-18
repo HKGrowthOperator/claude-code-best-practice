@@ -1,0 +1,27 @@
+<header class="site-header" data-header>
+  <div class="container site-header__bar">
+    <a class="brand" href="/" aria-label="{{site.org.name}} — zur Startseite">
+      <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <!-- Platzhalter-Bildmarke (Bogen-Motiv). Durch echtes Vereinslogo ersetzen:
+             [INHALT VON LIVING CHARITY ERFORDERLICH] -->
+        <path d="M6 38 V20 a14 14 0 0 1 28 0 V38 h-7 V21 a7 7 0 0 0 -14 0 V38 Z" fill="#175b4f"/>
+        <circle cx="20" cy="10" r="3" fill="#b95c28"/>
+      </svg>
+      <span class="brand__name">Living Charity
+        <span class="brand__sub">Eingetragener Verein · Bergneustadt</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptnavigation" data-nav-toggle>
+      <span class="visually-hidden">Menü öffnen oder schließen</span>
+      <span class="nav-toggle__line" aria-hidden="true"></span>
+      <span class="nav-toggle__line" aria-hidden="true"></span>
+      <span class="nav-toggle__line" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="hauptnavigation" aria-label="Hauptnavigation" data-nav>
+      <ul class="site-nav__list">
+        {{@nav-main}}
+        <li><a class="btn btn--accent site-nav__cta" href="{{site.cta.primary.href}}">{{site.cta.primary.label}}</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
