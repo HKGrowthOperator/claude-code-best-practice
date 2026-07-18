@@ -120,3 +120,31 @@ Seitenkopf und Abschluss von /plant-ceylon/ sowie im Startseiten-Teaser
 überlauffrei, 0 Konsolenfehler, check.mjs 0 harte Fehler; Dunkel-Overline
 rendert `rgb(226, 179, 176)`, Baumarten-Liste 8 Einträge.
 Offen bleiben nur P3-Ideen (docs/reviews/) und die Client-Launch-Blocker.
+
+---
+
+## Nachtrag v5 (18.07.2026): Header-Regression behoben (Kundenscreenshot)
+
+**Befund (vom Auftraggeber gemeldet):** In der Artifact-Vorschau war das Logo
+kaputt und der „Jetzt helfen"-Button brach dreizeilig mit Trennstrich um.
+
+**Ursachenanalyse (reproduziert auf dem echten Build, alle Desktop-Breiten):**
+
+1. Die globale Regel `ul { max-width: var(--container-text) }` deckelte die
+   Hauptnavigation auf 680 px, ihr Inhalt braucht aber 767 px. Der CTA war das
+   einzige schrumpffähige Flex-Kind und wurde auf 96 px gequetscht; das
+   geerbte `hyphens: auto` des `<li>` trennte „hel-fen".
+2. Die Einzeldatei-Vorschau bettete Bilder nicht ein — `/assets/…`-Pfade sind
+   im Artifact-iframe nicht auflösbar, das Logo erschien als kaputtes Icon.
+
+**Fixes:** `.site-nav__list { max-width: none }`; Nav-`li` `flex: none`; CTA
+`white-space: nowrap`; global `.btn { hyphens: manual }`; Nav-Links minimal
+verschlankt (0.92 rem, engeres Padding); Burger-Breakpoint von 62 rem auf
+71 rem angehoben (Messwert: Header braucht ≥ 1140 px); preview.mjs bettet
+Seitenbilder jetzt als Data-URIs ein.
+
+**Re-Verifikation:** 119 Prüfungen (17 Seiten × 7 Breakpoints inkl. 1140 px)
+überlauffrei und fehlerfrei; CTA einzeilig ab 1140 px, darunter Burger-Menü;
+Logo rendert in Build und Vorschau; check.mjs 0 harte Fehler.
+**Lehre:** Der bisherige 1440-px-Check prüfte Nav-Links, nicht den CTA —
+der Sweep prüft jetzt zusätzlich die Header-Geometrie nahe der Umbruchkante.
