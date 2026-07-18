@@ -1,21 +1,24 @@
 {
-  "_kommentar": "Hauptnavigation (max. 6 Punkte + CTA) und Footer-Navigation. In WordPress: Menüs 'Hauptmenü' und 'Footer'.",
+  "_kommentar": "Hauptnavigation lt. Briefing (6 Punkte + CTA) und Footer-Navigation. In WordPress: Menüs 'Hauptmenü' und 'Footer'.",
   "main": [
-    { "label": "Über uns", "href": "/ueber-uns/" },
+    { "label": "Unsere Arbeit", "href": "/unsere-arbeit/" },
+    { "label": "Sri Lanka", "href": "/sri-lanka/" },
     { "label": "Projekte", "href": "/projekte/" },
+    { "label": "Über uns", "href": "/ueber-uns/" },
     { "label": "Aktuelles", "href": "/aktuelles/" },
-    { "label": "Mitmachen", "href": "/mitmachen/" },
     { "label": "Kontakt", "href": "/kontakt/" }
   ],
   "footerVerein": [
-    { "label": "Über uns", "href": "/ueber-uns/" },
+    { "label": "Unsere Arbeit", "href": "/unsere-arbeit/" },
+    { "label": "Sri Lanka", "href": "/sri-lanka/" },
     { "label": "Projekte", "href": "/projekte/" },
-    { "label": "Aktuelles", "href": "/aktuelles/" },
-    { "label": "Veranstaltungen", "href": "/veranstaltungen/" }
+    { "label": "Über uns", "href": "/ueber-uns/" },
+    { "label": "Transparenz", "href": "/transparenz/" }
   ],
   "footerHelfen": [
     { "label": "Spenden", "href": "/spenden/" },
-    { "label": "Mitmachen", "href": "/mitmachen/" },
+    { "label": "Plant Ceylon", "href": "/plant-ceylon/" },
+    { "label": "Aktuelles", "href": "/aktuelles/" },
     { "label": "Kontakt", "href": "/kontakt/" }
   ],
   "footerRecht": [
