@@ -144,8 +144,9 @@ const renderers = {
         <dt>Verwendungszweck</dt><dd id="purpose-value">Spende Living Charity</dd>
       </dl>
       <div class="donation-panel__actions">
-        <button type="button" class="btn btn--primary copy-btn" data-copy-target="iban-value" data-copy-plain="${b.iban.replace(/\s/g, "")}">IBAN kopieren<span class="copy-btn__feedback" role="status">Kopiert ✓</span></button>
-        <button type="button" class="btn btn--ghost copy-btn" data-copy-target="bic-value" data-copy-plain="${b.bic}">BIC kopieren<span class="copy-btn__feedback" role="status">Kopiert ✓</span></button>
+        <button type="button" class="btn btn--primary copy-btn" data-copy-target="iban-value" data-copy-plain="${b.iban.replace(/\s/g, "")}" data-copy-label="IBAN">IBAN kopieren<span class="copy-btn__feedback" aria-hidden="true">Kopiert ✓</span></button>
+        <button type="button" class="btn btn--ghost copy-btn" data-copy-target="bic-value" data-copy-plain="${b.bic}" data-copy-label="BIC">BIC kopieren<span class="copy-btn__feedback" aria-hidden="true">Kopiert ✓</span></button>
+        <span class="visually-hidden" role="status" data-copy-status></span>
       </div>
       <div style="display:flex; gap:1rem; align-items:center; margin-top:var(--space-5); flex-wrap:wrap">
         <div class="qr-slot" aria-hidden="true"><span>QR-Überweisung<br>(Girocode) folgt nach Bestätigung der Bankverbindung</span></div>
@@ -319,6 +320,8 @@ for (const file of pages) {
       .replace(/<script[\s\S]*?<\/script>/g, " ")
       .replace(/<style[\s\S]*?<\/style>/g, " ")
       .replace(/<[^>]+>/g, " ")
+      .replace(/&amp;/g, "&").replace(/&nbsp;/g, " ").replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
       .replace(/\s+/g, " ")
       .slice(0, 4000);
     searchIndex.push({ path: page.path, title: page.title.split("—")[0].trim(), text });
