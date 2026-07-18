@@ -6,7 +6,11 @@
     "legalForm": "Eingetragener Verein",
     "foundedYear": "2010",
     "registeredDate": "16. Juni 2010",
-    "register": { "court": "Amtsgericht Köln", "number": "VR 16395", "status": "confirmed-public" },
+    "register": {
+      "court": "Amtsgericht Köln",
+      "number": "VR 16395",
+      "status": "confirmed-public"
+    },
     "address": {
       "street": "Kölner Straße 64",
       "zip": "51702",
@@ -18,9 +22,21 @@
     "emailStatus": "confirmation-required",
     "phone": null,
     "board": [
-      { "name": "Navaratnam Sivananthan", "role": "Vorsitzender", "status": "confirmed-public" },
-      { "name": "Ordin Thanapalasingham", "role": "Schatzmeister", "status": "confirmed-public" },
-      { "name": "Seevaratnam Sathianandan", "role": "Schriftführer", "status": "confirmation-required" }
+      {
+        "name": "Navaratnam Sivananthan",
+        "role": "Vorsitzender",
+        "status": "confirmed-public"
+      },
+      {
+        "name": "Ordin Thanapalasingham",
+        "role": "Schatzmeister",
+        "status": "confirmed-public"
+      },
+      {
+        "name": "Seevaratnam Sathianandan",
+        "role": "Schriftführer",
+        "status": "confirmation-required"
+      }
     ],
     "socialLinks": []
   },
@@ -58,35 +74,92 @@
     "intro": "Plant Ceylon verbindet die Pflanzung tropischer Bäume mit einem persönlichen Nachweis. Unterstützer wählen eine Baumart, die in Sri Lanka gepflanzt und mit einem Namen oder einer Widmung dokumentiert werden soll.",
     "legalNote": "Die genaue rechtliche und finanzielle Zuordnung des Projekts wird vor der Veröffentlichung transparent ergänzt.",
     "proofNote": "Der persönliche Nachweis wird nach erfolgter Pflanzung erstellt und in der Regel innerhalb von bis zu 14 Tagen übermittelt.",
-    "trees": ["Kokospalme", "Mangobaum", "Bananenpflanze", "Jackfruchtbaum", "Papayapflanze", "Ananaspflanze", "Rambutanbaum", "Mangostanbaum"],
+    "trees": [
+      "Kokospalme",
+      "Mangobaum",
+      "Bananenpflanze",
+      "Jackfruchtbaum",
+      "Papayapflanze",
+      "Ananaspflanze",
+      "Rambutanbaum",
+      "Mangostanbaum"
+    ],
     "steps": [
-      { "title": "Baum auswählen", "text": "Wählen Sie eine tropische Pflanze für sich selbst oder als persönliches Geschenk." },
-      { "title": "Pflanzung vor Ort", "text": "Ein lokales Team wählt entsprechend der Baumart einen geeigneten Standort und bereitet die Pflanzung vor." },
-      { "title": "Persönlichen Nachweis erhalten", "text": "Nach der Pflanzung soll ein persönlicher Bild- oder Videonachweis mit Baum, Standort und gewünschtem Namen beziehungsweise einer Widmung übermittelt werden." },
-      { "title": "Langfristig unterstützen", "text": "Die Früchte der gepflanzten Bäume sollen langfristig Nahrung bereitstellen und Menschen beziehungsweise Gemeinschaften vor Ort unterstützen." }
+      {
+        "title": "Baum auswählen",
+        "text": "Wählen Sie eine tropische Pflanze für sich selbst oder als persönliches Geschenk."
+      },
+      {
+        "title": "Pflanzung vor Ort",
+        "text": "Ein lokales Team wählt entsprechend der Baumart einen geeigneten Standort und bereitet die Pflanzung vor."
+      },
+      {
+        "title": "Persönlichen Nachweis erhalten",
+        "text": "Nach der Pflanzung soll ein persönlicher Bild- oder Videonachweis mit Baum, Standort und gewünschtem Namen beziehungsweise einer Widmung übermittelt werden."
+      },
+      {
+        "title": "Langfristig unterstützen",
+        "text": "Die Früchte der gepflanzten Bäume sollen langfristig Nahrung bereitstellen und Menschen beziehungsweise Gemeinschaften vor Ort unterstützen."
+      }
     ],
     "status": "verification-required"
   },
-  "domain": { "canonicalBase": "https://www.livingcharity.de", "status": "confirmation-required" },
+  "domain": {
+    "canonicalBase": "https://www.livingcharity.de",
+    "status": "confirmation-required"
+  },
   "cta": {
-    "primary": { "label": "Jetzt helfen", "href": "/spenden/" },
-    "sriLanka": { "label": "Für Sri Lanka spenden", "href": "/spenden/" },
-    "secondary": { "label": "Unsere Arbeit kennenlernen", "href": "/unsere-arbeit/" }
+    "primary": {
+      "label": "Jetzt helfen",
+      "href": "/spenden/"
+    },
+    "sriLanka": {
+      "label": "Für Sri Lanka spenden",
+      "href": "/spenden/"
+    },
+    "secondary": {
+      "label": "Unsere Arbeit kennenlernen",
+      "href": "/unsere-arbeit/"
+    }
   },
   "contactTopics": [
-    { "value": "spende", "label": "Spende" },
-    { "value": "sri-lanka", "label": "Sri-Lanka-Hilfe" },
-    { "value": "plant-ceylon", "label": "Plant Ceylon" },
-    { "value": "ehrenamt", "label": "Ehrenamtliche Unterstützung" },
-    { "value": "kooperation", "label": "Kooperation" },
-    { "value": "allgemein", "label": "Allgemeine Anfrage" }
+    {
+      "value": "spende",
+      "label": "Spende"
+    },
+    {
+      "value": "sri-lanka",
+      "label": "Sri-Lanka-Hilfe"
+    },
+    {
+      "value": "plant-ceylon",
+      "label": "Plant Ceylon"
+    },
+    {
+      "value": "ehrenamt",
+      "label": "Ehrenamtliche Unterstützung"
+    },
+    {
+      "value": "kooperation",
+      "label": "Kooperation"
+    },
+    {
+      "value": "allgemein",
+      "label": "Allgemeine Anfrage"
+    }
   ],
   "donation": {
     "certificateNote": "Informationen zur Ausstellung einer Spendenbescheinigung erhalten Sie auf Anfrage über info@livingcharity.de.",
     "certificateNoteStatus": "confirmation-required",
-    "amounts": [5, 10, 25, 50]
+    "amounts": [
+      5,
+      10,
+      25,
+      50
+    ]
   },
   "features": {
+    "showEvents": false,
     "showTestimonials": false,
     "donationProvider": "bank-transfer"
   }
