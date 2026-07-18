@@ -24,16 +24,19 @@ const EXP = join(ROOT, "wordpress-export");
 /* Seiten, die als WordPress-SEITEN angelegt werden (Templates/404 bewusst nicht:
    Projekt/Beitrag/Veranstaltung werden CPT-Inhalte, 404 liefert das Theme). */
 const PAGES = [
-  { route: "/",                 slug: "startseite",   title: "Startseite",        order: 0, front: true },
-  { route: "/ueber-uns/",       slug: "ueber-uns",    title: "Über uns",          order: 1 },
-  { route: "/projekte/",        slug: "projekte",     title: "Projekte",          order: 2, note: "Wird später durch das CPT-Archiv lc_project ersetzt." },
-  { route: "/aktuelles/",       slug: "aktuelles",    title: "Aktuelles",         order: 3, note: "Als Beitragsseite (posts page) konfigurieren oder später durch home-Template ersetzen." },
-  { route: "/veranstaltungen/", slug: "veranstaltungen", title: "Veranstaltungen", order: 4, note: "Wird später durch das CPT-Archiv lc_event ersetzt." },
-  { route: "/spenden/",         slug: "spenden",      title: "Spenden",           order: 5 },
-  { route: "/mitmachen/",       slug: "mitmachen",    title: "Mitmachen",         order: 6 },
-  { route: "/kontakt/",         slug: "kontakt",      title: "Kontakt",           order: 7, note: "Formular durch Formular-Plugin-Block ersetzen (Feldstruktur siehe migration-guide Schritt 4)." },
-  { route: "/impressum/",       slug: "impressum",    title: "Impressum",         order: 8 },
-  { route: "/datenschutz/",     slug: "datenschutz",  title: "Datenschutz",       order: 9 },
+  { route: "/",               slug: "startseite",    title: "Startseite",     order: 0, front: true },
+  { route: "/unsere-arbeit/", slug: "unsere-arbeit", title: "Unsere Arbeit",  order: 1 },
+  { route: "/sri-lanka/",     slug: "sri-lanka",     title: "Sri Lanka",      order: 2 },
+  { route: "/projekte/",      slug: "projekte",      title: "Projekte",       order: 3, note: "Wird später durch das CPT-Archiv projects ersetzt." },
+  { route: "/plant-ceylon/",  slug: "plant-ceylon",  title: "Plant Ceylon",   order: 4 },
+  { route: "/spenden/",       slug: "spenden",       title: "Spenden",        order: 5 },
+  { route: "/ueber-uns/",     slug: "ueber-uns",     title: "Über uns",       order: 6 },
+  { route: "/aktuelles/",     slug: "aktuelles",     title: "Aktuelles",      order: 7, note: "Als Beitragsseite konfigurieren oder durch home-Template ersetzen." },
+  { route: "/kontakt/",       slug: "kontakt",       title: "Kontakt",        order: 8, note: "Formular durch Formular-Plugin-Block ersetzen (docs/migration-guide.md Schritt 4)." },
+  { route: "/transparenz/",   slug: "transparenz",   title: "Transparenz",    order: 9 },
+  { route: "/danke/",         slug: "danke",         title: "Danke",          order: 10, note: "noindex; Ziel der Formular-Weiterleitung." },
+  { route: "/impressum/",     slug: "impressum",     title: "Impressum",      order: 11 },
+  { route: "/datenschutz/",   slug: "datenschutz",   title: "Datenschutz",    order: 12 },
 ];
 
 mkdirSync(join(EXP, "pages"), { recursive: true });
