@@ -1,26 +1,26 @@
 {
-  "_kommentar": "Vorstand/Team. Entspricht in WordPress dem CPT 'lc_team'. Namen und Funktionen stammen aus den übergebenen Grunddaten (Kategorie A in content-status.md), Freigabe vor Livegang erforderlich. Porträts und persönliche Sätze fehlen vollständig (Kategorie C).",
+  "_kommentar": "Vorstand. Entspricht WP-CPT team. status confirmation-required = interne Freigabeliste (docs/launch-blockers.md), im Frontend neutrale typografische Platzhalter statt Fotos — keine KI-Porträts, keine sichtbaren Warnhinweise.",
   "members": [
     {
       "name": "Navaratnam Sivananthan",
       "role": "Vorsitzender",
       "personalNote": null,
       "portrait": null,
-      "approved": false
+      "status": "confirmed-public"
     },
     {
       "name": "Ordin Thanapalasingham",
       "role": "Schatzmeister",
       "personalNote": null,
       "portrait": null,
-      "approved": false
+      "status": "confirmed-public"
     },
     {
       "name": "Seevaratnam Sathianandan",
       "role": "Schriftführer",
       "personalNote": null,
       "portrait": null,
-      "approved": false
+      "status": "confirmation-required"
     }
   ]
 }
