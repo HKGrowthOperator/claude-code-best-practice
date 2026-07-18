@@ -1,0 +1,38 @@
+{
+  "_kommentar": "Projektdaten. Entspricht in WordPress dem CPT 'lc_project' (Felddefinitionen: wordpress-blueprint/content-model.md). WICHTIG: Es existieren bewusst KEINE erfundenen Beispielprojekte. 'templateProject' ist eine kontrollierte, sichtbar als Vorlage gekennzeichnete Struktur für die dynamische Projektseite.",
+  "statusLabels": {
+    "geplant": "Geplant",
+    "aktiv": "Aktiv",
+    "laufend": "Laufende Unterstützung",
+    "abgeschlossen": "Abgeschlossen",
+    "pausiert": "Pausiert"
+  },
+  "projects": [],
+  "templateProject": {
+    "slug": "projekt",
+    "title": "[INHALT VON LIVING CHARITY ERFORDERLICH] Projekttitel",
+    "status": "geplant",
+    "region": "[INHALT VON LIVING CHARITY ERFORDERLICH] Region / Ort",
+    "topic": "[INHALT VON LIVING CHARITY ERFORDERLICH] Themenbereich",
+    "excerpt": "[INHALT VON LIVING CHARITY ERFORDERLICH] Kurzbeschreibung in ein bis zwei Sätzen: Wem wird wobei geholfen?",
+    "situation": "[INHALT VON LIVING CHARITY ERFORDERLICH] Ausgangslage: Was ist die konkrete Situation vor Ort? Ohne Übertreibung, ohne entwürdigende Darstellung.",
+    "measure": "[INHALT VON LIVING CHARITY ERFORDERLICH] Geplante bzw. laufende Maßnahme.",
+    "audience": "[INHALT VON LIVING CHARITY ERFORDERLICH] Zielgruppe des Projekts.",
+    "goal": "[INHALT VON LIVING CHARITY ERFORDERLICH] Projektziel — konkret und überprüfbar formuliert.",
+    "neededSupport": "[INHALT VON LIVING CHARITY ERFORDERLICH] Benötigte Unterstützung (Geld, Sachspenden, Zeit).",
+    "progress": null,
+    "startDate": null,
+    "endDate": null,
+    "partners": [],
+    "contactPerson": null,
+    "gallery": [],
+    "video": null,
+    "documents": [],
+    "updates": [],
+    "donationPurpose": "[INHALT VON LIVING CHARITY ERFORDERLICH] Verwendungszweck für projektbezogene Spenden.",
+    "finalReport": null,
+    "impactFigures": [],
+    "impactNote": "Wirkungskennzahlen werden nur mit Beleg (Quelle, Zeitraum, Zählweise) veröffentlicht.",
+    "sources": []
+  }
+}
