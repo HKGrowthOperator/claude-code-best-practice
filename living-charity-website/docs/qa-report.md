@@ -148,3 +148,26 @@ Seitenbilder jetzt als Data-URIs ein.
 Logo rendert in Build und Vorschau; check.mjs 0 harte Fehler.
 **Lehre:** Der bisherige 1440-px-Check prüfte Nav-Links, nicht den CTA —
 der Sweep prüft jetzt zusätzlich die Header-Geometrie nahe der Umbruchkante.
+
+---
+
+## Nachtrag v7 (19.07.2026): Premium-Redesign nach Referenz-Recherche
+
+**Referenzen** (Numiko „Best non-profit websites", Webby/Awwwards-Muster):
+charity: water (Storytelling + Transparenz), Obama Foundation (Hero-Statement),
+WaterAid/Farm Africa (immersive Führung), Awwwards-Editorial-Layouts.
+
+**Abgeleitete Umsetzung:**
+
+| Baustein | Vorher | Jetzt |
+| --- | --- | --- |
+| Startseiten-Hero | Split mit Bildkachel | Vollbild-Hero mit dokumentarischem Foto, zweistufigem Schutzverlauf (links + unten), Display-Typo `--text-4xl` bis 4.75 rem, Bildfokus 72 % rechts, Credit-Zeile im Bild; mobil gestapelte Volltbreite-CTAs |
+| Faktenzeile | — | Neue `fact-band`-Sektion unter dem Hero — ausschließlich bestätigte Angaben (Seit 2010 · Bergneustadt · Sri Lanka · VR 16395), bewusst KEINE Wirkungszahlen (Briefing-Verbot) |
+| 5-€-Modul | helle Paper-Sektion | dunkle Signatur-Sektion (Ink), Newsreader-Ziffer bis 7.5 rem in `--brand-on-dark` — wiedererkennbares Markenmodul auf Start + Spenden |
+| Footer | Spalten ohne Auftakt | große Wortmarke (bis 5.75 rem) über Linienabschluss — Editorial-Abgang |
+
+**Verifikation:** 119 Prüfungen (17 Seiten × 7 Breakpoints) überlauffrei und
+fehlerfrei; Hero-Text liegt auf ≥ 0.78-Alpha-Verlauf (weiß auf Ink-Verlauf,
+Kontrast rechnerisch > 10:1 im Textfeld); check.mjs 0 harte Fehler.
+Iterativ mit Screenshots (1440/390) abgenommen: Bildfokus verschoben, damit
+die Headline nicht über Gesichtern liegt; Credit-Zeile mobil unter dem Bild.
