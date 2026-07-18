@@ -6,78 +6,105 @@
       "slug": "startseite",
       "title": "Startseite",
       "order": 0,
-      "metaDescription": "Living Charity e. V. ist ein eingetragener Verein aus Bergneustadt (seit 2010). Wir organisieren konkrete Hilfe, dokumentieren unsere Projekte und zeigen, wie Ihre Unterstützung wirkt.",
+      "metaDescription": "Living Charity e. V. (Bergneustadt, seit 2010) unterstützt Menschen in akuten Notlagen und verbindet Spender in Deutschland mit konkreter Hilfe in Sri Lanka.",
       "front": true,
       "note": null,
       "file": "pages/startseite.html"
     },
     {
-      "slug": "ueber-uns",
-      "title": "Über uns",
+      "slug": "unsere-arbeit",
+      "title": "Unsere Arbeit",
       "order": 1,
-      "metaDescription": "Wer hinter Living Charity e. V. steht: Vorstand, Registerdaten und Arbeitsweise des eingetragenen Vereins aus Bergneustadt.",
+      "metaDescription": "Wie Living Charity e. V. hilft: Spenden sammeln, Unterstützung für Menschen in akuten Notlagen organisieren und Hilfe nachvollziehbar dokumentieren.",
       "front": false,
       "note": null,
-      "file": "pages/ueber-uns.html"
+      "file": "pages/unsere-arbeit.html"
+    },
+    {
+      "slug": "sri-lanka",
+      "title": "Sri Lanka",
+      "order": 2,
+      "metaDescription": "Unterstützung für Menschen in Sri Lanka: Living Charity e. V. sammelt Spenden für Lebensmittel und direkte Versorgungshilfe nach Überschwemmungen und akuten Notlagen.",
+      "front": false,
+      "note": null,
+      "file": "pages/sri-lanka.html"
     },
     {
       "slug": "projekte",
       "title": "Projekte",
-      "order": 2,
-      "metaDescription": "Alle Projekte von Living Charity e. V. mit Ort, Status und Ziel — nachvollziehbar dokumentiert vom eingetragenen Verein aus Bergneustadt.",
+      "order": 3,
+      "metaDescription": "Die Projekte von Living Charity e. V.: Sri-Lanka-Hilfe, das Baumprojekt Plant Ceylon und kommende Hilfsaktionen — mit Ort, Status und Nachweisen.",
       "front": false,
-      "note": "Wird später durch das CPT-Archiv lc_project ersetzt.",
+      "note": "Wird später durch das CPT-Archiv projects ersetzt.",
       "file": "pages/projekte.html"
     },
     {
-      "slug": "aktuelles",
-      "title": "Aktuelles",
-      "order": 3,
-      "metaDescription": "Neuigkeiten, Projekt-Updates und Rückblicke von Living Charity e. V. — ehrlich datiert und klar gekennzeichnet.",
-      "front": false,
-      "note": "Als Beitragsseite (posts page) konfigurieren oder später durch home-Template ersetzen.",
-      "file": "pages/aktuelles.html"
-    },
-    {
-      "slug": "veranstaltungen",
-      "title": "Veranstaltungen",
+      "slug": "plant-ceylon",
+      "title": "Plant Ceylon",
       "order": 4,
-      "metaDescription": "Kommende Termine und Rückblicke von Living Charity e. V. — Benefizveranstaltungen, Sammelaktionen und Informationsabende.",
+      "metaDescription": "Plant Ceylon verbindet die Pflanzung tropischer Bäume in Sri Lanka mit einem persönlichen Nachweis. Acht Baumarten, dokumentierte Pflanzung, langfristige Wirkung.",
       "front": false,
-      "note": "Wird später durch das CPT-Archiv lc_event ersetzt.",
-      "file": "pages/veranstaltungen.html"
+      "note": null,
+      "file": "pages/plant-ceylon.html"
     },
     {
       "slug": "spenden",
       "title": "Spenden",
       "order": 5,
-      "metaDescription": "Spenden an Living Charity e. V. (Bergneustadt): Bankverbindung, Verwendungszweck und transparente Mittelverwendung. Allgemein oder projektbezogen unterstützen.",
+      "metaDescription": "Spenden an Living Charity e. V.: Bankverbindung mit IBAN- und BIC-Kopierfunktion, Verwendungszweck und transparente Hinweise — für Sri-Lanka-Hilfe und Vereinsarbeit.",
       "front": false,
       "note": null,
       "file": "pages/spenden.html"
     },
     {
-      "slug": "mitmachen",
-      "title": "Mitmachen",
+      "slug": "ueber-uns",
+      "title": "Über uns",
       "order": 6,
-      "metaDescription": "Ehrenamt, Sachspenden, Unternehmenspartnerschaften oder eigene Aktionen: So können Sie Living Charity e. V. aus Bergneustadt unterstützen.",
+      "metaDescription": "Wer hinter Living Charity e. V. steht: Vorstand, Registerdaten (Amtsgericht Köln, VR 16395) und Arbeitsweise des Vereins aus Bergneustadt.",
       "front": false,
       "note": null,
-      "file": "pages/mitmachen.html"
+      "file": "pages/ueber-uns.html"
+    },
+    {
+      "slug": "aktuelles",
+      "title": "Aktuelles",
+      "order": 7,
+      "metaDescription": "Berichte, Projekt-Updates und Rückblicke von Living Charity e. V. — ehrlich datiert und klar gekennzeichnet.",
+      "front": false,
+      "note": "Als Beitragsseite konfigurieren oder durch home-Template ersetzen.",
+      "file": "pages/aktuelles.html"
     },
     {
       "slug": "kontakt",
       "title": "Kontakt",
-      "order": 7,
-      "metaDescription": "Kontakt zu Living Charity e. V.: Kontaktformular, E-Mail und Anschrift in Bergneustadt. Wir antworten persönlich.",
+      "order": 8,
+      "metaDescription": "Fragen zu Projekten oder Spenden? Kontakt zu Living Charity e. V.: Formular, E-Mail und Anschrift in Bergneustadt. Wir antworten persönlich.",
       "front": false,
-      "note": "Formular durch Formular-Plugin-Block ersetzen (Feldstruktur siehe migration-guide Schritt 4).",
+      "note": "Formular durch Formular-Plugin-Block ersetzen (docs/migration-guide.md Schritt 4).",
       "file": "pages/kontakt.html"
+    },
+    {
+      "slug": "transparenz",
+      "title": "Transparenz",
+      "order": 9,
+      "metaDescription": "Wie Living Charity e. V. Hilfe nachvollziehbar machen will: dokumentierter Ablauf, Nachweisarten und der Umgang mit Quellen und Zahlen.",
+      "front": false,
+      "note": null,
+      "file": "pages/transparenz.html"
+    },
+    {
+      "slug": "danke",
+      "title": "Danke",
+      "order": 10,
+      "metaDescription": "Vielen Dank für Ihre Nachricht an Living Charity e. V.",
+      "front": false,
+      "note": "noindex; Ziel der Formular-Weiterleitung.",
+      "file": "pages/danke.html"
     },
     {
       "slug": "impressum",
       "title": "Impressum",
-      "order": 8,
+      "order": 11,
       "metaDescription": "Impressum von Living Charity e. V., Bergneustadt.",
       "front": false,
       "note": null,
@@ -86,7 +113,7 @@
     {
       "slug": "datenschutz",
       "title": "Datenschutz",
-      "order": 9,
+      "order": 12,
       "metaDescription": "Datenschutzerklärung von Living Charity e. V., Bergneustadt.",
       "front": false,
       "note": null,
