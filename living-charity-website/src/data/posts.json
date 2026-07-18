@@ -1,15 +1,9 @@
 {
-  "_kommentar": "Beiträge (Aktuelles). Entspricht in WordPress dem nativen Post-Typ mit den Kategorien unten. Keine erfundenen Beiträge — leere Liste rendert den ehrlichen Leerzustand.",
-  "categories": ["Neuigkeit", "Rückblick", "Projekt-Update", "Pressemitteilung"],
+  "_kommentar": "Beiträge (Aktuelles). Entspricht in WordPress dem CPT 'updates' bzw. nativen Posts. Keine erfundenen Beiträge — leere Liste rendert die redaktionelle Leerlösung aus dem Briefing.",
+  "categories": ["Neuigkeit", "Projekt-Update", "Rückblick", "Pressemitteilung"],
   "posts": [],
-  "templatePost": {
-    "slug": "beitrag",
-    "title": "[INHALT VON LIVING CHARITY ERFORDERLICH] Beitragstitel",
-    "category": "Neuigkeit",
-    "date": null,
-    "excerpt": "[INHALT VON LIVING CHARITY ERFORDERLICH] Teasertext in ein bis zwei Sätzen.",
-    "body": "[INHALT VON LIVING CHARITY ERFORDERLICH] Beitragstext.",
-    "image": null,
-    "relatedProject": null
+  "emptyState": {
+    "title": "Neue Einblicke und Projektberichte werden derzeit vorbereitet.",
+    "text": "Sobald Berichte, Bilder und Belege für die Veröffentlichung aufbereitet sind, erscheinen sie hier — mit echtem Datum und klarer Kennzeichnung."
   }
 }
