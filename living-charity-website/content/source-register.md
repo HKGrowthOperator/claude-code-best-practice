@@ -65,3 +65,17 @@ bei jeder Kontrolle setzen.
 - **Verwendungsort:** Absicherung der Vorstandsangaben (confirmed-data.md)
 - **Bestätigungsstatus:** confirmed-public
 - **Letztes Prüfdatum:** 18.07.2026
+
+## Q7 — Bisherige Living-Charity-Website (Bildmaterial, vom Auftraggeber übergeben)
+
+- **Titel:** Bisherige Website Living Charity e. V. (Template-Vorabversion)
+- **URL:** livingcharityev-rzk0p1pm97.live-website.com (lt. Screenshot des Auftraggebers, 19.07.2026)
+- **Quellentyp:** Eigene bisherige Website des Vereins / übergebene Dateien
+- **Abgerufene Information:** Drei dokumentarische Sri-Lanka-Fotos
+  (Familie vor Unterkunft, Mutter mit Kindern an Hauswand, Schulkinder),
+  vom Auftraggeber am 19.07.2026 direkt übergeben
+- **Verwendungsort:** Startseiten-Hero, /sri-lanka/, /unsere-arbeit/, /projekte/ (Karte)
+- **Bestätigungsstatus:** rights-unverified — Urheber, Lizenz und
+  Einwilligungen offen (Launch-Blocker LB-21); Bildunterschriften bewusst
+  neutral („dokumentarische Aufnahme"), keine Projektzuordnung behauptet
+- **Letztes Prüfdatum:** 19.07.2026
