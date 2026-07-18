@@ -71,3 +71,28 @@ Glaubwürdigkeit, Wiederholungen, KI-Template-Wirkung:
 4. Screenreader-Stichprobe (siehe accessibility-report.md).
 5. OG-Bild als PNG exportieren (LB-19).
 6. `robots.txt` freischalten (LB-10).
+
+---
+
+## Nachtrag v3 (18.07.2026): Logo-Farbwelt + Multi-Agenten-Review
+
+**Änderungen:** Echtes Vereinslogo (Herz aus zwei Händen) integriert; Farbwelt
+auf Logo-Palette pivotiert (Rot #B50000 / Schwarz #161616, geprüft: 20 Paare
+≥ 4.5:1); heller Header, schwarzer Trust-Strip, Ink-Dunkelsektionen.
+
+**Fünf parallele Spezialisten-Agenten** (Reports in docs/reviews/):
+
+| Agent | Ergebnis | Integriert |
+| --- | --- | --- |
+| Design-Kritik (Screenshot-basiert, 21 Aufnahmen) | 5×P1, 8×P2, 5×P3 | alle P1 (Logo-Freisteller korrigiert, Nav-Nowrap, Spenden-Hierarchie, Trust-Strip mobil, Badge/Hero-Ratio) + Kartenwüsten-P2 (Hilfe-Liste, Proof-Linien) |
+| A11y/Code-Review (WCAG 2.2 AA, Playwright-verifiziert) | 2×P1, 6×P2, 7×P3 | beide P1 (Fokusring auf Dunkelflächen, Datenschutz-Checkbox-Fehler) + Kopier-Live-Region, No-JS-Formularpfad, Suchindex-Entities, DOM-sichere Suche |
+| SEO-Review | 1×P1, 4×P2, 9×P3 | P1 (Preview-noindex + robots-Disallow) + Titles ≤60, og:image-Maße/alt, twitter:card, 3-Ebenen-Breadcrumbs |
+| WP-Blueprint-Prüfung | 2×P1, 3×P2 | alle (CPT-Name events, tote Links, Weg-C-Instanzcheck, Excerpt-Hinweis, showEvents-Flag) |
+| Girocode-Engineer | Modul + 31/31 Tests grün | src/utils/girocode.mjs (EPC-QR, byte-exakter Decode-Roundtrip mit echten Bankdaten); Aktivierung gated hinter LB-03/LB-16 |
+
+**Re-Verifikation nach Integration:** 170 Viewport-Prüfungen (17 Seiten ×
+10 Breakpoints) überlauffrei, 0 Konsolen-/Seitenfehler, 0 zweizeilige
+Nav-Links bei 1440 px, Datenschutz-Fehlermeldung sichtbar + verknüpft,
+Kopier-Live-Region meldet korrekt, check.mjs 0 harte Fehler.
+Verbleibende P2/P3-Punkte der Reviews: in docs/reviews/ dokumentiert,
+bewusst nicht alle umgesetzt (Aufwand/Nutzen-Abwägung, keine Blocker).
