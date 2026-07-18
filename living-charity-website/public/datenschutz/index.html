@@ -15,22 +15,26 @@
 <meta property="og:image" content="https://www.livingcharity.de/assets/img/og-default.svg">
 <meta property="og:locale" content="de_DE">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/assets/fonts/alegreya-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/source-sans-3-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/main.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"NGO","name":"Living Charity e. V.","foundingDate":"2010","email":"info@livingcharity.de","identifier":"Amtsgericht Köln VR 16395","address":{"@type":"PostalAddress","streetAddress":"Kölner Straße 64","postalCode":"51702","addressLocality":"Bergneustadt","addressCountry":"DE"},"url":"https://www.livingcharity.de/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NGO","name":"Living Charity e. V.","foundingDate":"2010-06-16","email":"info@livingcharity.de","identifier":"Amtsgericht Köln VR 16395","address":{"@type":"PostalAddress","streetAddress":"Kölner Straße 64","postalCode":"51702","addressLocality":"Bergneustadt","addressCountry":"DE"},"url":"https://www.livingcharity.de/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.livingcharity.de/"},{"@type":"ListItem","position":2,"name":"Datenschutz","item":"https://www.livingcharity.de/datenschutz/"}]}</script>
 </head>
 <body class="">
 <a class="skip-link" href="#hauptinhalt">Zum Inhalt springen</a>
+<div class="trust-strip">
+  <strong>Eingetragener Verein seit 2010</strong> · Amtsgericht Köln · VR 16395
+</div>
 <header class="site-header" data-header>
   <div class="container site-header__bar">
     <a class="brand" href="/" aria-label="Living Charity e. V. — zur Startseite">
       <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-        <!-- Platzhalter-Bildmarke (Bogen-Motiv). Durch echtes Vereinslogo ersetzen:
-             [INHALT VON LIVING CHARITY ERFORDERLICH] -->
-        <path d="M6 38 V20 a14 14 0 0 1 28 0 V38 h-7 V21 a7 7 0 0 0 -14 0 V38 Z" fill="#175b4f"/>
-        <circle cx="20" cy="10" r="3" fill="#b95c28"/>
+        <!-- Neutrale typografische Bildmarke (Platzhalter bis das echte
+             Vereinslogo vorliegt — interner Status: confirmation-required) -->
+        <rect width="40" height="40" rx="8" fill="#f2f4ef"/>
+        <text x="20" y="27" text-anchor="middle" font-family="Manrope, sans-serif" font-size="17" font-weight="800" fill="#173f35">LC</text>
+        <rect x="8" y="31" width="24" height="2.5" rx="1.25" fill="#b86548"/>
       </svg>
       <span class="brand__name">Living Charity
         <span class="brand__sub">Eingetragener Verein · Bergneustadt</span>
@@ -44,18 +48,24 @@
     </button>
     <nav class="site-nav" id="hauptnavigation" aria-label="Hauptnavigation" data-nav>
       <ul class="site-nav__list">
-        <li><a class="site-nav__link" href="/ueber-uns/">Über uns</a></li>
+        <li><a class="site-nav__link" href="/unsere-arbeit/">Unsere Arbeit</a></li>
+<li><a class="site-nav__link" href="/sri-lanka/">Sri Lanka</a></li>
 <li><a class="site-nav__link" href="/projekte/">Projekte</a></li>
+<li><a class="site-nav__link" href="/ueber-uns/">Über uns</a></li>
 <li><a class="site-nav__link" href="/aktuelles/">Aktuelles</a></li>
-<li><a class="site-nav__link" href="/mitmachen/">Mitmachen</a></li>
 <li><a class="site-nav__link" href="/kontakt/">Kontakt</a></li>
-        <li><a class="btn btn--accent site-nav__cta" href="/spenden/">Jetzt helfen</a></li>
+        <li><a class="btn site-nav__cta" href="/spenden/">Jetzt helfen</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <main id="hauptinhalt">
+<!-- Interner Hinweis (nicht sichtbar): Rechtstext ist Launch-Blocker LB-02 —
+     [RECHTSTEXT DURCH AUFTRAGGEBER BEREITZUSTELLEN UND RECHTLICH PRÜFEN LASSEN]
+     Der Abschnitt unten beschreibt den tatsächlichen Technikstand als Grundlage
+     für die juristische Ausarbeitung. Siehe docs/launch-blockers.md. -->
+
 <div class="container container--text">
   <nav class="breadcrumbs" aria-label="Sie sind hier">
     <ol>
@@ -68,48 +78,40 @@
   </header>
 
   <div class="section--sm flow-lg">
-    <div class="content-todo-block">
-      <strong>[RECHTSTEXT DURCH AUFTRAGGEBER BEREITZUSTELLEN UND RECHTLICH PRÜFEN LASSEN]</strong>
-      Dieser Bereich ist eine technische Grundlage, keine Rechtsberatung.
-      Die folgenden Angaben beschreiben den tatsächlichen technischen Stand der
-      Vorabversion und erleichtern die juristische Ausarbeitung.
-    </div>
+    <p class="text-muted">Die vollständige Datenschutzerklärung wird derzeit
+    vorbereitet und vor der Veröffentlichung der Website ergänzt. Die folgenden
+    Punkte beschreiben bereits verbindlich, wie diese Website technisch mit
+    Daten umgeht.</p>
 
     <div class="flow">
-      <h2>Technischer Stand der Website (für die juristische Ausarbeitung)</h2>
+      <h2>Grundsätze dieser Website</h2>
       <ul style="padding-left:1.2rem; display:grid; gap:.65rem">
-        <li><strong>Keine Cookies, kein Tracking:</strong> Die Website setzt keine
-        Cookies und verwendet keine Analyse- oder Werbedienste.</li>
-        <li><strong>Lokale Schriftarten:</strong> Alle Schriften werden vom eigenen
-        Server geladen; es besteht keine Verbindung zu Google Fonts oder anderen
-        Font-Diensten.</li>
+        <li><strong>Keine Cookies, kein Tracking:</strong> Diese Website setzt
+        keine Cookies und verwendet keine Analyse- oder Werbedienste.</li>
+        <li><strong>Lokale Schriftarten:</strong> Alle Schriften werden vom
+        eigenen Server geladen; es besteht keine Verbindung zu Google Fonts
+        oder anderen Font-Diensten.</li>
         <li><strong>Keine automatisch geladenen Drittinhalte:</strong> Karten
-        (OpenStreetMap) öffnen erst nach aktivem Klick in einem neuen Tab;
-        Videos werden — sobald vorhanden — nur mit lokalem Vorschaubild und
-        Zwei-Klick-Lösung eingebunden.</li>
-        <li><strong>Kontaktformular:</strong> Erhebt Name, E-Mail, optional Telefon,
-        Anliegen und Nachricht — ausschließlich zur Beantwortung der Anfrage, mit
-        aktiver Einwilligungscheckbox (nicht vorangekreuzt), Honeypot-Spamschutz
-        und — nach WordPress-Integration — serverseitiger Validierung. Details zur
-        Speicherung/Löschung sind bei der Integration festzulegen.</li>
-        <li><strong>Server-Logs:</strong> Abhängig vom Hosting-Anbieter;
-        [BITTE DURCH DEN AUFTRAGGEBER BESTÄTIGEN] Hosting-Anbieter und
-        Auftragsverarbeitungsvertrag.</li>
-        <li><strong>Spenden per Überweisung:</strong> Die Website verarbeitet dabei
-        keine personenbezogenen Daten; die Zahlung läuft über die Bank der
-        Spendenden. Ein künftiger Online-Spendendienst wird erst nach
-        datenschutzrechtlicher Prüfung eingebunden.</li>
+        (OpenStreetMap) und externe Quellen öffnen erst nach aktivem Klick in
+        einem neuen Tab.</li>
+        <li><strong>Kontaktformular:</strong> Erhebt Name, E-Mail, optional
+        Telefon, Thema und Nachricht — ausschließlich zur Beantwortung der
+        Anfrage, mit aktiver Einwilligung (keine vorangekreuzten Checkboxen)
+        und Honeypot-Spamschutz.</li>
+        <li><strong>Spenden per Überweisung:</strong> Die Zahlung läuft über
+        Ihre Bank; diese Website verarbeitet dabei keine personenbezogenen
+        Daten.</li>
       </ul>
     </div>
 
     <div class="flow">
-      <h2>Noch festzulegen / bereitzustellen</h2>
+      <h2>Bei der Veröffentlichung zu ergänzen</h2>
       <ul style="padding-left:1.2rem; display:grid; gap:.65rem">
-        <li>Verantwortlicher und ggf. Datenschutz-Ansprechperson</li>
+        <li>Verantwortlicher und Kontakt für Datenschutzanfragen</li>
         <li>Rechtsgrundlagen je Verarbeitung (Art. 6 DSGVO)</li>
         <li>Speicherdauern und Löschkonzept für Formulareingaben</li>
-        <li>Betroffenenrechte-Abschnitt</li>
-        <li>Hosting-Anbieter und dessen Log-Praxis</li>
+        <li>Betroffenenrechte</li>
+        <li>Hosting-Anbieter und Server-Logfiles</li>
       </ul>
     </div>
   </div>
@@ -121,8 +123,9 @@
       <div class="site-footer__brand">
         <a class="brand" href="/">
           <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-            <path d="M6 38 V20 a14 14 0 0 1 28 0 V38 h-7 V21 a7 7 0 0 0 -14 0 V38 Z" fill="#dfe6dc"/>
-            <circle cx="20" cy="10" r="3" fill="#b95c28"/>
+            <rect width="40" height="40" rx="8" fill="#f2f4ef" opacity="0.12"/>
+            <text x="20" y="27" text-anchor="middle" font-family="Manrope, sans-serif" font-size="17" font-weight="800" fill="#f2f4ef">LC</text>
+            <rect x="8" y="31" width="24" height="2.5" rx="1.25" fill="#b86548"/>
           </svg>
           <span class="brand__name">Living Charity
             <span class="brand__sub">Eingetragener Verein</span>
@@ -133,22 +136,21 @@
           Kölner Straße 64<br>
           51702 Bergneustadt<br>
           <a href="mailto:info@livingcharity.de">info@livingcharity.de</a>
-          <!-- Telefonnummer: erst nach Bestätigung einblenden (site.json → org.phone).
-               [INHALT VON LIVING CHARITY ERFORDERLICH] -->
+          <!-- Telefonzeile + Click-to-Call: aktivieren, sobald bestätigt
+               (site.json → org.phone; interner Status: confirmation-required) -->
         </address>
         <p class="site-footer__register">
-          Eingetragen beim Amtsgericht Köln, VR 16395
+          Eingetragen beim Amtsgericht Köln · VR 16395 · seit 16. Juni 2010
         </p>
-        <!-- Social-Media-Icons: bewusst keine, solange keine verifizierten Profile
-             vorliegen (site.json → org.socialLinks). -->
+        <!-- Social-Media-Icons erst mit verifizierten Profilen (org.socialLinks) -->
       </div>
-      <nav aria-label="Der Verein"><h2>Der Verein</h2><ul><li><a href="/ueber-uns/">Über uns</a></li><li><a href="/projekte/">Projekte</a></li><li><a href="/aktuelles/">Aktuelles</a></li><li><a href="/veranstaltungen/">Veranstaltungen</a></li></ul></nav>
-<nav aria-label="Helfen"><h2>Helfen</h2><ul><li><a href="/spenden/">Spenden</a></li><li><a href="/mitmachen/">Mitmachen</a></li><li><a href="/kontakt/">Kontakt</a></li></ul></nav>
+      <nav aria-label="Der Verein"><h2>Der Verein</h2><ul><li><a href="/unsere-arbeit/">Unsere Arbeit</a></li><li><a href="/sri-lanka/">Sri Lanka</a></li><li><a href="/projekte/">Projekte</a></li><li><a href="/ueber-uns/">Über uns</a></li><li><a href="/transparenz/">Transparenz</a></li></ul></nav>
+<nav aria-label="Helfen"><h2>Helfen</h2><ul><li><a href="/spenden/">Spenden</a></li><li><a href="/plant-ceylon/">Plant Ceylon</a></li><li><a href="/aktuelles/">Aktuelles</a></li><li><a href="/kontakt/">Kontakt</a></li></ul></nav>
 <nav aria-label="Rechtliches"><h2>Rechtliches</h2><ul><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutz/">Datenschutz</a></li></ul></nav>
     </div>
     <div class="site-footer__bottom">
       <p>© <span data-current-year>2026</span> Living Charity e. V.</p>
-      <p>Hilfe, die ankommt — dokumentiert und ansprechbar.</p>
+      <p>Hilfe, die Menschen direkt erreicht.</p>
     </div>
   </div>
 </footer>
