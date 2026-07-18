@@ -1,0 +1,46 @@
+<!--META
+{
+  "path": "/veranstaltungen/",
+  "title": "Veranstaltungen — Living Charity e. V.",
+  "description": "Kommende Termine und Rückblicke von Living Charity e. V. — Benefizveranstaltungen, Sammelaktionen und Informationsabende.",
+  "breadcrumb": "Veranstaltungen"
+}
+-->
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><span aria-current="page">Veranstaltungen</span></li>
+    </ol>
+  </nav>
+  <header class="page-head">
+    <p class="overline">Veranstaltungen</p>
+    <h1>Termine &amp; Rückblicke</h1>
+    <p class="lead">Kommende Veranstaltungen erscheinen hier, sobald Ort und Datum
+    feststehen. Vergangene Termine wandern automatisch in die Rückblicke — nichts
+    wird als „kommend" angezeigt, was vorbei ist.</p>
+  </header>
+</div>
+
+<section class="section section--sm">
+  <div class="container">
+    {{@events-list}}
+  </div>
+</section>
+
+<section class="section section--tinted section--sm">
+  <div class="container">
+    <div class="grid grid--halves">
+      <div class="reveal">
+        <h2>Eigene Aktion starten?</h2>
+        <p>Ob Benefizkonzert, Sammelaktion im Betrieb oder Spendenlauf: Wenn Sie
+        etwas zugunsten von Living Charity organisieren möchten, unterstützen wir
+        Sie bei der Planung.</p>
+      </div>
+      <div class="reveal" style="justify-self:start">
+        <a class="btn btn--primary" href="/mitmachen/#aktion">So starten Sie eine Aktion <span class="btn__arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
