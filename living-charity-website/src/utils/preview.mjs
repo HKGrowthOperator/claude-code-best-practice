@@ -100,7 +100,8 @@ const routesForSelect = [
   ["/danke/", "Danke-Seite"], ["/suche/", "Suche"], ["/404.html", "404-Seite"],
 ];
 
-const shell = `<title>Living Charity e. V. — Website-Vorabversion</title>
+const shell = `<meta name="robots" content="noindex,nofollow">
+<title>Living Charity e. V. — Website-Vorabversion</title>
 <style>
   :root {
     --chrome-bg: #14241f; --chrome-fg: #e9ede7; --chrome-muted: #9db3a8;
