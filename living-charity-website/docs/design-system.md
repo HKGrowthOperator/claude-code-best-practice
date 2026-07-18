@@ -1,4 +1,4 @@
-# Designsystem — „Editorial Humanitarian Premium" (v2)
+# Designsystem — „Editorial Humanitarian Premium" (v3)
 
 Die Seite wirkt wie eine Mischung aus hochwertigem redaktionellem Magazin,
 transparenter NGO-Projektseite, ruhiger Premium-Unternehmenswebsite und
@@ -8,21 +8,26 @@ KI-Landingpage, ein SaaS-Startup oder ein grelles Spendenportal.
 Single Source of Truth: `src/styles/tokens.css`. Dieses Dokument erklärt die
 Entscheidungen; Werte stehen nur dort.
 
-## Farbwelt (verbindliche Briefing-Palette)
+## Farbwelt (aus dem echten Vereinslogo abgeleitet — v3)
 
-`--ink #17201D` · `--forest #173F35` · `--forest-soft #2E6656` ·
-`--sage #AFC2B5` · `--sand #E9E2D5` · `--ivory #F7F5EF` · `--paper #FFFFFF` ·
-`--terracotta #B86548` · `--text #202622` · `--text-muted #68716C` ·
-`--line #DDE2DD` · `--success #267858` · `--warning #A16A27` · `--error #A63E38`
+Das Logo (Herz aus zwei ineinandergreifenden Händen + Wortmarke
+LIVING CHARITY) definiert die Marke: **Rot #B50000** und **Schwarz ~#161616**
+auf Weiß. Gesampelt aus der übergebenen Originaldatei
+(`public/assets/img/logo-original.png`).
 
-Verwendung: Ivory als Seitenhintergrund, Forest für Header/Footer/
-Schwerpunktbereiche (Sri-Lanka-Sektion, CTA), Paper für redaktionelle
-Inhaltsflächen, Sand als warme Abstufung, **Terracotta ausschließlich als
-sparsamer Akzent** (Sri-Lanka-Kennzeichnungen, 5-€-Zahl, Spenden-CTA,
-Overline-Striche). Keine Neonfarben, keine Verläufe, keine Glow-Effekte.
-Ergänzt um `--terracotta-deep #9D4F34` (Akzent mit Textkontrast ≥ 4.5:1 auf
-Ivory) und helle Töne für Forest-Flächen (`--on-forest*`) — Kontrastprotokoll
-in docs/accessibility-report.md.
+`--brand #B50000` · `--brand-strong #8F0D12` · `--brand-tint #F7E9E7` ·
+`--ink #161616` · `--ivory #F7F4F0` · `--paper #FFFFFF` · `--sand #ECE7E1` ·
+`--stone #C9C3BC` · `--text #232120` · `--text-muted #6B6560` ·
+`--line #E3DFDA` · `--success #267858` · `--warning #8A5F20` · `--error #A63E38`
+
+Verwendung: heller Header (Paper) mit Vollfarb-Logo; schwarzer Trust-Strip mit
+roter Akzentlinie; Ivory als Seitenhintergrund; **Rot gezielt** für CTAs,
+Links, Overline-Striche, aktive Zustände und die 5-€-Ziffer; **Schwarz (Ink)**
+für Schwerpunkt-Sektionen, Abschluss-CTA und Footer (Logo dort auf weißer
+Kachel, damit die schwarze Hand sichtbar bleibt); warme Neutraltöne halten die
+Fläche ruhig — kein grelles Spendenportal. Fehlerrot (#A63E38) bleibt sichtbar
+vom Markenrot unterschieden und tritt nur in Formularen auf.
+Kontrastprotokoll (20 Paare, alle ≥ 4.5:1): docs/accessibility-report.md.
 
 ## Typografie
 
@@ -46,12 +51,12 @@ Vorstellungs-Split 7:5); großzügiger Weißraum mit fluiden Sektionsabständen;
 feine Linien (`--line`) statt Schatten (nur zwei minimale Schattenstufen);
 Radien 4–12 px; **keine Pill-Buttons** (Radius 6 px); Hover-Bewegungen
 maximal 2 px. Karten nur, wo sie Affordanz sind — keine „Kartenwüsten":
-Sektionen wechseln zwischen Splits, Listen, Proof-Rastern und Forest-Flächen.
+Sektionen wechseln zwischen Splits, Listen, Proof-Rastern und Ink-Flächen.
 
 ## Wiederkehrende Identitätsträger
 
 1. **Trust-Strip** (Ink) mit Registerdaten als oberste Zeile jeder Seite.
-2. **Overline mit Terrakotta-Strich** als Sektionsauftakt.
+2. **Overline mit rotem Markenstrich** als Sektionsauftakt.
 3. **5-€-Ziffer in Newsreader-Kursive** — die eine typografische Geste.
 4. **Quellen-Badges** (Originalaufnahme / Projektbericht / Externe Quelle /
    Illustration) als sichtbares Beweissystem — Design und Glaubwürdigkeit
