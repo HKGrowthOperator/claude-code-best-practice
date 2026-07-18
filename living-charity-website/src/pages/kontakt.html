@@ -2,7 +2,7 @@
 {
   "path": "/kontakt/",
   "title": "Kontakt — Living Charity e. V. | Bergneustadt",
-  "description": "Kontakt zu Living Charity e. V.: Kontaktformular, E-Mail und Anschrift in Bergneustadt. Wir antworten persönlich.",
+  "description": "Fragen zu Projekten oder Spenden? Kontakt zu Living Charity e. V.: Formular, E-Mail und Anschrift in Bergneustadt. Wir antworten persönlich.",
   "breadcrumb": "Kontakt"
 }
 -->
@@ -16,18 +16,18 @@
   </nav>
   <header class="page-head">
     <p class="overline">Kontakt</p>
-    <h1>Wir sind ansprechbar</h1>
-    <p class="lead">Ob Frage zur Spende, Angebot zu helfen oder Presseanfrage:
-    Schreiben Sie uns — wir antworten persönlich und so schnell wir können.</p>
+    <h1>Fragen zu Projekten oder Spenden?</h1>
+    <p class="lead">Schreiben Sie uns — wir antworten persönlich und so schnell
+    wir können.</p>
   </header>
 </div>
 
 <section class="section section--sm">
   <div class="container">
     <div class="split" style="align-items:start">
-      <!-- Kontaktformular. Vorabversion: kein Versand (data-endpoint="none").
-           Serverseitige Verarbeitung + Validierung: siehe
-           wordpress-blueprint/migration-guide.md → Formular-Integration -->
+      <!-- Kontaktformular. Vorabversion: kein Versand (data-endpoint="none") —
+           nach Absenden Weiterleitung auf /danke/. Serverseitige Verarbeitung:
+           docs/migration-guide.md, Schritt 4. -->
       <form class="form reveal" data-contact-form data-endpoint="none" method="post" action="#" novalidate>
         <h2>Nachricht senden</h2>
         <p class="form__status" role="status" aria-live="polite"></p>
@@ -52,18 +52,17 @@
             <p class="field__hint">Nur, wenn Sie einen Rückruf möchten.</p>
           </div>
           <div class="field">
-            <label for="kontakt-anliegen">Ihr Anliegen</label>
-            <select id="kontakt-anliegen" name="anliegen" required aria-describedby="err-anliegen">
+            <label for="kontakt-thema">Thema</label>
+            <select id="kontakt-thema" name="thema" required aria-describedby="err-thema">
               <option value="">Bitte wählen …</option>
-              <option value="spende">Frage zu einer Spende</option>
-              <option value="ehrenamt">Ehrenamtlich helfen</option>
-              <option value="sachspende">Sachspende anbieten</option>
-              <option value="unternehmen">Anfrage als Unternehmen</option>
-              <option value="aktion">Eigene Aktion planen</option>
-              <option value="presse">Presseanfrage</option>
-              <option value="sonstiges">Sonstiges</option>
+              <option value="spende">Spende</option>
+              <option value="sri-lanka">Sri-Lanka-Hilfe</option>
+              <option value="plant-ceylon">Plant Ceylon</option>
+              <option value="ehrenamt">Ehrenamtliche Unterstützung</option>
+              <option value="kooperation">Kooperation</option>
+              <option value="allgemein">Allgemeine Anfrage</option>
             </select>
-            <p class="field__error" id="err-anliegen">Bitte wählen Sie ein Anliegen aus.</p>
+            <p class="field__error" id="err-thema">Bitte wählen Sie ein Thema aus.</p>
           </div>
         </div>
 
@@ -89,7 +88,7 @@
         <p class="field__error" id="err-datenschutz" style="display:none">Bitte bestätigen Sie die Datenschutzhinweise.</p>
 
         <div>
-          <button type="submit" class="btn btn--primary">Nachricht senden <span class="btn__arrow" aria-hidden="true">→</span></button>
+          <button type="submit" class="btn btn--primary">Absenden <span class="btn__arrow" aria-hidden="true">→</span></button>
           <p class="field__hint" style="margin-top:.75rem">Ihre Daten werden nur zur
           Beantwortung Ihrer Anfrage verwendet und nicht weitergegeben.</p>
         </div>
@@ -104,25 +103,20 @@
             {{site.org.address.zip}} {{site.org.address.city}}<br><br>
             <a href="mailto:{{site.org.email}}">{{site.org.email}}</a>
           </address>
-          <!-- Click-to-Call: vorbereitet, aktivieren sobald Nummer bestätigt ist.
-               <p><a class="btn btn--ghost" href="tel:+49XXXXXXXX">Jetzt anrufen</a></p> -->
-          <p style="margin-top:1rem"><span class="content-todo">[INHALT VON LIVING CHARITY ERFORDERLICH]
-          Telefonnummer — Click-to-Call ist vorbereitet und wird nach Bestätigung aktiviert.</span></p>
+          <!-- Telefon/Click-to-Call: aktivieren, sobald Nummer bestätigt ist
+               (site.json → org.phone). Kein erfundener Wert. -->
         </div>
 
         <div class="info-card" id="anfahrt">
-          <h3>Anfahrt</h3>
+          <h3>Standort &amp; Anfahrt</h3>
           <p>Sie finden uns an der {{site.org.address.street}} in
           {{site.org.address.zip}} {{site.org.address.city}}.</p>
-          <!-- Datenschutzfreundliche Zwei-Klick-Lösung: Es wird nichts von
-               externen Karten-Servern geladen, bis Besucher aktiv zustimmen.
-               Der Link öffnet OpenStreetMap in neuem Tab (kein Embed). -->
           <div class="map-consent" style="margin-top:1rem">
             <div>
               <p>Aus Datenschutzgründen laden wir keine externe Karte automatisch.
-              Der Link öffnet OpenStreetMap in einem neuen Tab — dabei gelten die
+              Der Link öffnet OpenStreetMap in einem neuen Tab — dort gelten die
               Datenschutzbestimmungen von OpenStreetMap.</p>
-              <a class="btn btn--ghost" rel="noopener" target="_blank"
+              <a class="btn btn--ghost external-link" rel="noopener" target="_blank"
                  href="https://www.openstreetmap.org/search?query=K%C3%B6lner%20Stra%C3%9Fe%2064%2C%2051702%20Bergneustadt">
                  Karte auf OpenStreetMap öffnen</a>
             </div>
