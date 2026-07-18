@@ -2,7 +2,7 @@
 {
   "path": "/ueber-uns/",
   "title": "Über uns — Living Charity e. V. | Eingetragener Verein seit 2010",
-  "description": "Wer hinter Living Charity e. V. steht: Vorstand, Registerdaten und Arbeitsweise des eingetragenen Vereins aus Bergneustadt.",
+  "description": "Wer hinter Living Charity e. V. steht: Vorstand, Registerdaten (Amtsgericht Köln, VR 16395) und Arbeitsweise des Vereins aus Bergneustadt.",
   "breadcrumb": "Über uns"
 }
 -->
@@ -17,61 +17,28 @@
   <header class="page-head">
     <p class="overline">Über uns</p>
     <h1>Ein Verein, der ansprechbar ist</h1>
-    <p class="lead">Living Charity e.&nbsp;V. ist seit {{site.org.foundedYear}} beim
-    {{site.org.register.court}} eingetragen ({{site.org.register.number}}) und in
-    Bergneustadt zu Hause. Auf dieser Seite finden Sie die Menschen, die Fakten
-    und die Arbeitsweise hinter unserer Hilfe.</p>
+    <p class="lead">Living Charity e.&nbsp;V. ist seit dem {{site.org.registeredDate}}
+    beim {{site.org.register.court}} eingetragen ({{site.org.register.number}})
+    und in Bergneustadt zu Hause. Hier finden Sie die Menschen, die Fakten und
+    die Haltung hinter unserer Hilfe.</p>
   </header>
 </div>
 
 <section class="section section--sm">
   <div class="container">
-    <div class="split split--media-left">
-      <figure class="split__media arch-media reveal" style="aspect-ratio: 4 / 3; border-radius: var(--radius-md);">
-        <svg viewBox="0 0 600 450" role="img" aria-label="Bildfläche für ein Foto des Vereinslebens" preserveAspectRatio="xMidYMid slice">
-          <rect width="600" height="450" fill="#e4efe9"/>
-          <path d="M0 450 C150 340 450 380 600 300 L600 450 Z" fill="#cfe2d8"/>
-        </svg>
-        <figcaption>Bildfläche — echtes Vereinsfoto erforderlich (U1, siehe Bildliste)</figcaption>
-      </figure>
-      <div class="flow reveal">
-        <p class="overline">Unser Auftrag</p>
-        <h2>Wofür es uns gibt</h2>
-        <div class="content-todo-block">
-          <strong>[INHALT VON LIVING CHARITY ERFORDERLICH] — Vereinszweck</strong>
-          Hier steht der Satzungszweck in verständlichem Deutsch: Wem hilft der
-          Verein, wie und wo? Bitte den Satzungstext (oder eine freigegebene
-          redaktionelle Fassung) bereitstellen. Ohne diese Angabe bleibt der
-          wichtigste Vertrauensbaustein der Website leer.
+    <div class="split split--asym">
+      <div class="flow-lg reveal">
+        <div>
+          <p class="overline">Unser Auftrag</p>
+          <h2>Wofür es uns gibt</h2>
+          <p>{{site.mission.short}}</p>
+          <p>{{site.mission.goal}}</p>
         </div>
-        <p>Was wir heute schon zusagen können: Wir arbeiten mit klar umrissenen
-        Projekten, dokumentieren, was mit Unterstützung passiert, und sind für
-        Rückfragen direkt erreichbar.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section--tinted">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="overline">Vorstand</p>
-      <h2>Verantwortlich für den Verein</h2>
-      <p>Die Vorstandsangaben stammen aus den übergebenen Vereinsdaten und werden
-      vor Veröffentlichung bestätigt.</p>
-    </div>
-    {{@team-list}}
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="grid grid--halves">
-      <div class="reveal">
-        <p class="overline">Fakten</p>
-        <h2>Registerdaten &amp; Kontakt</h2>
-        <p>Seriosität lässt sich prüfen. Diese Angaben können Sie jederzeit mit dem
-        Vereinsregister abgleichen.</p>
+        <div>
+          <h2>Unser Schwerpunkt</h2>
+          <p>{{site.mission.sriLanka}}</p>
+          <p><a class="arrow-link" href="/sri-lanka/">Zur Sri-Lanka-Hilfe <span aria-hidden="true">→</span></a></p>
+        </div>
       </div>
       <div class="info-card reveal">
         <h3>{{site.org.name}}</h3>
@@ -81,54 +48,64 @@
           <a href="mailto:{{site.org.email}}">{{site.org.email}}</a>
         </address>
         <hr class="rule" style="margin-block:1.25rem">
-        <p class="text-sm text-muted">Registergericht: {{site.org.register.court}}<br>
+        <p class="text-sm text-muted">Rechtsform: {{site.org.legalForm}}<br>
+        Registergericht: {{site.org.register.court}}<br>
         Registernummer: {{site.org.register.number}}<br>
-        Eingetragen: {{site.org.foundedYear}}
-        <span class="content-todo">Eintragungsdatum lt. Registerauszug bestätigen</span></p>
+        Eingetragen seit: {{site.org.registeredDate}}</p>
+        <p class="text-sm text-muted">Diese Angaben können Sie jederzeit mit dem
+        Vereinsregister abgleichen.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section section--sand">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="overline">Vorstand</p>
+      <h2>Menschen hinter Living Charity</h2>
+    </div>
+    {{@team-list}}
+    <!-- Porträts folgen als echte Fotografien; bis dahin neutrale
+         typografische Platzhalter — keine KI-Porträts. -->
   </div>
 </section>
 
 <section class="section section--sm">
   <div class="container">
     <div class="section-head reveal">
-      <p class="overline">Transparenz</p>
+      <p class="overline">Häufige Fragen</p>
       <h2>Woran Sie uns messen können</h2>
     </div>
     <div class="faq reveal">
       <details>
-        <summary>Ist Living Charity gemeinnützig?</summary>
-        <div class="faq__body"><p><span class="content-todo">[BITTE DURCH DEN AUFTRAGGEBER BESTÄTIGEN]
-        Angaben zur Gemeinnützigkeit und zum Freistellungsbescheid werden erst
-        veröffentlicht, wenn der aktuelle Bescheid vorliegt. Bis dahin treffen
-        wir hierzu bewusst keine Aussage.</span></p></div>
+        <summary>Wie erfahre ich, was mit meiner Spende passiert?</summary>
+        <div class="faq__body"><p>Über die <a href="/projekte/">Projektseiten</a> und
+        <a href="/aktuelles/">Aktuelles</a>. Den Ablauf, an dem wir uns
+        ausrichten, beschreibt die <a href="/transparenz/">Transparenzseite</a>.</p></div>
       </details>
       <details>
-        <summary>Wie erfahre ich, was mit meiner Spende passiert?</summary>
-        <div class="faq__body"><p>Jedes Projekt dokumentiert seinen Stand auf der eigenen
-        Projektseite. Zusätzlich berichten wir unter <a href="/aktuelles/">Aktuelles</a>
-        über Fortschritte und Abschlüsse.</p></div>
+        <summary>Erhalte ich eine Spendenbescheinigung?</summary>
+        <div class="faq__body"><p>{{site.donation.certificateNote}}</p></div>
       </details>
       <details>
         <summary>Kann ich den Verein persönlich erreichen?</summary>
         <div class="faq__body"><p>Ja. Schreiben Sie an
         <a href="mailto:{{site.org.email}}">{{site.org.email}}</a> oder nutzen Sie das
-        <a href="/kontakt/">Kontaktformular</a>. Eine Telefonnummer ergänzen wir,
-        sobald sie bestätigt ist.</p></div>
+        <a href="/kontakt/">Kontaktformular</a>.</p></div>
       </details>
     </div>
   </div>
 </section>
 
-<section class="section section-dark cta-final">
+<section class="section section-forest cta-final">
   <div class="container">
     <div class="reveal">
-      <h2>Lernen Sie unsere Projekte kennen</h2>
+      <h2>Lernen Sie unsere Arbeit kennen</h2>
       <p>Am besten versteht man einen Verein über das, was er tut.</p>
     </div>
     <div class="cta-final__actions reveal">
-      <a class="btn btn--accent" href="/projekte/">Projekte ansehen <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--primary" href="/unsere-arbeit/">Unsere Arbeit <span class="btn__arrow" aria-hidden="true">→</span></a>
       <a class="btn btn--ghost" href="/kontakt/">Kontakt aufnehmen</a>
     </div>
   </div>
