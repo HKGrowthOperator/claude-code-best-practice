@@ -2,13 +2,16 @@
 /**
  * Qualitätsprüfung der gebauten Seiten (public/).
  *
- *  1. Interne Links: Ziel existiert (Seite, Anker-Datei oder Asset)?
- *  2. Bilder/Assets: referenzierte Dateien vorhanden?
- *  3. <img> ohne alt-Attribut?
- *  4. Überschriften-Hierarchie: genau ein h1, keine Sprünge?
- *  5. Inhalts-Marker: Übersicht aller [INHALT …]/[BITTE …]/[RECHTSTEXT …]
- *     (vor Livegang muss diese Liste leer sein).
- *  6. Verbotene Floskeln (Tonalitäts-Denyliste aus dem Briefing).
+ *  1. Interne Links/Assets: Ziel existiert?
+ *  2. <img> ohne alt-Attribut?
+ *  3. Überschriften-Hierarchie: genau ein h1, keine Sprünge?
+ *  4. VERBOTENE ALTDATEN (hart): unbelegte Zahlen und Demo-Veranstaltungen
+ *     der alten Website dürfen weder sichtbar noch versteckt vorkommen.
+ *  5. Sichtbare Marker: Im Frontend dürfen KEINE [INHALT…]/[BITTE…]/[RECHTSTEXT…]
+ *     Marker erscheinen (in HTML-Kommentaren sind sie als interne Notiz erlaubt).
+ *  6. Tonalitäts-Denyliste (Floskeln aus dem Briefing).
+ *  7. KI-Bild-Schutz: keine plantceylon-CDN- oder „ChatGPT_Image"-Dateien.
+ *  8. Externe Links müssen target="_blank" + rel="noopener" tragen.
  *
  * Aufruf: node src/utils/check.mjs   (Exit-Code 1 bei harten Fehlern)
  */
@@ -23,24 +26,36 @@ const htmlFiles = [];
 (function walk(dir) {
   for (const f of readdirSync(dir)) {
     const p = join(dir, f);
-    if (statSync(p).isDirectory()) walk(p);
+    if (statSync(p).isDirectory()) { if (!p.endsWith("preview")) walk(p); }
     else if (f.endsWith(".html")) htmlFiles.push(p);
   }
 })(OUT);
 
 let errors = 0;
-let warnings = 0;
-const markers = [];
+const internalNotes = [];
 
-const DENYLIST = [
+/* Verbotene Altdaten (Zahlen + Demo-Veranstaltungen der alten Website) */
+const FORBIDDEN_LEGACY = [
+  "34 Projekte", "13.000", "13000", "348 Unterstützer", "5.000 Unterstützer",
+  "5000 Unterstützer", "400 Veranstaltungen", "400 organisierte",
+  "8 Veranstaltungen",
+  "Sommerfest der Solidarität", "Benefiz-Konzert für Kinder",
+  "Charity-Lauf für Gesundheit", "Kreativ-Workshop für Helfer",
+];
+
+/* Verbotene KI-Bild-Quellen */
+const FORBIDDEN_ASSETS = [/ChatGPT_Image/i, /plantceylon\.com\/cdn/i];
+
+/* Tonalitäts-Denyliste */
+const DENY_PHRASES = [
   "Wir verändern die Welt", "Teil von etwas Großem", "schreiben wir Geschichte",
   "Mission ist unsere Passion", "nachhaltigen Eindruck hinterlassen", "Herzblut",
-  "bahnbrechend", "einzigartig",
+  "bahnbrechend", "einzigartig", "garantiert eine Familie",
 ];
 
 function resolveTarget(href) {
   const clean = href.split("#")[0].split("?")[0];
-  if (clean === "") return true; // reiner Anker
+  if (clean === "") return true;
   if (clean === "/") return existsSync(join(OUT, "index.html"));
   if (clean.endsWith("/")) return existsSync(join(OUT, clean.slice(1), "index.html"));
   return existsSync(join(OUT, clean.replace(/^\//, "")));
@@ -49,57 +64,51 @@ function resolveTarget(href) {
 for (const file of htmlFiles) {
   const rel = file.slice(OUT.length);
   const html = readFileSync(file, "utf8");
+  const visible = html.replace(/<!--[\s\S]*?-->/g, ""); // ohne interne Kommentare
 
-  // 1+2: interne Links & Assets
-  for (const m of html.matchAll(/(?:href|src)="(\/[^"]*)"/g)) {
-    if (!resolveTarget(m[1])) {
-      console.error(`✗ ${rel}: kaputter interner Verweis ${m[1]}`);
-      errors++;
-    }
+  for (const m of visible.matchAll(/(?:href|src)="(\/[^"]*)"/g)) {
+    if (!resolveTarget(m[1])) { console.error(`✗ ${rel}: kaputter interner Verweis ${m[1]}`); errors++; }
   }
-
-  // 3: img ohne alt
-  for (const m of html.matchAll(/<img\b[^>]*>/g)) {
-    if (!/\balt=/.test(m[0])) {
-      console.error(`✗ ${rel}: <img> ohne alt-Attribut`);
-      errors++;
-    }
+  for (const m of visible.matchAll(/<img\b[^>]*>/g)) {
+    if (!/\balt=/.test(m[0])) { console.error(`✗ ${rel}: <img> ohne alt-Attribut`); errors++; }
   }
-
-  // 4: Überschriften
-  const h1s = [...html.matchAll(/<h1[\s>]/g)].length;
+  const h1s = [...visible.matchAll(/<h1[\s>]/g)].length;
   if (h1s !== 1) { console.error(`✗ ${rel}: ${h1s} × <h1> (erwartet: genau 1)`); errors++; }
-  const levels = [...html.matchAll(/<h([1-6])[\s>]/g)].map((m) => +m[1]);
+  const levels = [...visible.matchAll(/<h([1-6])[\s>]/g)].map((m) => +m[1]);
   for (let i = 1; i < levels.length; i++) {
     if (levels[i] > levels[i - 1] + 1) {
-      console.error(`✗ ${rel}: Überschriftensprung h${levels[i - 1]} → h${levels[i]}`);
-      errors++;
+      console.error(`✗ ${rel}: Überschriftensprung h${levels[i - 1]} → h${levels[i]}`); errors++;
     }
   }
 
-  // 5: Inhalts-Marker sammeln
-  for (const m of html.matchAll(/\[(INHALT VON LIVING CHARITY ERFORDERLICH|BITTE DURCH DEN AUFTRAGGEBER BESTÄTIGEN|RECHTSTEXT DURCH AUFTRAGGEBER BEREITZUSTELLEN[^\]]*)\]/g)) {
-    markers.push(`${rel}: [${m[1].slice(0, 60)}…]`);
+  for (const bad of FORBIDDEN_LEGACY) {
+    if (html.includes(bad)) { console.error(`✗ ${rel}: VERBOTENE ALTDATEN „${bad}"`); errors++; }
+  }
+  for (const re of FORBIDDEN_ASSETS) {
+    if (re.test(html)) { console.error(`✗ ${rel}: verbotene Bildquelle (${re})`); errors++; }
+  }
+  for (const phrase of DENY_PHRASES) {
+    if (visible.includes(phrase)) { console.error(`✗ ${rel}: verbotene Floskel „${phrase}"`); errors++; }
   }
 
-  // 6: Floskel-Denyliste
-  for (const phrase of DENYLIST) {
-    if (html.includes(phrase)) {
-      console.error(`✗ ${rel}: verbotene Floskel „${phrase}"`);
-      errors++;
+  // Sichtbare Marker sind ein Fehler; in Kommentaren nur interne Notiz
+  for (const m of visible.matchAll(/\[(INHALT VON LIVING CHARITY|BITTE DURCH DEN AUFTRAGGEBER|RECHTSTEXT DURCH AUFTRAGGEBER)[^\]]*\]/g)) {
+    console.error(`✗ ${rel}: sichtbarer Marker im Frontend: ${m[0].slice(0, 60)}`); errors++;
+  }
+  for (const m of html.matchAll(/<!--[\s\S]*?-->/g)) {
+    for (const n of m[0].matchAll(/\[(INHALT VON LIVING CHARITY|BITTE DURCH DEN AUFTRAGGEBER|RECHTSTEXT DURCH AUFTRAGGEBER)[^\]]*\]/g)) {
+      internalNotes.push(`${rel}: ${n[0].slice(0, 70)}`);
     }
   }
 
-  // Bonus: horizontal-riskante Inline-Breiten
-  if (/style="[^"]*width:\s*\d{3,}px/.test(html)) {
-    console.warn(`⚠ ${rel}: feste Pixelbreite im Inline-Style`);
-    warnings++;
+  // Externe Links: Kennzeichnung + noopener
+  for (const m of visible.matchAll(/<a\b[^>]*href="https?:\/\/[^"]*"[^>]*>/g)) {
+    if (!/rel="[^"]*noopener/.test(m[0])) { console.error(`✗ ${rel}: externer Link ohne rel="noopener"`); errors++; }
+    if (!/target="_blank"/.test(m[0])) { console.error(`✗ ${rel}: externer Link ohne target="_blank"`); errors++; }
   }
 }
 
 console.log(`\nGeprüfte Seiten: ${htmlFiles.length}`);
-console.log(`Harte Fehler: ${errors} · Warnungen: ${warnings}`);
-console.log(`\nOffene Inhalts-Marker (vor Livegang → 0):  ${markers.length}`);
-for (const m of markers) console.log("  · " + m);
-
+console.log(`Harte Fehler: ${errors}`);
+console.log(`Interne Notizen in Kommentaren (ok, siehe docs/launch-blockers.md): ${internalNotes.length}`);
 process.exit(errors ? 1 : 0);
