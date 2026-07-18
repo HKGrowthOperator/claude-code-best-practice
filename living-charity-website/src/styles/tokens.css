@@ -38,6 +38,7 @@
   --on-dark:        #f5f3f0;
   --on-dark-muted:  #b7b1ab;
   --on-dark-line:   rgb(245 243 240 / 0.16);
+  --brand-on-dark:  #e2b3b0;  /* Markenakzent auf Ink (Links, Overline-Strich); 9.7:1 */
 
   /* ---------- Typografie ---------- */
   --font-display: "Manrope", -apple-system, "Segoe UI", system-ui, sans-serif;
