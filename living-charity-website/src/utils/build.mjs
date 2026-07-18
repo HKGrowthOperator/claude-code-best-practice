@@ -165,11 +165,12 @@ const renderers = {
     `</ol>`,
 
   "tree-grid": () =>
-    `<div class="tree-grid reveal-stagger">` +
-    data.site.plantCeylon.trees
-      .map((t) => `<div class="tree-item reveal"><strong>${esc(t)}</strong><span>${esc(data.site.plantCeylon.price)}</span></div>`)
-      .join("") +
-    `</div>`,
+    `<p class="text-sm text-muted" style="margin-bottom:var(--space-2)">Jede Baumart ${esc(
+      data.site.plantCeylon.price.charAt(0).toLowerCase() + data.site.plantCeylon.price.slice(1)
+    )} — nach Angaben der Projektseite.</p>` +
+    `<ul class="tree-list reveal-stagger">` +
+    data.site.plantCeylon.trees.map((t) => `<li class="reveal">${esc(t)}</li>`).join("") +
+    `</ul>`,
 };
 
 function projectCard(p) {
