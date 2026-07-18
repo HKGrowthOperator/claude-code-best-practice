@@ -9,7 +9,7 @@
  *
  * Damit lässt sich die Vorabversion 1:1 in eine WordPress-Instanz übertragen
  * (Schnellweg über HTML-Blöcke), während die vollwertige Block-Theme-Migration
- * in wordpress-blueprint/migration-guide.md beschrieben bleibt.
+ * in docs/migration-guide.md beschrieben bleibt.
  *
  * Aufruf: node src/utils/build.mjs && node src/utils/export-wp.mjs
  */
