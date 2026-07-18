@@ -3,22 +3,21 @@
    ============================================================ */
 
 *, *::before, *::after { box-sizing: border-box; }
-
 * { margin: 0; }
 
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem; /* Sticky-Header berücksichtigen */
+  scroll-padding-top: 6rem;
 }
 
 body {
   font-family: var(--font-text);
   font-size: var(--text-base);
   line-height: var(--leading-body);
-  color: var(--color-text);
-  background: var(--color-bg-warm);
-  overflow-x: clip; /* horizontales Überlaufen konsequent verhindern */
+  color: var(--text);
+  background: var(--ivory);
+  overflow-x: clip;
   text-rendering: optimizeLegibility;
 }
 
@@ -26,87 +25,79 @@ img, picture, svg, video { display: block; max-width: 100%; height: auto; }
 
 /* ---------- Typografie ---------- */
 
-h1, h2, h3, .display {
+h1, h2, h3, h4 {
   font-family: var(--font-display);
-  color: var(--color-text-strong);
-  font-weight: 600;
+  color: var(--ink);
+  font-weight: 700;
   line-height: var(--leading-tight);
+  letter-spacing: -0.015em;
   text-wrap: balance;
+  overflow-wrap: break-word;
 }
-
-h1 { font-size: var(--text-3xl); letter-spacing: -0.01em; }
+h1 { font-size: var(--text-3xl); }
 h2 { font-size: var(--text-2xl); }
 h3 { font-size: var(--text-xl); line-height: var(--leading-snug); }
-h4 { font-size: var(--text-lg); line-height: var(--leading-snug); color: var(--color-text-strong); }
+h4 { font-size: var(--text-lg); line-height: var(--leading-snug); }
 
 p, ul, ol, dl { max-width: var(--container-text); }
 p + p { margin-top: 1em; }
-
-/* Lange deutsche Komposita sauber umbrechen (kein horizontaler Überlauf) */
 p, li, dd, dt, summary { overflow-wrap: break-word; hyphens: auto; }
-h1, h2, h3, h4 { overflow-wrap: break-word; }
 
-.lead {
-  font-size: var(--text-lg);
-  line-height: 1.5;
-  color: var(--color-text);
+.lead { font-size: var(--text-lg); line-height: 1.55; color: var(--text); }
+small, .text-sm { font-size: var(--text-sm); }
+.text-muted { color: var(--text-muted); }
+
+/* Redaktioneller Akzent (Newsreader, nur kursiv, sparsam) */
+.editorial-accent {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
-small, .text-sm { font-size: var(--text-sm); }
-.text-muted { color: var(--color-text-muted); }
-
-/* Overline-Label: kleines, gesperrtes Etikett mit kurzer Linie */
+/* Eyebrow-Etikett mit kurzer Linie */
 .overline {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  font-family: var(--font-display);
   font-size: var(--text-xs);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--forest);
 }
-.overline::before {
-  content: "";
-  width: 2rem;
-  height: 2px;
-  background: var(--color-accent);
-  flex: none;
-}
-.section-dark .overline { color: var(--color-text-invert); }
+.overline::before { content: ""; width: 1.75rem; height: 2px; background: var(--terracotta); flex: none; }
+.overline--srilanka { color: var(--terracotta-deep); }
+.section-forest .overline { color: var(--on-forest-muted); }
 
 a {
-  color: var(--color-primary);
+  color: var(--forest);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
   transition: color var(--duration-quick) var(--ease-out);
 }
-a:hover { color: var(--color-primary-dark); }
+a:hover { color: var(--forest-soft); }
 
-::selection { background: var(--color-primary-light); color: var(--color-primary-dark); }
+::selection { background: var(--sage); color: var(--ink); }
 
 /* ---------- Fokus & Tastatur ---------- */
 
-:focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
+:focus-visible { outline: var(--focus-ring); outline-offset: 2px; border-radius: 2px; }
 
 .skip-link {
   position: absolute;
-  left: 1rem;
-  top: -4rem;
+  left: 1rem; top: -4rem;
   z-index: 100;
   padding: 0.75rem 1.25rem;
-  background: var(--color-primary-dark);
-  color: var(--color-text-invert);
+  background: var(--ink);
+  color: var(--on-forest);
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: top var(--duration-quick) var(--ease-out);
 }
-.skip-link:focus-visible { top: 1rem; color: var(--color-text-invert); }
+.skip-link:focus-visible { top: 1rem; color: var(--on-forest); }
 
 .visually-hidden {
   position: absolute !important;
@@ -125,81 +116,48 @@ a:hover { color: var(--color-primary-dark); }
   margin-inline: auto;
   padding-inline: var(--container-pad);
 }
-.container--wide { max-width: var(--container-wide); }
 .container--text { max-width: calc(var(--container-text) + 2 * var(--container-pad)); }
 
 .section { padding-block: var(--space-section); }
 .section--sm { padding-block: var(--space-section-sm); }
-.section--tinted { background: var(--color-surface-deep); }
-.section-dark {
-  background: var(--color-ink);
-  color: var(--color-text-invert);
-}
-.section-dark :is(h1, h2, h3, h4) { color: var(--color-text-invert); }
-.section-dark p { line-height: calc(var(--leading-body) + 0.07); } /* helle Schrift braucht mehr Luft */
-.section-dark a { color: #b8d8cc; }
-.section-dark a:hover { color: var(--color-text-invert); }
+.section--sand { background: var(--sand); }
+.section--paper { background: var(--paper); border-block: 1px solid var(--line); }
+
+.section-forest { background: var(--forest); color: var(--on-forest); }
+.section-forest :is(h1, h2, h3, h4) { color: var(--on-forest); }
+.section-forest p { line-height: calc(var(--leading-body) + 0.07); letter-spacing: 0.01em; }
+.section-forest a { color: #cfe0d6; }
+.section-forest a:hover { color: var(--on-forest); }
+.section-forest .text-muted { color: var(--on-forest-muted); }
 
 .section-head { margin-bottom: var(--space-7); max-width: 52rem; }
 .section-head .overline { margin-bottom: var(--space-4); }
 .section-head p { margin-top: var(--space-4); }
 
 .grid { display: grid; gap: var(--space-6); }
+/* Grid-Kinder dürfen unter ihre Min-Content-Breite schrumpfen, damit lange
+   deutsche Komposita (z. B. „Spendenbescheinigung") umbrechen statt überlaufen */
+.grid > *, .split > *, .hero__grid > *, .impact5__grid > * { min-width: 0; }
 .grid--cards { grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr)); }
 .grid--halves { grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr)); align-items: center; }
 
 .flow > * + * { margin-top: var(--space-4); }
 .flow-lg > * + * { margin-top: var(--space-6); }
 
-hr.rule {
-  border: 0;
-  border-top: 1px solid var(--color-border);
-  margin-block: var(--space-7);
-}
-
-/* ---------- Interne Inhalts-Marker (nur Vorabversion) ---------- */
-
-.content-todo {
-  display: inline-block;
-  padding: 0.15em 0.6em;
-  border: 1.5px dashed var(--color-warning);
-  border-radius: var(--radius-sm);
-  background: #fdf6e3;
-  color: var(--color-warning);
-  font-family: var(--font-text);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
-  vertical-align: middle;
-}
-.content-todo::before { content: "⚠ intern · "; }
-
-/* Blockvariante für ganze fehlende Inhaltsbereiche */
-.content-todo-block {
-  padding: var(--space-5);
-  border: 1.5px dashed var(--color-warning);
-  border-radius: var(--radius-md);
-  background: #fdf6e3;
-  color: #6d4a05;
-  font-size: var(--text-sm);
-  max-width: none;
-}
-.content-todo-block strong { display: block; margin-bottom: 0.35em; color: var(--color-warning); }
+hr.rule { border: 0; border-top: 1px solid var(--line); margin-block: var(--space-7); }
 
 /* ---------- Reveal-Animationen (dezent, abschaltbar) ---------- */
 
 .reveal {
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(10px);
   transition:
     opacity var(--duration-reveal) var(--ease-out),
     transform var(--duration-reveal) var(--ease-out);
 }
 .reveal.is-visible { opacity: 1; transform: none; }
-.reveal-stagger > * { transition-delay: calc(var(--stagger-i, 0) * 70ms); }
+.reveal-stagger > * { transition-delay: calc(var(--stagger-i, 0) * 60ms); }
 
-/* Ohne JavaScript und bei reduzierter Bewegung: alles sofort sichtbar */
 .no-js .reveal { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -214,6 +172,9 @@ hr.rule {
 
 /* ---------- Druck ---------- */
 @media print {
-  .site-header, .site-footer, .skip-link, .content-todo, .content-todo-block { display: none !important; }
+  .site-header, .site-footer, .trust-strip, .skip-link { display: none !important; }
   body { background: #fff; color: #000; }
 }
+
+/* Muted-Text auf Sand-Flächen braucht einen dunkleren Ton (Kontrast ≥ 4.5:1) */
+.section--sand { --text-muted: #575f5a; }
