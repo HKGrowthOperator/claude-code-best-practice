@@ -67,26 +67,40 @@
     }
   });
 
-  /* ---------- Kopierknöpfe (IBAN, BIC) ---------- */
+  /* ---------- Kopierknöpfe (IBAN, BIC) ----------
+     Erfolg wird visuell (Tooltip) UND über eine Live-Region gemeldet;
+     schlägt das Kopieren fehl, wird der Wert markiert und ehrlich gemeldet. */
+  var copyStatus = document.querySelector("[data-copy-status]");
+  var announceCopy = function (text) {
+    if (copyStatus) { copyStatus.textContent = ""; window.setTimeout(function () { copyStatus.textContent = text; }, 30); }
+  };
+  var selectValue = function (btn) {
+    var target = document.getElementById(btn.getAttribute("data-copy-target"));
+    if (target && window.getSelection) {
+      var range = document.createRange();
+      range.selectNodeContents(target);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+  };
   document.querySelectorAll("[data-copy-plain]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var value = btn.getAttribute("data-copy-plain");
-      var done = function () {
+      var label = btn.getAttribute("data-copy-label") || "Wert";
+      var ok = function () {
         btn.classList.add("is-copied");
+        announceCopy(label + " in die Zwischenablage kopiert.");
         window.setTimeout(function () { btn.classList.remove("is-copied"); }, 2200);
       };
+      var fail = function () {
+        selectValue(btn);
+        announceCopy("Kopieren nicht möglich — " + label + " ist markiert, bitte manuell kopieren.");
+      };
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(value).then(done, done);
+        navigator.clipboard.writeText(value).then(ok, fail);
       } else {
-        var target = document.getElementById(btn.getAttribute("data-copy-target"));
-        if (target && window.getSelection) {
-          var range = document.createRange();
-          range.selectNodeContents(target);
-          var sel = window.getSelection();
-          sel.removeAllRanges();
-          sel.addRange(range);
-        }
-        done();
+        fail();
       }
     });
   });
@@ -112,6 +126,8 @@
      Serverseitige Validierung ist zusätzlich zwingend — siehe docs/migration-guide.md. */
   var form = document.querySelector("[data-contact-form]");
   if (form) {
+    // Native Browser-Validierung bleibt ohne JS aktiv; mit JS übernehmen wir.
+    form.setAttribute("novalidate", "");
     // Thema aus URL vorbelegen (?thema=… / ?anliegen=…)
     try {
       var params = new URLSearchParams(location.search);
@@ -182,9 +198,13 @@
         var pos = p.text.toLowerCase().indexOf(query);
         var excerpt = pos > -1 ? "… " + p.text.slice(Math.max(0, pos - 60), pos + 120) + " …" : "";
         var li = document.createElement("li");
-        li.innerHTML = '<a href="' + p.path + '"></a><p class="text-sm text-muted"></p>';
-        li.querySelector("a").textContent = p.title;
-        li.querySelector("p").textContent = excerpt;
+        var a = document.createElement("a");
+        a.href = p.path;
+        a.textContent = p.title;
+        var para = document.createElement("p");
+        para.className = "text-sm text-muted";
+        para.textContent = excerpt;
+        li.appendChild(a); li.appendChild(para);
         resultsEl.appendChild(li);
       });
     };
