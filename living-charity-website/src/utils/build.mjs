@@ -67,7 +67,7 @@ const renderers = {
   /* 5-Euro-Impact — fremde, transparent zitierte Aussage mit Quellenlink */
   "impact5": () => {
     const c = data.site.claim5;
-    return `<section class="impact5" aria-label="Was ein kleiner Beitrag bewirken kann">
+    return `<section class="impact5 section-dark" aria-label="Was ein kleiner Beitrag bewirken kann">
       <div class="container impact5__grid">
         <p class="impact5__figure reveal">${esc(c.figure)}<small>Ein Tag Nahrung — laut Spendenaufruf</small></p>
         <div class="impact5__body reveal">
