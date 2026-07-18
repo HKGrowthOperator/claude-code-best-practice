@@ -257,7 +257,7 @@
   background: var(--ivory);
 }
 .source-badge--original { color: var(--success); border-color: var(--success); }
-.source-badge--extern { color: var(--brand); }
+.source-badge--extern { color: #6d6046; border-color: #6d6046; }
 .source-badge--illustration { color: var(--warning); border-color: var(--warning); }
 a.external-link::after { content: " ↗"; font-size: 0.85em; }
 
@@ -283,7 +283,8 @@ a.external-link::after { content: " ↗"; font-size: 0.85em; }
 .card__title a:hover { color: var(--brand); }
 .card__title a::after { content: ""; position: absolute; inset: 0; }
 .card__excerpt { font-size: var(--text-sm); flex: 1; }
-.card__link { font-family: var(--font-display); font-weight: 700; font-size: var(--text-sm); color: var(--brand); }
+.card__link { font-family: var(--font-display); font-weight: 700; font-size: var(--text-sm); color: var(--ink); }
+.card__link span[aria-hidden] { color: var(--brand); }
 
 .badge {
   display: inline-flex;
@@ -364,19 +365,23 @@ a.external-link::after { content: " ↗"; font-size: 0.85em; }
 
 /* ---------- Baum-Auswahl (Plant Ceylon) ---------- */
 
-.tree-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(9.5rem, 100%), 1fr)); gap: var(--space-3); max-width: none; }
-.tree-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  padding: var(--space-4);
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  font-size: var(--text-sm);
+.tree-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 var(--space-6);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: none;
 }
-.tree-item strong { font-family: var(--font-display); color: var(--ink); }
-.tree-item span { color: var(--text-muted); font-size: var(--text-xs); }
+.tree-list li {
+  border-top: 1px solid var(--line);
+  padding-block: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+}
+@media (max-width: 26rem) { .tree-list { grid-template-columns: 1fr; } }
 
 /* ---------- Proof-Modul ---------- */
 
@@ -598,6 +603,8 @@ a.external-link::after { content: " ↗"; font-size: 0.85em; }
 .page-head h1 { margin-block: var(--space-3) var(--space-4); max-width: 22ch; }
 .page-head .lead { max-width: 56ch; }
 .page-head__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+.page-head--wide h1 { max-width: 28ch; }
+.page-head--wide .lead { max-width: 60ch; }
 
 /* ---------- Leerzustand / Fehlerzustand / Ladezustand ---------- */
 
