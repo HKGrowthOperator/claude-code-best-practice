@@ -15,22 +15,26 @@
 <meta property="og:image" content="https://www.livingcharity.de/assets/img/og-default.svg">
 <meta property="og:locale" content="de_DE">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/assets/fonts/alegreya-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/source-sans-3-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/main.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"NGO","name":"Living Charity e. V.","foundingDate":"2010","email":"info@livingcharity.de","identifier":"Amtsgericht Köln VR 16395","address":{"@type":"PostalAddress","streetAddress":"Kölner Straße 64","postalCode":"51702","addressLocality":"Bergneustadt","addressCountry":"DE"},"url":"https://www.livingcharity.de/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NGO","name":"Living Charity e. V.","foundingDate":"2010-06-16","email":"info@livingcharity.de","identifier":"Amtsgericht Köln VR 16395","address":{"@type":"PostalAddress","streetAddress":"Kölner Straße 64","postalCode":"51702","addressLocality":"Bergneustadt","addressCountry":"DE"},"url":"https://www.livingcharity.de/"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.livingcharity.de/"},{"@type":"ListItem","position":2,"name":"Projekt","item":"https://www.livingcharity.de/projekte/projekt/"}]}</script>
 </head>
 <body class="">
 <a class="skip-link" href="#hauptinhalt">Zum Inhalt springen</a>
+<div class="trust-strip">
+  <strong>Eingetragener Verein seit 2010</strong> · Amtsgericht Köln · VR 16395
+</div>
 <header class="site-header" data-header>
   <div class="container site-header__bar">
     <a class="brand" href="/" aria-label="Living Charity e. V. — zur Startseite">
       <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-        <!-- Platzhalter-Bildmarke (Bogen-Motiv). Durch echtes Vereinslogo ersetzen:
-             [INHALT VON LIVING CHARITY ERFORDERLICH] -->
-        <path d="M6 38 V20 a14 14 0 0 1 28 0 V38 h-7 V21 a7 7 0 0 0 -14 0 V38 Z" fill="#175b4f"/>
-        <circle cx="20" cy="10" r="3" fill="#b95c28"/>
+        <!-- Neutrale typografische Bildmarke (Platzhalter bis das echte
+             Vereinslogo vorliegt — interner Status: confirmation-required) -->
+        <rect width="40" height="40" rx="8" fill="#f2f4ef"/>
+        <text x="20" y="27" text-anchor="middle" font-family="Manrope, sans-serif" font-size="17" font-weight="800" fill="#173f35">LC</text>
+        <rect x="8" y="31" width="24" height="2.5" rx="1.25" fill="#b86548"/>
       </svg>
       <span class="brand__name">Living Charity
         <span class="brand__sub">Eingetragener Verein · Bergneustadt</span>
@@ -44,12 +48,13 @@
     </button>
     <nav class="site-nav" id="hauptnavigation" aria-label="Hauptnavigation" data-nav>
       <ul class="site-nav__list">
-        <li><a class="site-nav__link" href="/ueber-uns/">Über uns</a></li>
+        <li><a class="site-nav__link" href="/unsere-arbeit/">Unsere Arbeit</a></li>
+<li><a class="site-nav__link" href="/sri-lanka/">Sri Lanka</a></li>
 <li><a class="site-nav__link" href="/projekte/" aria-current="page">Projekte</a></li>
+<li><a class="site-nav__link" href="/ueber-uns/">Über uns</a></li>
 <li><a class="site-nav__link" href="/aktuelles/">Aktuelles</a></li>
-<li><a class="site-nav__link" href="/mitmachen/">Mitmachen</a></li>
 <li><a class="site-nav__link" href="/kontakt/">Kontakt</a></li>
-        <li><a class="btn btn--accent site-nav__cta" href="/spenden/">Jetzt helfen</a></li>
+        <li><a class="btn site-nav__cta" href="/spenden/">Jetzt helfen</a></li>
       </ul>
     </nav>
   </div>
@@ -57,12 +62,9 @@
 
 <main id="hauptinhalt">
 <!-- ============================================================
-     DYNAMISCHE PROJEKTVORLAGE
-     In WordPress: single-lc_project.php bzw. Block-Template
-     "Einzelnes Projekt". Jede Sektion prüft, ob ihr Feld gefüllt
-     ist — leere Felder erscheinen NIE als leere Blöcke.
-     Feldnamen in [eckigen Klammern] = Felder aus
-     wordpress-blueprint/content-model.md → lc_project.
+     DYNAMISCHE PROJEKTVORLAGE (CPT projects)
+     Feldnamen in [eckigen Klammern] = Felder aus docs/wordpress-blueprint.md.
+     Leere Felder erscheinen NIE als leere Blöcke. Keine Beispielzahlen.
      ============================================================ -->
 
 <div class="container">
@@ -76,23 +78,23 @@
   <header class="page-head">
     <p class="card__meta" style="margin-bottom:var(--space-3)">
       <span class="badge badge--geplant">Status [status]</span>
+      <span>[region]</span>
     </p>
-    <h1><span class="content-todo">[INHALT VON LIVING CHARITY ERFORDERLICH]</span> Projekttitel [title]</h1>
-    <p class="lead">Kurzbeschreibung [excerpt]: In ein bis zwei Sätzen — wem wird
-    wobei geholfen? <span class="content-todo">Echtes Projekt erforderlich</span></p>
+    <h1>Projekttitel [title]</h1>
+    <p class="lead">[short_description] — Kurzbeschreibung in ein bis zwei Sätzen:
+    Wem wird wobei geholfen? Untertitel: [subtitle]</p>
   </header>
 </div>
 
 <section class="section--sm">
   <div class="container">
-    <!-- Faktenleiste: nur gefüllte Felder rendern -->
     <dl class="project-facts reveal">
-      <div><dt>Region / Ort</dt><dd>[region]</dd></div>
-      <div><dt>Themenbereich</dt><dd>[topic]</dd></div>
-      <div><dt>Zielgruppe</dt><dd>[audience]</dd></div>
-      <div><dt>Start</dt><dd>[startDate]</dd></div>
-      <div><dt>Ende (optional)</dt><dd>[endDate]</dd></div>
-      <div><dt>Ansprechpartner</dt><dd>[contactPerson]</dd></div>
+      <div><dt>Region</dt><dd>[region]</dd></div>
+      <div><dt>Ort</dt><dd>[exact_location] · [coordinates]</dd></div>
+      <div><dt>Zeitraum</dt><dd>[start_date] – [end_date]</dd></div>
+      <div><dt>Begünstigte</dt><dd>[beneficiaries]</dd></div>
+      <div><dt>Projektleitung</dt><dd>[project_manager]</dd></div>
+      <div><dt>Lokaler Partner</dt><dd>[local_partner]</dd></div>
     </dl>
   </div>
 </section>
@@ -101,80 +103,66 @@
   <div class="container">
     <div class="split">
       <div class="flow-lg reveal">
-        <div>
-          <h2>Ausgangslage</h2>
-          <p>[situation] — die konkrete Situation vor Ort, respektvoll und ohne
-          entwürdigende Darstellung beschrieben.</p>
-        </div>
-        <div>
-          <h2>Was wir tun</h2>
-          <p>[measure] — die geplante bzw. laufende Maßnahme.</p>
-        </div>
-        <div>
-          <h2>Unser Ziel</h2>
-          <p>[goal] — konkret und überprüfbar formuliert.</p>
-        </div>
+        <div><h2>Ausgangslage</h2><p>[problem] — die konkrete Situation, respektvoll und ohne entwürdigende Darstellung beschrieben.</p></div>
+        <div><h2>Ziel</h2><p>[goal] — konkret und überprüfbar formuliert.</p></div>
+        <div><h2>Maßnahmen</h2><p>[measures] — was getan wird.</p></div>
+        <div><h2>Aktueller Bedarf</h2><p>[current_need] — was gerade gebraucht wird.</p></div>
       </div>
       <div class="flow reveal">
-        <figure class="arch-media">
-          <svg viewBox="0 0 480 600" role="img" aria-label="Bildfläche für Projektfotos" preserveAspectRatio="xMidYMid slice">
-            <rect width="480" height="600" fill="#e4efe9"/>
-            <path d="M0 600 C120 470 360 520 480 400 L480 600 Z" fill="#cfe2d8"/>
-          </svg>
-          <figcaption>Galerie [gallery] — echte Projektfotos mit Bildrechten erforderlich</figcaption>
+        <figure class="doc-media">
+          <div class="doc-media__frame">
+            <div class="media-pending">Originale Projektaufnahme wird ergänzt.</div>
+          </div>
+          <figcaption class="doc-media__caption">
+            <span>Galerie [image_gallery] — nur Originalmaterial mit Metadaten</span>
+            <span class="source-badge source-badge--original">Originalaufnahme</span>
+          </figcaption>
         </figure>
-        <!-- [video]: Video nur als datenschutzfreundliche Zwei-Klick-Einbindung
-             mit lokalem Vorschaubild (siehe Datenschutz-Konzept). -->
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section--tinted section--sm">
-  <div class="container">
-    <div class="grid grid--halves">
-      <div class="reveal">
-        <h2>Aktueller Stand</h2>
-        <p>[progress] — bisheriger Fortschritt in Textform.</p>
-        <!-- Fortschrittsbalken NUR mit echten, belegten Zahlen aktivieren:
-             <div class="progress" data-progress="42" role="img" aria-label="Projektfortschritt: 42 Prozent">
-               <div class="progress__bar"></div>
-             </div>
-        -->
-        <h3 style="margin-top:var(--space-6)">Updates</h3>
-        <p class="text-muted">[updates] — chronologische Kurzmeldungen mit Datum.
-        Ohne Updates wird diese Überschrift nicht gerendert.</p>
-        <h3 style="margin-top:var(--space-6)">Wirkung &amp; Nachweise</h3>
-        <p class="text-muted">[impactFigures] + [sources] — Wirkungskennzahlen
-        erscheinen ausschließlich mit Beleg (Quelle, Zeitraum, Zählweise).
-        [finalReport] — der Abschlussbericht ersetzt diese Sektion nach
-        Projektende. [documents] — Dokumente als Download-Liste.</p>
-      </div>
-      <div class="reveal">
-        <div class="donation-box">
-          <p class="donation-box__label">Dieses Projekt unterstützen</p>
-          <p style="margin-block:var(--space-3)">[neededSupport] — was gerade
-          gebraucht wird (Geld, Sachspenden, Zeit).</p>
-          <p class="text-sm text-muted">Verwendungszweck für projektbezogene
-          Spenden: [donationPurpose]</p>
-          <a class="btn btn--primary" style="margin-top:var(--space-4)" href="/spenden/">Zur Spendenseite <span class="btn__arrow" aria-hidden="true">→</span></a>
+        <!-- [videos]: nur mit lokalem Vorschaubild und Zwei-Klick-Einbindung -->
+        <div class="info-card">
+          <h3>Finanzierung</h3>
+          <p class="text-sm text-muted">[funding_goal] Finanzierungsziel ·
+          [funding_received] bereits finanziert · [use_of_funds] Mittelverwendung.
+          Der Fortschrittsbalken wird ausschließlich aus echten Zahlen gespeist:</p>
+          <!-- <div class="progress" data-progress="0" role="img" aria-label="Finanzierungsstand"><div class="progress__bar"></div></div> -->
+          <a class="btn btn--accent" style="margin-top:var(--space-4)" href="/spenden/">Dieses Projekt unterstützen <span class="btn__arrow" aria-hidden="true">→</span></a>
         </div>
-        <p class="text-sm text-muted" style="margin-top:var(--space-4)">
-        Projektpartner [partners] werden hier mit Namen und Rolle genannt —
-        nur mit dokumentierter Freigabe.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-dark cta-final">
+<section class="section section--paper section--sm">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="overline">Nachweise</p>
+      <h2>Updates, Belege und Quellen</h2>
+    </div>
+    <div class="grid grid--halves reveal">
+      <div class="flow">
+        <div class="update-card"><time>[last_update]</time><p>[updates] — chronologische Projekt-Updates mit Datum.</p></div>
+        <p class="text-sm text-muted">Verifizierungsstatus: [verification_status] —
+        sichtbar unterschieden nach Originalaufnahme, Projektbericht, externer
+        Quelle und Illustration.</p>
+      </div>
+      <div class="flow">
+        <ul class="doc-list">
+          <li><a href="/projekte/">[documents] Dokumente &amp; Belege <span aria-hidden="true">↓</span></a></li>
+          <li><a href="/projekte/">[external_sources] Externe Quellen <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-forest cta-final">
   <div class="container">
     <div class="reveal">
       <h2>Fragen zu diesem Projekt?</h2>
-      <p>Wir antworten persönlich — kein Kontaktformular-Nirwana.</p>
+      <p>Wir antworten persönlich.</p>
     </div>
     <div class="cta-final__actions reveal">
-      <a class="btn btn--accent" href="/kontakt/">Kontakt aufnehmen <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--primary" href="/kontakt/">Kontakt aufnehmen <span class="btn__arrow" aria-hidden="true">→</span></a>
       <a class="btn btn--ghost" href="/projekte/">Alle Projekte</a>
     </div>
   </div>
@@ -186,8 +174,9 @@
       <div class="site-footer__brand">
         <a class="brand" href="/">
           <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-            <path d="M6 38 V20 a14 14 0 0 1 28 0 V38 h-7 V21 a7 7 0 0 0 -14 0 V38 Z" fill="#dfe6dc"/>
-            <circle cx="20" cy="10" r="3" fill="#b95c28"/>
+            <rect width="40" height="40" rx="8" fill="#f2f4ef" opacity="0.12"/>
+            <text x="20" y="27" text-anchor="middle" font-family="Manrope, sans-serif" font-size="17" font-weight="800" fill="#f2f4ef">LC</text>
+            <rect x="8" y="31" width="24" height="2.5" rx="1.25" fill="#b86548"/>
           </svg>
           <span class="brand__name">Living Charity
             <span class="brand__sub">Eingetragener Verein</span>
@@ -198,22 +187,21 @@
           Kölner Straße 64<br>
           51702 Bergneustadt<br>
           <a href="mailto:info@livingcharity.de">info@livingcharity.de</a>
-          <!-- Telefonnummer: erst nach Bestätigung einblenden (site.json → org.phone).
-               [INHALT VON LIVING CHARITY ERFORDERLICH] -->
+          <!-- Telefonzeile + Click-to-Call: aktivieren, sobald bestätigt
+               (site.json → org.phone; interner Status: confirmation-required) -->
         </address>
         <p class="site-footer__register">
-          Eingetragen beim Amtsgericht Köln, VR 16395
+          Eingetragen beim Amtsgericht Köln · VR 16395 · seit 16. Juni 2010
         </p>
-        <!-- Social-Media-Icons: bewusst keine, solange keine verifizierten Profile
-             vorliegen (site.json → org.socialLinks). -->
+        <!-- Social-Media-Icons erst mit verifizierten Profilen (org.socialLinks) -->
       </div>
-      <nav aria-label="Der Verein"><h2>Der Verein</h2><ul><li><a href="/ueber-uns/">Über uns</a></li><li><a href="/projekte/">Projekte</a></li><li><a href="/aktuelles/">Aktuelles</a></li><li><a href="/veranstaltungen/">Veranstaltungen</a></li></ul></nav>
-<nav aria-label="Helfen"><h2>Helfen</h2><ul><li><a href="/spenden/">Spenden</a></li><li><a href="/mitmachen/">Mitmachen</a></li><li><a href="/kontakt/">Kontakt</a></li></ul></nav>
+      <nav aria-label="Der Verein"><h2>Der Verein</h2><ul><li><a href="/unsere-arbeit/">Unsere Arbeit</a></li><li><a href="/sri-lanka/">Sri Lanka</a></li><li><a href="/projekte/">Projekte</a></li><li><a href="/ueber-uns/">Über uns</a></li><li><a href="/transparenz/">Transparenz</a></li></ul></nav>
+<nav aria-label="Helfen"><h2>Helfen</h2><ul><li><a href="/spenden/">Spenden</a></li><li><a href="/plant-ceylon/">Plant Ceylon</a></li><li><a href="/aktuelles/">Aktuelles</a></li><li><a href="/kontakt/">Kontakt</a></li></ul></nav>
 <nav aria-label="Rechtliches"><h2>Rechtliches</h2><ul><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutz/">Datenschutz</a></li></ul></nav>
     </div>
     <div class="site-footer__bottom">
       <p>© <span data-current-year>2026</span> Living Charity e. V.</p>
-      <p>Hilfe, die ankommt — dokumentiert und ansprechbar.</p>
+      <p>Hilfe, die Menschen direkt erreicht.</p>
     </div>
   </div>
 </footer>
