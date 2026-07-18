@@ -133,7 +133,8 @@ const renderers = {
       .map((a, i) => `<button type="button" aria-pressed="${i === 0 ? "true" : "false"}" data-amount="${a}">${a} €</button>`)
       .join("");
     return `<div class="donation-panel">
-      <p class="donation-panel__label">Spenden per Überweisung</p>
+      <p class="donation-panel__label">Spendenkonto</p>
+      <h2 class="donation-panel__title">Per Überweisung spenden</h2>
       <p class="text-sm text-muted" style="margin-top:.5rem">Wählen Sie einen Betrag als Orientierung — überwiesen wird ganz normal über Ihre Bank.</p>
       <div class="amount-picker" role="group" aria-label="Spendenbetrag als Orientierung wählen">${amounts}<button type="button" aria-pressed="false" data-amount="frei">Freier Betrag</button></div>
       <dl>
