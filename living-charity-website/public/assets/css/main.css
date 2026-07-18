@@ -202,6 +202,10 @@ a:hover { color: var(--brand-strong); }
 /* ---------- Fokus & Tastatur ---------- */
 
 :focus-visible { outline: var(--focus-ring); outline-offset: 2px; border-radius: 2px; }
+/* Auf dunklen Flächen reicht Markenrot nicht (2,55:1) — heller Ring (≥ 3:1) */
+.section-dark :focus-visible, .site-footer :focus-visible, .trust-strip :focus-visible {
+  outline-color: var(--on-dark);
+}
 
 .skip-link {
   position: absolute;
