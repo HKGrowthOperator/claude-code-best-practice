@@ -247,7 +247,10 @@ function headFor(page) {
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Startseite", item: base + "/" },
-            { "@type": "ListItem", position: 2, name: page.breadcrumb, item: canonical },
+            ...(page.breadcrumbParent
+              ? [{ "@type": "ListItem", position: 2, name: page.breadcrumbParent.name, item: base + page.breadcrumbParent.path },
+                 { "@type": "ListItem", position: 3, name: page.breadcrumb, item: canonical }]
+              : [{ "@type": "ListItem", position: 2, name: page.breadcrumb, item: canonical }]),
           ],
         })}</script>`
       : "";
@@ -262,6 +265,10 @@ ${page.noindex ? '<meta name="robots" content="noindex,follow">' : `<link rel="c
 <meta property="og:description" content="${esc(page.description)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${base}/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(org.name)} — Hilfe, die Menschen direkt erreicht.">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:locale" content="de_DE">
 <link rel="icon" href="/assets/img/favicon-64.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -330,7 +337,7 @@ writeFileSync(
 );
 writeFileSync(
   join(OUT, "robots.txt"),
-  `# VORABVERSION: Indexierung gesperrt.\n# Vor Livegang ersetzen durch:\n#   User-agent: *\n#   Allow: /\n#   Sitemap: ${base}/sitemap.xml\nUser-agent: *\nDisallow: /\n`
+  `# VORABVERSION: Indexierung gesperrt.\n# Vor Livegang ersetzen durch:\n#   User-agent: *\n#   Allow: /\n#   Disallow: /preview/\n#   Sitemap: ${base}/sitemap.xml\nUser-agent: *\nDisallow: /\n`
 );
 
 console.log(`\nBuild fertig: ${pages.length} Seiten → public/`);
