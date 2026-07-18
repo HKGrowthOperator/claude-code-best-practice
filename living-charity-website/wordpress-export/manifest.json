@@ -1,0 +1,96 @@
+{
+  "generated": "aus public/ via src/utils/export-wp.mjs",
+  "defaultStatus": "draft",
+  "pages": [
+    {
+      "slug": "startseite",
+      "title": "Startseite",
+      "order": 0,
+      "metaDescription": "Living Charity e. V. ist ein eingetragener Verein aus Bergneustadt (seit 2010). Wir organisieren konkrete Hilfe, dokumentieren unsere Projekte und zeigen, wie Ihre Unterstützung wirkt.",
+      "front": true,
+      "note": null,
+      "file": "pages/startseite.html"
+    },
+    {
+      "slug": "ueber-uns",
+      "title": "Über uns",
+      "order": 1,
+      "metaDescription": "Wer hinter Living Charity e. V. steht: Vorstand, Registerdaten und Arbeitsweise des eingetragenen Vereins aus Bergneustadt.",
+      "front": false,
+      "note": null,
+      "file": "pages/ueber-uns.html"
+    },
+    {
+      "slug": "projekte",
+      "title": "Projekte",
+      "order": 2,
+      "metaDescription": "Alle Projekte von Living Charity e. V. mit Ort, Status und Ziel — nachvollziehbar dokumentiert vom eingetragenen Verein aus Bergneustadt.",
+      "front": false,
+      "note": "Wird später durch das CPT-Archiv lc_project ersetzt.",
+      "file": "pages/projekte.html"
+    },
+    {
+      "slug": "aktuelles",
+      "title": "Aktuelles",
+      "order": 3,
+      "metaDescription": "Neuigkeiten, Projekt-Updates und Rückblicke von Living Charity e. V. — ehrlich datiert und klar gekennzeichnet.",
+      "front": false,
+      "note": "Als Beitragsseite (posts page) konfigurieren oder später durch home-Template ersetzen.",
+      "file": "pages/aktuelles.html"
+    },
+    {
+      "slug": "veranstaltungen",
+      "title": "Veranstaltungen",
+      "order": 4,
+      "metaDescription": "Kommende Termine und Rückblicke von Living Charity e. V. — Benefizveranstaltungen, Sammelaktionen und Informationsabende.",
+      "front": false,
+      "note": "Wird später durch das CPT-Archiv lc_event ersetzt.",
+      "file": "pages/veranstaltungen.html"
+    },
+    {
+      "slug": "spenden",
+      "title": "Spenden",
+      "order": 5,
+      "metaDescription": "Spenden an Living Charity e. V. (Bergneustadt): Bankverbindung, Verwendungszweck und transparente Mittelverwendung. Allgemein oder projektbezogen unterstützen.",
+      "front": false,
+      "note": null,
+      "file": "pages/spenden.html"
+    },
+    {
+      "slug": "mitmachen",
+      "title": "Mitmachen",
+      "order": 6,
+      "metaDescription": "Ehrenamt, Sachspenden, Unternehmenspartnerschaften oder eigene Aktionen: So können Sie Living Charity e. V. aus Bergneustadt unterstützen.",
+      "front": false,
+      "note": null,
+      "file": "pages/mitmachen.html"
+    },
+    {
+      "slug": "kontakt",
+      "title": "Kontakt",
+      "order": 7,
+      "metaDescription": "Kontakt zu Living Charity e. V.: Kontaktformular, E-Mail und Anschrift in Bergneustadt. Wir antworten persönlich.",
+      "front": false,
+      "note": "Formular durch Formular-Plugin-Block ersetzen (Feldstruktur siehe migration-guide Schritt 4).",
+      "file": "pages/kontakt.html"
+    },
+    {
+      "slug": "impressum",
+      "title": "Impressum",
+      "order": 8,
+      "metaDescription": "Impressum von Living Charity e. V., Bergneustadt.",
+      "front": false,
+      "note": null,
+      "file": "pages/impressum.html"
+    },
+    {
+      "slug": "datenschutz",
+      "title": "Datenschutz",
+      "order": 9,
+      "metaDescription": "Datenschutzerklärung von Living Charity e. V., Bergneustadt.",
+      "front": false,
+      "note": null,
+      "file": "pages/datenschutz.html"
+    }
+  ]
+}
