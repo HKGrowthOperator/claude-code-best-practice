@@ -28,7 +28,7 @@
       <!-- Kontaktformular. Vorabversion: kein Versand (data-endpoint="none") —
            nach Absenden Weiterleitung auf /danke/. Serverseitige Verarbeitung:
            docs/migration-guide.md, Schritt 4. -->
-      <form class="form reveal" data-contact-form data-endpoint="none" method="post" action="#" novalidate>
+      <form class="form reveal" data-contact-form data-endpoint="none" method="post" action="#">
         <h2>Nachricht senden</h2>
         <p class="form__status" role="status" aria-live="polite"></p>
 
@@ -80,13 +80,20 @@
 
         <div class="checkbox-field field">
           <input type="checkbox" id="kontakt-datenschutz" name="datenschutz" required aria-describedby="err-datenschutz">
-          <label for="kontakt-datenschutz">Ich habe die
-            <a href="/datenschutz/">Datenschutzerklärung</a> gelesen und bin damit
-            einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage
-            verarbeitet werden. Die Einwilligung kann ich jederzeit widerrufen.</label>
+          <div>
+            <label for="kontakt-datenschutz">Ich habe die
+              <a href="/datenschutz/">Datenschutzerklärung</a> gelesen und bin damit
+              einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage
+              verarbeitet werden. Die Einwilligung kann ich jederzeit widerrufen.</label>
+            <p class="field__error" id="err-datenschutz">Bitte bestätigen Sie die Datenschutzhinweise.</p>
+          </div>
         </div>
-        <p class="field__error" id="err-datenschutz" style="display:none">Bitte bestätigen Sie die Datenschutzhinweise.</p>
 
+        <noscript>
+          <p class="error-state">Ohne JavaScript kann dieses Formular nicht
+          gesendet werden. Schreiben Sie uns bitte direkt an
+          <a href="mailto:info@livingcharity.de">info@livingcharity.de</a>.</p>
+        </noscript>
         <div>
           <button type="submit" class="btn btn--primary">Absenden <span class="btn__arrow" aria-hidden="true">→</span></button>
           <p class="field__hint" style="margin-top:.75rem">Ihre Daten werden nur zur
