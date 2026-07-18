@@ -18,6 +18,7 @@ Stand: 18.07.2026 · Pflege: bei jeder Inhaltsänderung aktualisieren.
 | Vorsitzender N. Sivananthan, Schatzmeister O. Thanapalasingham | Website + Register | Über uns, Startseite, Impressum |
 | Kurzbeschreibung, Mission, Sri-Lanka-Einleitung, Transparenztext | Briefing (verbindlich freigegeben) | Startseite, Unsere Arbeit, Sri Lanka, Über uns, Transparenz |
 | 5-Euro-Claim als zitierte fremde Aussage inkl. Quellenlink | öffentlicher Spendenaufruf (Q3) | Impact-Modul (3 Seiten) — exakte Formulierungsregeln in confirmed-data.md |
+| Logo (Herz aus zwei Händen, Rot #B50000 / Schwarz #161616) | Originaldatei vom Auftraggeber (18.07.2026) | Header, Footer, Favicon, OG-Bild; Farbwelt der Website daraus abgeleitet |
 
 ## Kategorie B — Verwendet, aber vor Livegang zu bestätigen (`confirmation-required`)
 
@@ -38,7 +39,7 @@ Stand: 18.07.2026 · Pflege: bei jeder Inhaltsänderung aktualisieren.
 
 | Inhalt | LB | Aktuelle Lösung im Frontend |
 | --- | --- | --- |
-| Logo | LB-08 | neutrale typografische Marke „LC" |
+| SVG-/Vektorfassung des Logos | LB-08 | hochauflösendes PNG-Original ist integriert (18.07.2026); Vektor für Druck/Skalierung nachreichen |
 | Dokumentarische Fotos (Hero, Projekte, Team) | LB-09 | „Originale Projektaufnahme wird ergänzt." + Badge „Platzhalter"; Team: Initialen |
 | Echte Hilfsaktions-Daten (Projekt-Komponente) | — | Leerlösung „Aktuelle Hilfsaktion wird dokumentiert" (Briefing-Wortlaut) |
 | Beiträge/Berichte | — | Leerlösung „Neue Einblicke und Projektberichte werden derzeit vorbereitet." |
