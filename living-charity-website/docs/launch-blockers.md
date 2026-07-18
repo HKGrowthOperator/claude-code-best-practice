@@ -16,7 +16,7 @@ Auftraggeber freigegeben ist.
 | LB-05 | 5-Euro-Claim: schriftliche Freigabe von Dr. Umes Arunagirinathan für die zitierte Verwendung einholen (öffentliche Quelle ist verlinkt, Freigabe ist Empfehlung des Briefings) | Impact-Modul (3 Seiten) | Auftraggeber |
 | LB-06 | Kontaktformular: serverseitige Verarbeitung + Versand erst mit WordPress-Integration (bis dahin Weiterleitung auf /danke/ mit ehrlichem Hinweis) | /kontakt/ | WP-Integration |
 | LB-07 | Anschrift, E-Mail-Postfach und Schriftführer-Angabe bestätigen | Footer, Kontakt, Impressum, Über uns | Verein |
-| LB-08 | Logo: Original-Vektordatei + verbindliche Farbwerte fehlen — die echte Bildmarke (Kreis mit Wellenlinien, per Screenshot belegt) ist vorerst als nachgezeichnete SVG-Näherung hinterlegt | Header, Footer, Favicon, OG-Bild | Verein |
+| LB-08 | Logo: hochauflösendes Original (Herz-Hände, Rot/Schwarz) liegt vor und ist integriert (PNG, Farben gesampelt: #B50000/#161616); noch offen: SVG-/Vektordatei für perfekte Skalierung + formale Farbfreigabe | Header, Footer, Favicon, OG-Bild | Verein |
 | LB-09 | Hero-/Projektbilder: „Originale Projektaufnahme wird ergänzt." — echte dokumentarische Fotos mit Rechten/Einwilligungen nötig | Startseite, Unterseiten | Verein |
 | LB-10 | robots.txt steht auf Disallow (Vorabversion) — vor Livegang freischalten | /robots.txt | Umsetzung bei Livegang |
 | LB-11 | Wunschdomain bestätigen (Canonical-Basis derzeit www.livingcharity.de) | alle Canonicals, sitemap.xml | Verein |
@@ -32,7 +32,7 @@ Auftraggeber freigegeben ist.
 | LB-16 | QR-Überweisung (Girocode) aktivieren — erst nach LB-03 | /spenden/ |
 | LB-17 | Telefonnummer nachreichen → Click-to-Call + Footer-Zeile aktivieren (vorbereitet) | Footer, /kontakt/ |
 | LB-18 | Nicht bestätigte Unterstützungsformen (Sachspenden, Unternehmens-Kooperation) bestätigen oder entfernen | Startseite „Möglichkeiten zu helfen" |
-| LB-19 | OG-Bild als PNG 1200×630 mit echtem Logo/Foto erzeugen (SVG-Platzhalter aktiv) | Meta aller Seiten |
+| LB-19 | ~~erledigt 18.07.2026~~ OG-Bild liegt als PNG 1200×630 mit echtem Logo vor (assets/img/og-default.png); optional später mit dokumentarischem Foto verfeinern | Meta aller Seiten |
 | LB-20 | Externe Freigabe-/AV-Themen des Hostings klären (Server-Logs für Datenschutzerklärung) | /datenschutz/ |
 
 ## Prüfmechanik
