@@ -40,6 +40,16 @@ Vorabversion: Begleitdatei `<dateiname>.meta.json` im selben Ordner.
    Schnitte, Rechnungen/Belege, Erklärung des lokalen Verantwortlichen,
    Einwilligungen, regelmäßige Updates.
 
+## Vorhandenes Material der Altseite (prüfen statt neu beschaffen)
+
+Die Altseite zeigt mehrere echte dokumentarische Sri-Lanka-Fotografien
+(Hero: Mutter mit Kindern; Galerie: Familie vor Unterkunft, Trauerszene,
+Schulkinder). Vor einer Übernahme klären: Herkunft (eigene Aufnahmen? Agentur?),
+Nutzungsrechte, Einwilligungen der abgebildeten Personen; danach Originaldateien
+in `assets/projects/originals/` mit Metadaten ablegen. Die Stockfotos der
+Demo-Veranstaltungen (Mahnwache, Demonstration) sind ungeeignet und werden
+nicht übernommen.
+
 ## Benötigte Bilder (Einsatzorte)
 
 | Nr. | Einsatzort | Motiv | Format | Mindestauflösung |
