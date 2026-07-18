@@ -3,7 +3,7 @@
  * Erzeugt eine einzelne, vollständig selbst-enthaltene Vorschau-Datei:
  *   public/preview/index.html
  *
- *  - alle 14 Seiten in einem Dokument (Client-Router, echte Navigation)
+ *  - alle 17 Seiten in einem Dokument (Client-Router, echte Navigation)
  *  - CSS inline, Fonts als Data-URIs (keinerlei externe Requests)
  *  - Viewport-Umschalter (Mobil 390 / Tablet 768 / Laptop 1024 / Voll)
  *    über ein same-origin-iframe, damit Media Queries echt reagieren
@@ -40,14 +40,13 @@ const pages = {};
 /* ---------- Assets inline ---------- */
 const b64 = (p) => readFileSync(join(OUT, p)).toString("base64");
 let css = readFileSync(join(OUT, "assets", "css", "main.css"), "utf8");
-css = css
-  .replace('url("/assets/fonts/alegreya-var.woff2")', `url("data:font/woff2;base64,${b64("assets/fonts/alegreya-var.woff2")}")`)
-  .replace('url("/assets/fonts/alegreya-italic-var.woff2")', `url("data:font/woff2;base64,${b64("assets/fonts/alegreya-italic-var.woff2")}")`)
-  .replace('url("/assets/fonts/source-sans-3-var.woff2")', `url("data:font/woff2;base64,${b64("assets/fonts/source-sans-3-var.woff2")}")`);
+for (const f of ["manrope-var.woff2", "source-sans-3-var.woff2", "newsreader-italic-var.woff2"]) {
+  css = css.replace(`url("/assets/fonts/${f}")`, `url("data:font/woff2;base64,${b64("assets/fonts/" + f)}")`);
+}
 const mainJs = readFileSync(join(OUT, "assets", "js", "main.js"), "utf8");
 
-const markerCount = Object.values(pages).reduce(
-  (n, p) => n + (p.body.match(/\[(INHALT VON LIVING CHARITY|BITTE DURCH DEN AUFTRAGGEBER|RECHTSTEXT DURCH AUFTRAGGEBER)/g) || []).length, 0);
+// v2: keine sichtbaren Marker mehr — gezählt werden offene Launch-Blocker (docs/launch-blockers.md)
+const markerCount = 11;
 
 /* ---------- Dokument für das iframe (die eigentliche Website) ---------- */
 const siteDoc = `<!doctype html><html lang="de"><head><meta charset="utf-8">
@@ -58,6 +57,7 @@ const siteDoc = `<!doctype html><html lang="de"><head><meta charset="utf-8">
 <div id="app"></div>
 <script>
 var PAGES = __PAGES__;
+window.__LC_SEARCH_INDEX = __SEARCHINDEX__;
 var MAIN_JS = __MAINJS__;
 function render(route) {
   if (!PAGES[route]) route = "/404.html";
@@ -86,16 +86,18 @@ window.addEventListener("message", function (e) {
 render("/");
 </script></body></html>`
   .replace("__PAGES__", JSON.stringify(pages).replace(/<\/script/gi, "<\\/script"))
+  .replace("__SEARCHINDEX__", readFileSync(join(OUT, "assets", "search-index.json"), "utf8").replace(/<\/script/gi, "<\\/script"))
   .replace("__MAINJS__", JSON.stringify(mainJs).replace(/<\/script/gi, "<\\/script"));
 
 /* ---------- Vorschau-Rahmen ---------- */
 const routesForSelect = [
-  ["/", "Startseite"], ["/ueber-uns/", "Über uns"], ["/projekte/", "Projekte"],
-  ["/projekte/projekt/", "· Projekt-Vorlage"], ["/aktuelles/", "Aktuelles"],
-  ["/aktuelles/beitrag/", "· Beitrags-Vorlage"], ["/veranstaltungen/", "Veranstaltungen"],
-  ["/veranstaltungen/veranstaltung/", "· Veranstaltungs-Vorlage"], ["/spenden/", "Spenden"],
-  ["/mitmachen/", "Mitmachen"], ["/kontakt/", "Kontakt"], ["/impressum/", "Impressum"],
-  ["/datenschutz/", "Datenschutz"], ["/404.html", "404-Seite"],
+  ["/", "Startseite"], ["/unsere-arbeit/", "Unsere Arbeit"], ["/sri-lanka/", "Sri Lanka"],
+  ["/projekte/", "Projekte"], ["/projekte/projekt/", "· Projekt-Vorlage"],
+  ["/plant-ceylon/", "Plant Ceylon"], ["/spenden/", "Spenden"], ["/ueber-uns/", "Über uns"],
+  ["/aktuelles/", "Aktuelles"], ["/aktuelles/beitrag/", "· Beitrags-Vorlage"],
+  ["/kontakt/", "Kontakt"], ["/transparenz/", "Transparenz"],
+  ["/impressum/", "Impressum"], ["/datenschutz/", "Datenschutz"],
+  ["/danke/", "Danke-Seite"], ["/suche/", "Suche"], ["/404.html", "404-Seite"],
 ];
 
 const shell = `<title>Living Charity e. V. — Website-Vorabversion</title>
@@ -143,7 +145,7 @@ const shell = `<title>Living Charity e. V. — Website-Vorabversion</title>
     <button type="button" data-w="1024">Laptop</button>
     <button type="button" data-w="full" aria-pressed="true">Voll</button>
   </div>
-  <span class="note"><b>${markerCount}</b> offene Inhalts-Marker</span>
+  <span class="note"><b>${markerCount}</b> offene Launch-Blocker</span>
 </div>
 <div class="stage" id="stage"><iframe id="site" title="Website-Vorschau: Living Charity e. V."></iframe></div>
 <script>
