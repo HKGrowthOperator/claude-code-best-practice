@@ -1,53 +1,57 @@
 /* ============================================================
    Living Charity e. V. — Design-Tokens
    Designkonzept: „Editorial Humanitarian Premium"
-   (ruhig, dokumentarisch, hochwertig — kein Charity-Template)
 
-   Zentrale Quelle aller Gestaltungswerte. Keine Magic Values in
-   anderen Dateien. In WordPress wandern diese Werte 1:1 nach
-   theme.json — siehe docs/wordpress-blueprint.md.
+   FARBWELT: abgeleitet aus dem ECHTEN Vereinslogo (Herz aus zwei
+   Händen, Rot #B50000 + Schwarz ~#141414, Wortmarke LIVING CHARITY).
+   Rot ist die Markenfarbe und wird gezielt eingesetzt (CTAs, Akzente,
+   5-€-Ziffer); Schwarz trägt Tiefe (Trust-Strip, dunkle Sektionen,
+   Footer); warme helle Neutraltöne halten die Seite ruhig — kein
+   grelles Spendenportal.
 
-   Farbwelt: verbindliche Palette aus dem Projektbriefing.
+   Zentrale Quelle aller Gestaltungswerte; in WordPress → theme.json.
    ============================================================ */
 
 :root {
-  /* ---------- Farben (Briefing-Palette) ---------- */
-  --ink:          #17201d;   /* dunkelste Fläche, Text auf hellen Flächen */
-  --forest:       #173f35;   /* Header, Footer, Schwerpunktbereiche */
-  --forest-soft:  #2e6656;   /* Hover, sekundäre Grünflächen */
-  --sage:         #afc2b5;   /* stille Flächen-/Linienabstufung */
-  --sand:         #e9e2d5;   /* warme Abstufungsfläche */
-  --ivory:        #f7f5ef;   /* primärer Seitenhintergrund */
-  --paper:        #ffffff;   /* redaktionelle Inhaltsflächen */
-  --terracotta:   #b86548;   /* warmer Akzent — sparsam (Sri-Lanka, Impact) */
-  --terracotta-deep: #9d4f34; /* Akzent mit Textkontrast ≥ 4.5:1 auf Ivory */
-  --text:         #202622;
-  --text-muted:   #68716c;
-  --line:         #dde2dd;
-  --line-strong:  #c3ccc4;
+  /* ---------- Marke (aus Logo gesampelt) ---------- */
+  --brand:        #b50000;  /* Logo-Rot — Akzent, CTAs, Links; auf Ivory 6.5:1 */
+  --brand-strong: #8f0d12;  /* vertieftes Rot — Hover, kleine Texte */
+  --brand-tint:   #f7e9e7;  /* stille rote Fläche (Badges, Hovers) */
+  --ink:          #161616;  /* Logo-Schwarz — Text, dunkle Flächen */
+
+  /* ---------- Neutraltöne (warm, ohne Grünstich) ---------- */
+  --ivory:        #f7f4f0;  /* primärer Seitenhintergrund */
+  --paper:        #ffffff;  /* redaktionelle Inhaltsflächen, Header */
+  --sand:         #ece7e1;  /* warme Abstufungsfläche */
+  --stone:        #c9c3bc;  /* stille Linien-/Flächenabstufung */
+  --text:         #232120;
+  --text-muted:   #6b6560;
+  --line:         #e3dfda;
+  --line-strong:  #c8c2bb;
+
+  /* Status (semantisch, getrennt von der Markenfarbe) */
   --success:      #267858;
-  --warning:      #a16a27;
+  --warning:      #8a5f20;
   --error:        #a63e38;
 
-  /* helle Töne für dunkle (Forest-)Flächen */
-  --on-forest:        #f2f4ef;
-  --on-forest-muted:  #b9c9c0;
-  --on-forest-line:   rgb(242 244 239 / 0.16);
+  /* helle Töne für dunkle (Ink-)Flächen */
+  --on-dark:        #f5f3f0;
+  --on-dark-muted:  #b7b1ab;
+  --on-dark-line:   rgb(245 243 240 / 0.16);
 
   /* ---------- Typografie ---------- */
   --font-display: "Manrope", -apple-system, "Segoe UI", system-ui, sans-serif;
   --font-text: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --font-editorial: "Newsreader", Georgia, serif; /* nur kursiver Akzent */
 
-  /* Modulare Skala, fluid — keine übergroßen SaaS-Headlines */
   --text-xs:   0.8125rem;
   --text-sm:   0.9375rem;
-  --text-base: clamp(1.0625rem, 1rem + 0.25vw, 1.1563rem);   /* 17–18.5px */
+  --text-base: clamp(1.0625rem, 1rem + 0.25vw, 1.1563rem);
   --text-lg:   clamp(1.25rem, 1.15rem + 0.4vw, 1.4375rem);
-  --text-xl:   clamp(1.45rem, 1.3rem + 0.8vw, 1.875rem);      /* H3 */
-  --text-2xl:  clamp(1.75rem, 1.5rem + 1.4vw, 2.5rem);        /* H2 */
-  --text-3xl:  clamp(2.125rem, 1.75rem + 2.2vw, 3.375rem);    /* H1 — kontrolliert */
-  --text-impact: clamp(3.5rem, 2.8rem + 4vw, 6rem);           /* 5-€-Zahl */
+  --text-xl:   clamp(1.45rem, 1.3rem + 0.8vw, 1.875rem);
+  --text-2xl:  clamp(1.75rem, 1.5rem + 1.4vw, 2.5rem);
+  --text-3xl:  clamp(2.125rem, 1.75rem + 2.2vw, 3.375rem);
+  --text-impact: clamp(3.5rem, 2.8rem + 4vw, 6rem);
 
   --leading-tight: 1.12;
   --leading-snug:  1.3;
@@ -66,25 +70,25 @@
   --space-section: clamp(4rem, 3rem + 4.5vw, 7rem);
   --space-section-sm: clamp(2.5rem, 2rem + 2.5vw, 4rem);
 
-  --container-max: 80rem;     /* 1280 px Inhaltsmaximum */
-  --container-text: 42.5rem;  /* 680 px Editorial-Textbreite */
+  --container-max: 80rem;
+  --container-text: 42.5rem;
   --container-pad: clamp(1.25rem, 4vw, 2.5rem);
 
-  /* ---------- Form: feine Linien, kaum Schatten, Radien 4–12 px ---------- */
-  --radius-sm: 6px;           /* Buttons, Felder */
-  --radius-md: 10px;          /* Karten, Bildflächen */
+  /* ---------- Form ---------- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
   --radius-xs: 4px;
-  --shadow-soft: 0 1px 2px rgb(23 32 29 / 0.06);
-  --shadow-lift: 0 2px 6px rgb(23 32 29 / 0.08);
+  --shadow-soft: 0 1px 2px rgb(22 22 22 / 0.06);
+  --shadow-lift: 0 2px 6px rgb(22 22 22 / 0.08);
 
-  /* ---------- Bewegung: ruhig, max. 2 px Verschiebung ---------- */
+  /* ---------- Bewegung ---------- */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --duration-quick: 160ms;
   --duration-reveal: 600ms;
 
   /* ---------- Interaktion ---------- */
   --touch-target: 2.75rem;
-  --focus-ring: 3px solid var(--terracotta-deep);
+  --focus-ring: 3px solid var(--brand);
 }
 
 /* Lokal gehostete Variable Fonts (DSGVO: keine externen Requests) */
