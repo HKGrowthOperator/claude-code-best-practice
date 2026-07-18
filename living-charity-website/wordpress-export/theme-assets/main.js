@@ -1,13 +1,13 @@
-/* Living Charity e. V. — zentrales Frontend-Skript (ohne Abhängigkeiten, < 5 KB)
-   Alles hier ist Progressive Enhancement: Die Seite funktioniert vollständig ohne JS. */
+/* Living Charity e. V. — zentrales Frontend-Skript (ohne Abhängigkeiten)
+   Progressive Enhancement: Die Seite funktioniert vollständig ohne JS. */
 (function () {
   "use strict";
 
-  /* ---------- Sticky-Header: Schatten erst nach leichtem Scrollen ---------- */
+  /* ---------- Sticky-Header: Schatten erst nach erstem Scrollbereich ---------- */
   var header = document.querySelector("[data-header]");
   if (header) {
     var onScroll = function () {
-      header.classList.toggle("is-scrolled", window.scrollY > 24);
+      header.classList.toggle("is-scrolled", window.scrollY > 32);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -34,7 +34,6 @@
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var revealEls = document.querySelectorAll(".reveal");
   if (!reduceMotion && "IntersectionObserver" in window && revealEls.length) {
-    // Stagger-Index für Kartenraster
     document.querySelectorAll(".reveal-stagger").forEach(function (group) {
       Array.prototype.forEach.call(group.children, function (child, i) {
         child.style.setProperty("--stagger-i", String(i % 6));
@@ -56,7 +55,7 @@
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
-  /* ---------- Projektfortschritt animieren (nur mit echten Daten befüllt) ---------- */
+  /* ---------- Projektfortschritt (nur mit echten Daten befüllt) ---------- */
   document.querySelectorAll(".progress[data-progress]").forEach(function (el) {
     var val = Math.max(0, Math.min(100, parseFloat(el.getAttribute("data-progress")) || 0));
     var bar = el.querySelector(".progress__bar");
@@ -68,7 +67,7 @@
     }
   });
 
-  /* ---------- IBAN-Kopierknopf ---------- */
+  /* ---------- Kopierknöpfe (IBAN, BIC) ---------- */
   document.querySelectorAll("[data-copy-plain]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var value = btn.getAttribute("data-copy-plain");
@@ -79,7 +78,6 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(value).then(done, done);
       } else {
-        // Fallback: Textauswahl
         var target = document.getElementById(btn.getAttribute("data-copy-target"));
         if (target && window.getSelection) {
           var range = document.createRange();
@@ -93,11 +91,35 @@
     });
   });
 
-  /* ---------- Kontaktformular: klientenseitige Validierung ----------
-     Serverseitige Validierung ist zwingend zusätzlich nötig — siehe
-     wordpress-blueprint/migration-guide.md (Formular-Integration). */
+  /* ---------- Betragsauswahl (Orientierung für die Überweisung) ---------- */
+  document.querySelectorAll(".amount-picker").forEach(function (picker) {
+    picker.addEventListener("click", function (e) {
+      var btn = e.target.closest("button");
+      if (!btn) return;
+      picker.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+      btn.setAttribute("aria-pressed", "true");
+      var purpose = document.getElementById("purpose-value");
+      if (purpose) {
+        var amount = btn.getAttribute("data-amount");
+        purpose.textContent = amount === "frei"
+          ? "Spende Living Charity"
+          : "Spende Living Charity — Orientierungsbetrag " + amount + " €";
+      }
+    });
+  });
+
+  /* ---------- Kontaktformular ----------
+     Serverseitige Validierung ist zusätzlich zwingend — siehe docs/migration-guide.md. */
   var form = document.querySelector("[data-contact-form]");
   if (form) {
+    // Thema aus URL vorbelegen (?thema=… / ?anliegen=…)
+    try {
+      var params = new URLSearchParams(location.search);
+      var topic = params.get("thema") || params.get("anliegen");
+      var select = form.querySelector("select[name=thema]");
+      if (topic && select && select.querySelector('option[value="' + topic + '"]')) select.value = topic;
+    } catch (e) {}
+
     var status = form.querySelector(".form__status");
     var setError = function (field, hasError) {
       var wrap = field.closest(".field, .checkbox-field");
@@ -114,7 +136,6 @@
         setError(field, !ok);
         if (!ok) invalid.push(field);
       });
-      // Honeypot: gefüllt = Bot, still verwerfen
       var hp = form.querySelector(".hp-field input");
       if (hp && hp.value !== "") { e.preventDefault(); return; }
 
@@ -127,22 +148,68 @@
         }
         return;
       }
-      // Vorabversion: kein Backend angebunden. Absenden abfangen und ehrlich melden.
+      // Vorabversion: kein Backend. Ehrlich melden und zur Danke-Logik der
+      // späteren WordPress-Integration (Weiterleitung auf /danke/) überleiten.
       if (form.getAttribute("data-endpoint") === "none") {
         e.preventDefault();
-        if (status) {
-          status.className = "form__status is-success";
-          status.textContent =
-            "Vielen Dank! Hinweis Vorabversion: Der Versand wird erst mit der WordPress-Integration aktiviert. " +
-            "Bis dahin erreichen Sie uns per E-Mail.";
-        }
-        form.reset();
+        window.location.href = "/danke/";
       }
     });
-    // Fehlermarkierung beim Korrigieren entfernen
     form.addEventListener("input", function (e) {
       if (e.target.matches("[required]")) setError(e.target, false);
     });
+  }
+
+  /* ---------- Suche (clientseitig über generierten Index) ---------- */
+  var searchForm = document.querySelector("[data-search]");
+  if (searchForm) {
+    var resultsEl = document.getElementById("suchergebnisse");
+    var statusEl = document.getElementById("suchstatus");
+    var runSearch = function (index, q) {
+      var query = q.trim().toLowerCase();
+      resultsEl.innerHTML = "";
+      if (query.length < 2) {
+        statusEl.textContent = "Bitte mindestens zwei Zeichen eingeben.";
+        return;
+      }
+      var hits = index.filter(function (p) {
+        return (p.title + " " + p.text).toLowerCase().indexOf(query) !== -1;
+      });
+      statusEl.textContent = hits.length
+        ? hits.length + " Treffer für „" + q.trim() + "“"
+        : "Keine Treffer für „" + q.trim() + "“. Versuchen Sie einen anderen Begriff oder nutzen Sie die Navigation.";
+      hits.forEach(function (p) {
+        var pos = p.text.toLowerCase().indexOf(query);
+        var excerpt = pos > -1 ? "… " + p.text.slice(Math.max(0, pos - 60), pos + 120) + " …" : "";
+        var li = document.createElement("li");
+        li.innerHTML = '<a href="' + p.path + '"></a><p class="text-sm text-muted"></p>';
+        li.querySelector("a").textContent = p.title;
+        li.querySelector("p").textContent = excerpt;
+        resultsEl.appendChild(li);
+      });
+    };
+    var withIndex = function (cb) {
+      if (window.__LC_SEARCH_INDEX) { cb(window.__LC_SEARCH_INDEX); return; }
+      fetch("/assets/search-index.json")
+        .then(function (r) { return r.json(); })
+        .then(cb)
+        .catch(function () {
+          statusEl.textContent = "Die Suche ist gerade nicht verfügbar. Bitte nutzen Sie die Navigation oder schreiben Sie uns.";
+        });
+    };
+    searchForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var q = searchForm.querySelector("input[name=q]").value;
+      withIndex(function (index) { runSearch(index, q); });
+    });
+    // Direktaufruf mit ?q=
+    try {
+      var q0 = new URLSearchParams(location.search).get("q");
+      if (q0) {
+        searchForm.querySelector("input[name=q]").value = q0;
+        withIndex(function (index) { runSearch(index, q0); });
+      }
+    } catch (e) {}
   }
 
   /* ---------- Aktuelles Jahr im Footer ---------- */
