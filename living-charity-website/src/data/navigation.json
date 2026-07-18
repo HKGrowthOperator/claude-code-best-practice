@@ -1,0 +1,25 @@
+{
+  "_kommentar": "Hauptnavigation (max. 6 Punkte + CTA) und Footer-Navigation. In WordPress: Menüs 'Hauptmenü' und 'Footer'.",
+  "main": [
+    { "label": "Über uns", "href": "/ueber-uns/" },
+    { "label": "Projekte", "href": "/projekte/" },
+    { "label": "Aktuelles", "href": "/aktuelles/" },
+    { "label": "Mitmachen", "href": "/mitmachen/" },
+    { "label": "Kontakt", "href": "/kontakt/" }
+  ],
+  "footerVerein": [
+    { "label": "Über uns", "href": "/ueber-uns/" },
+    { "label": "Projekte", "href": "/projekte/" },
+    { "label": "Aktuelles", "href": "/aktuelles/" },
+    { "label": "Veranstaltungen", "href": "/veranstaltungen/" }
+  ],
+  "footerHelfen": [
+    { "label": "Spenden", "href": "/spenden/" },
+    { "label": "Mitmachen", "href": "/mitmachen/" },
+    { "label": "Kontakt", "href": "/kontakt/" }
+  ],
+  "footerRecht": [
+    { "label": "Impressum", "href": "/impressum/" },
+    { "label": "Datenschutz", "href": "/datenschutz/" }
+  ]
+}
