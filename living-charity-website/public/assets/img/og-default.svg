@@ -1,11 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <!-- Social-Preview-Platzhalter. Vor Livegang durch 1200x630-PNG mit echtem
-       Logo und dokumentarischem Foto ersetzen (image-requirements.md, S1).
-       Einige Plattformen rendern SVG-OG-Bilder nicht — PNG erzeugen! -->
+  <!-- Social-Preview-Platzhalter mit nachgezeichneter Bildmarke. Vor Livegang
+       durch 1200x630-PNG mit Original-Logo und dokumentarischem Foto ersetzen
+       (image-requirements.md OG1; LB-19). SVG wird nicht überall gerendert. -->
   <rect width="1200" height="630" fill="#f7f5ef"/>
   <rect y="470" width="1200" height="160" fill="#173f35"/>
-  <rect x="80" y="90" width="64" height="64" rx="12" fill="#173f35"/>
-  <text x="112" y="132" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="800" fill="#f2f4ef">LC</text>
+  <circle cx="122" cy="122" r="42" fill="#10352c"/>
+  <g clip-path="url(#c)" stroke="#f2f4ef" stroke-width="5.5" fill="none" stroke-linecap="round">
+    <path d="M78 104 Q 110 84 168 94"/>
+    <path d="M76 121 Q 112 102 170 110"/>
+    <path d="M76 138 Q 116 118 170 126"/>
+    <path d="M84 154 Q 122 136 166 142"/>
+  </g>
+  <defs><clipPath id="c"><circle cx="122" cy="122" r="39"/></clipPath></defs>
   <text x="80" y="270" font-family="sans-serif" font-size="72" font-weight="800" fill="#17201d">Living Charity e. V.</text>
   <text x="80" y="345" font-family="Georgia, serif" font-style="italic" font-size="40" fill="#173f35">Hilfe, die Menschen direkt erreicht.</text>
   <text x="80" y="540" font-family="sans-serif" font-size="26" fill="#b9c9c0">Eingetragener Verein seit 2010 · Amtsgericht Köln · VR 16395</text>
