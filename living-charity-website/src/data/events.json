@@ -1,5 +1,5 @@
 {
-  "_kommentar": "Veranstaltungen. Entspricht in WordPress dem CPT 'lc_event'. Keine Demo-Termine — leere Liste rendert den ehrlichen Leerzustand. Vergangene Termine wandern automatisch in 'Rückblicke' (Datum < heute).",
+  "_kommentar": "Veranstaltungen. Entspricht in WordPress dem CPT 'events' (Namenskonvention: docs/wordpress-blueprint.md §1). Keine Demo-Termine — leere Liste rendert den ehrlichen Leerzustand. Vergangene Termine wandern automatisch in 'Rückblicke' (Datum < heute).",
   "eventTypes": ["Benefizveranstaltung", "Informationsabend", "Sammelaktion", "Mitgliederversammlung", "Sonstiges"],
   "events": [],
   "templateEvent": {
