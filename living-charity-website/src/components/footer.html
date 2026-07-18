@@ -4,8 +4,9 @@
       <div class="site-footer__brand">
         <a class="brand" href="/">
           <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-            <path d="M6 38 V20 a14 14 0 0 1 28 0 V38 h-7 V21 a7 7 0 0 0 -14 0 V38 Z" fill="#dfe6dc"/>
-            <circle cx="20" cy="10" r="3" fill="#b95c28"/>
+            <rect width="40" height="40" rx="8" fill="#f2f4ef" opacity="0.12"/>
+            <text x="20" y="27" text-anchor="middle" font-family="Manrope, sans-serif" font-size="17" font-weight="800" fill="#f2f4ef">LC</text>
+            <rect x="8" y="31" width="24" height="2.5" rx="1.25" fill="#b86548"/>
           </svg>
           <span class="brand__name">Living Charity
             <span class="brand__sub">Eingetragener Verein</span>
@@ -16,20 +17,19 @@
           {{site.org.address.street}}<br>
           {{site.org.address.zip}} {{site.org.address.city}}<br>
           <a href="mailto:{{site.org.email}}">{{site.org.email}}</a>
-          <!-- Telefonnummer: erst nach Bestätigung einblenden (site.json → org.phone).
-               [INHALT VON LIVING CHARITY ERFORDERLICH] -->
+          <!-- Telefonzeile + Click-to-Call: aktivieren, sobald bestätigt
+               (site.json → org.phone; interner Status: confirmation-required) -->
         </address>
         <p class="site-footer__register">
-          Eingetragen beim {{site.org.register.court}}, {{site.org.register.number}}
+          Eingetragen beim {{site.org.register.court}} · {{site.org.register.number}} · seit {{site.org.registeredDate}}
         </p>
-        <!-- Social-Media-Icons: bewusst keine, solange keine verifizierten Profile
-             vorliegen (site.json → org.socialLinks). -->
+        <!-- Social-Media-Icons erst mit verifizierten Profilen (org.socialLinks) -->
       </div>
       {{@footer-nav}}
     </div>
     <div class="site-footer__bottom">
       <p>© <span data-current-year>2026</span> {{site.org.name}}</p>
-      <p>Hilfe, die ankommt — dokumentiert und ansprechbar.</p>
+      <p>Hilfe, die Menschen direkt erreicht.</p>
     </div>
   </div>
 </footer>
