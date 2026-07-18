@@ -1,0 +1,45 @@
+<!--META
+{
+  "path": "/aktuelles/",
+  "title": "Aktuelles — Living Charity e. V.",
+  "description": "Berichte, Projekt-Updates und Rückblicke von Living Charity e. V. — ehrlich datiert und klar gekennzeichnet.",
+  "breadcrumb": "Aktuelles"
+}
+-->
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><span aria-current="page">Aktuelles</span></li>
+    </ol>
+  </nav>
+  <header class="page-head">
+    <p class="overline">Aktuelles</p>
+    <h1>Berichte aus der Vereinsarbeit</h1>
+    <p class="lead">Hier veröffentlichen wir Projekt-Updates, Rückblicke und
+    Neuigkeiten — jeder Beitrag mit echtem Datum und klarer Kennzeichnung.</p>
+  </header>
+</div>
+
+<section class="section section--sm">
+  <div class="container">
+    {{@posts-list}}
+  </div>
+</section>
+
+<section class="section section--sand section--sm">
+  <div class="container">
+    <div class="grid grid--halves">
+      <div class="reveal">
+        <h2>Nichts verpassen</h2>
+        <p>Solange es keinen Newsletter gibt, gilt: Schauen Sie hier vorbei oder
+        schreiben Sie uns — wir informieren auf Wunsch persönlich, ohne
+        automatische Verteiler.</p>
+      </div>
+      <div class="reveal" style="justify-self:start">
+        <a class="btn btn--primary" href="/kontakt/">Kontakt aufnehmen <span class="btn__arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>

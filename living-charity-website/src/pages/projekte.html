@@ -1,0 +1,92 @@
+<!--META
+{
+  "path": "/projekte/",
+  "title": "Projekte & Spendenzwecke — Living Charity e. V.",
+  "description": "Die Projekte von Living Charity e. V.: Sri-Lanka-Hilfe, das Baumprojekt Plant Ceylon und kommende Hilfsaktionen — mit Ort, Status und Nachweisen.",
+  "breadcrumb": "Projekte"
+}
+-->
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><span aria-current="page">Projekte</span></li>
+    </ol>
+  </nav>
+  <header class="page-head">
+    <p class="overline">Projekte &amp; Spendenzwecke</p>
+    <h1>Woran wir arbeiten</h1>
+    <p class="lead">Jedes Projekt bekommt Ort, Ziel, Status und — sobald
+    verfügbar — dokumentierte Nachweise. Wir zeigen nur, was wir belegen können,
+    und kennzeichnen, was sich noch in Vorbereitung oder Prüfung befindet.</p>
+  </header>
+</div>
+
+<section class="section section--sm">
+  <div class="container">
+    <h2 class="visually-hidden">Unsere Projekte</h2>
+    <div class="grid grid--cards reveal-stagger">
+      <article class="card reveal">
+        <div class="card__media">
+          <!-- Vom Auftraggeber übergeben (bisherige Website). Bildrechte: LB-21 -->
+          <img src="/assets/img/srilanka-familie-mauer.jpg" width="946" height="668"
+               alt="Eine Mutter sitzt mit ihren Kindern an einer Hauswand in Sri Lanka" loading="lazy">
+        </div>
+        <div class="card__body">
+          <p class="card__meta"><span class="badge badge--aktiv">Aktiv</span><span>Sri Lanka</span></p>
+          <h3 class="card__title"><a href="/sri-lanka/">Sri-Lanka-Hilfe</a></h3>
+          <p class="card__excerpt">Unterstützung für Menschen nach Überschwemmungen
+          und akuten Notlagen — Lebensmittel und direkte Versorgungshilfe.</p>
+          <span class="card__link">Zur Sri-Lanka-Hilfe <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="card__media"><div class="media-pending">Verifiziertes Bildmaterial in Prüfung.</div></div>
+        <div class="card__body">
+          <p class="card__meta"><span class="badge badge--pruefung">In Prüfung</span><span>Sri Lanka</span></p>
+          <h3 class="card__title"><a href="/plant-ceylon/">Plant Ceylon</a></h3>
+          <p class="card__excerpt">Tropische Bäume pflanzen, persönlich dokumentiert —
+          die rechtliche Zuordnung des Projekts wird transparent ergänzt.</p>
+          <span class="card__link">Zum Baumprojekt <span aria-hidden="true">→</span></span>
+        </div>
+      </article>
+    </div>
+    <div style="margin-top:var(--space-7)">
+      {{@projects-grid}}
+    </div>
+  </div>
+</section>
+
+<section class="section section--sand section--sm">
+  <div class="container">
+    <div class="grid grid--halves">
+      <div class="reveal">
+        <p class="overline">So lesen Sie unsere Projektseiten</p>
+        <h2>Ein Status, der etwas bedeutet</h2>
+        <p>Jedes Projekt trägt genau einen Status — so sehen Sie sofort, wo Ihre
+        Unterstützung gerade wirkt.</p>
+      </div>
+      <div class="flow reveal">
+        <p><span class="badge badge--geplant">Geplant</span> — Vorbereitung läuft, Unterstützung wird gesammelt.</p>
+        <p><span class="badge badge--aktiv">Aktiv</span> — die Maßnahme wird gerade umgesetzt.</p>
+        <p><span class="badge badge--laufend">Laufende Unterstützung</span> — dauerhafte Hilfe ohne festes Enddatum.</p>
+        <p><span class="badge badge--abgeschlossen">Abgeschlossen</span> — Ziel erreicht, mit Abschlussbericht.</p>
+        <p><span class="badge badge--pruefung">In Prüfung</span> — Darstellung folgt, sobald Angaben verifiziert sind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark cta-final">
+  <div class="container">
+    <div class="reveal">
+      <h2>Sie möchten ein Projekt unterstützen?</h2>
+      <p>Allgemein oder gezielt — beides ist möglich.</p>
+    </div>
+    <div class="cta-final__actions reveal">
+      <a class="btn btn--primary" href="/spenden/">Jetzt unterstützen <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href="/kontakt/">Frage stellen</a>
+    </div>
+  </div>
+</section>

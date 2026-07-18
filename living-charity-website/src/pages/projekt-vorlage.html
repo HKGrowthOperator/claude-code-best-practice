@@ -1,0 +1,117 @@
+<!--META
+{
+  "path": "/projekte/projekt/",
+  "title": "Projekt-Vorlage (dynamisch) — Living Charity e. V.",
+  "description": "Dynamische Vorlage für einzelne Projektseiten von Living Charity e. V.",
+  "breadcrumb": "Projekt",
+  "breadcrumbParent": { "name": "Projekte", "path": "/projekte/" },
+  "noindex": true
+}
+-->
+
+<!-- ============================================================
+     DYNAMISCHE PROJEKTVORLAGE (CPT projects)
+     Feldnamen in [eckigen Klammern] = Felder aus docs/wordpress-blueprint.md.
+     Leere Felder erscheinen NIE als leere Blöcke. Keine Beispielzahlen.
+     ============================================================ -->
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><a href="/projekte/">Projekte</a></li>
+      <li><span aria-current="page">Projekt-Vorlage</span></li>
+    </ol>
+  </nav>
+  <header class="page-head">
+    <p class="card__meta" style="margin-bottom:var(--space-3)">
+      <span class="badge badge--geplant">Status [status]</span>
+      <span>[region]</span>
+    </p>
+    <h1>Projekttitel [title]</h1>
+    <p class="lead">[short_description] — Kurzbeschreibung in ein bis zwei Sätzen:
+    Wem wird wobei geholfen? Untertitel: [subtitle]</p>
+  </header>
+</div>
+
+<section class="section--sm">
+  <div class="container">
+    <dl class="project-facts reveal">
+      <div><dt>Region</dt><dd>[region]</dd></div>
+      <div><dt>Ort</dt><dd>[exact_location] · [coordinates]</dd></div>
+      <div><dt>Zeitraum</dt><dd>[start_date] – [end_date]</dd></div>
+      <div><dt>Begünstigte</dt><dd>[beneficiaries]</dd></div>
+      <div><dt>Projektleitung</dt><dd>[project_manager]</dd></div>
+      <div><dt>Lokaler Partner</dt><dd>[local_partner]</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section section--sm">
+  <div class="container">
+    <div class="split">
+      <div class="flow-lg reveal">
+        <div><h2>Ausgangslage</h2><p>[problem] — die konkrete Situation, respektvoll und ohne entwürdigende Darstellung beschrieben.</p></div>
+        <div><h2>Ziel</h2><p>[goal] — konkret und überprüfbar formuliert.</p></div>
+        <div><h2>Maßnahmen</h2><p>[measures] — was getan wird.</p></div>
+        <div><h2>Aktueller Bedarf</h2><p>[current_need] — was gerade gebraucht wird.</p></div>
+      </div>
+      <div class="flow reveal">
+        <figure class="doc-media">
+          <div class="doc-media__frame">
+            <div class="media-pending">Originale Projektaufnahme wird ergänzt.</div>
+          </div>
+          <figcaption class="doc-media__caption">
+            <span>Galerie [image_gallery] — nur Originalmaterial mit Metadaten</span>
+            <span class="source-badge source-badge--original">Originalaufnahme</span>
+          </figcaption>
+        </figure>
+        <!-- [videos]: nur mit lokalem Vorschaubild und Zwei-Klick-Einbindung -->
+        <div class="info-card">
+          <h3>Finanzierung</h3>
+          <p class="text-sm text-muted">[funding_goal] Finanzierungsziel ·
+          [funding_received] bereits finanziert · [use_of_funds] Mittelverwendung.
+          Der Fortschrittsbalken wird ausschließlich aus echten Zahlen gespeist:</p>
+          <!-- <div class="progress" data-progress="0" role="img" aria-label="Finanzierungsstand"><div class="progress__bar"></div></div> -->
+          <a class="btn btn--accent" style="margin-top:var(--space-4)" href="/spenden/">Dieses Projekt unterstützen <span class="btn__arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper section--sm">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="overline">Nachweise</p>
+      <h2>Updates, Belege und Quellen</h2>
+    </div>
+    <div class="grid grid--halves reveal">
+      <div class="flow">
+        <div class="update-card"><time>[last_update]</time><p>[updates] — chronologische Projekt-Updates mit Datum.</p></div>
+        <p class="text-sm text-muted">Verifizierungsstatus: [verification_status] —
+        sichtbar unterschieden nach Originalaufnahme, Projektbericht, externer
+        Quelle und Illustration.</p>
+      </div>
+      <div class="flow">
+        <ul class="doc-list">
+          <li><a href="/projekte/">[documents] Dokumente &amp; Belege <span aria-hidden="true">↓</span></a></li>
+          <li><a href="/projekte/">[external_sources] Externe Quellen <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark cta-final">
+  <div class="container">
+    <div class="reveal">
+      <h2>Fragen zu diesem Projekt?</h2>
+      <p>Wir antworten persönlich.</p>
+    </div>
+    <div class="cta-final__actions reveal">
+      <a class="btn btn--primary" href="/kontakt/">Kontakt aufnehmen <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href="/projekte/">Alle Projekte</a>
+    </div>
+  </div>
+</section>

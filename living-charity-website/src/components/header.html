@@ -1,0 +1,27 @@
+<div class="trust-strip">
+  <strong>Eingetragener Verein seit 2010</strong><span class="trust-strip__detail"> · {{site.org.register.court}} · {{site.org.register.number}}</span>
+</div>
+<header class="site-header" data-header>
+  <div class="container site-header__bar">
+    <a class="brand" href="/" aria-label="{{site.org.name}} — zur Startseite">
+      <img class="brand__mark" src="/assets/img/logo-mark.png" alt="" width="540" height="395">
+      <!-- Echtes Vereinslogo (Herz aus zwei Händen, Rot/Schwarz), aus der
+           übergebenen Datei freigestellt. Vektor-Original weiter anfordern (LB-08). -->
+      <span class="brand__name">Living Charity
+        <span class="brand__sub">Eingetragener Verein · Bergneustadt</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptnavigation" data-nav-toggle>
+      <span class="visually-hidden">Menü öffnen oder schließen</span>
+      <span class="nav-toggle__line" aria-hidden="true"></span>
+      <span class="nav-toggle__line" aria-hidden="true"></span>
+      <span class="nav-toggle__line" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="hauptnavigation" aria-label="Hauptnavigation" data-nav>
+      <ul class="site-nav__list">
+        {{@nav-main}}
+        <li><a class="btn site-nav__cta" href="{{site.cta.primary.href}}">{{site.cta.primary.label}}</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

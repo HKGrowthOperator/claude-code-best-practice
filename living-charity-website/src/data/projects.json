@@ -1,0 +1,23 @@
+{
+  "_kommentar": "Projektdaten. Entspricht in WordPress dem CPT 'projects' (Felddefinitionen: docs/wordpress-blueprint.md). Bewusst KEINE erfundenen Projekte und keine Beispielzahlen. Leere Liste rendert die redaktionelle Leerlösung aus dem Briefing. 'fields' dokumentiert die vollständige Feldstruktur der dynamischen Projektkomponente.",
+  "statusLabels": {
+    "geplant": "Geplant",
+    "aktiv": "Aktiv",
+    "laufend": "Laufende Unterstützung",
+    "abgeschlossen": "Abgeschlossen",
+    "pausiert": "Pausiert",
+    "pruefung": "In Prüfung"
+  },
+  "projects": [],
+  "fields": [
+    "title", "subtitle", "status", "region", "exact_location", "coordinates",
+    "start_date", "end_date", "short_description", "problem", "goal", "measures",
+    "beneficiaries", "current_need", "funding_goal", "funding_received",
+    "use_of_funds", "project_manager", "local_partner", "image_gallery",
+    "videos", "documents", "external_sources", "last_update", "verification_status"
+  ],
+  "emptyState": {
+    "title": "Aktuelle Hilfsaktion wird dokumentiert",
+    "text": "Die vollständigen Informationen, Bilder und Nachweise werden derzeit für die Veröffentlichung vorbereitet."
+  }
+}

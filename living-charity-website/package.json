@@ -1,0 +1,16 @@
+{
+  "name": "living-charity-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Vorabversion der Website für Living Charity e. V. — statisch, abhängigkeitsfrei, WordPress-fertig vorbereitet",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node src/utils/build.mjs",
+    "check": "node src/utils/build.mjs && node src/utils/check.mjs",
+    "preview": "node src/utils/build.mjs && node src/utils/preview.mjs",
+    "export:wp": "node src/utils/build.mjs && node src/utils/export-wp.mjs",
+    "push:wp": "node src/utils/push-wp.mjs",
+    "serve": "npx serve public"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "_kommentar": "Vorstand. Entspricht WP-CPT team. status confirmation-required = interne Freigabeliste (docs/launch-blockers.md), im Frontend neutrale typografische Platzhalter statt Fotos — keine KI-Porträts, keine sichtbaren Warnhinweise.",
+  "members": [
+    {
+      "name": "Navaratnam Sivananthan",
+      "role": "Vorsitzender",
+      "personalNote": null,
+      "portrait": null,
+      "status": "confirmed-public"
+    },
+    {
+      "name": "Ordin Thanapalasingham",
+      "role": "Schatzmeister",
+      "personalNote": null,
+      "portrait": null,
+      "status": "confirmed-public"
+    },
+    {
+      "name": "Seevaratnam Sathianandan",
+      "role": "Schriftführer",
+      "personalNote": null,
+      "portrait": null,
+      "status": "confirmation-required"
+    }
+  ]
+}

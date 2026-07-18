@@ -1,0 +1,38 @@
+<!--META
+{
+  "path": "/suche/",
+  "title": "Suche — Living Charity e. V.",
+  "description": "Durchsuchen Sie die Website von Living Charity e. V.",
+  "breadcrumb": "Suche",
+  "noindex": true
+}
+-->
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><span aria-current="page">Suche</span></li>
+    </ol>
+  </nav>
+  <header class="page-head">
+    <p class="overline">Suche</p>
+    <h1>Wonach suchen Sie?</h1>
+  </header>
+</div>
+
+<section class="section--sm section">
+  <div class="container">
+    <form class="search-form field reveal" data-search role="search" action="/suche/" method="get">
+      <label for="suchfeld" class="visually-hidden">Suchbegriff</label>
+      <input type="search" id="suchfeld" name="q" placeholder="z. B. Spenden, Sri Lanka, Plant Ceylon" autocomplete="off">
+      <button type="submit" class="btn btn--primary">Suchen</button>
+    </form>
+    <p id="suchstatus" class="text-muted" role="status" aria-live="polite" style="margin-top:var(--space-4)"></p>
+    <ul class="search-results" id="suchergebnisse" style="margin-top:var(--space-4)"></ul>
+    <noscript>
+      <p class="error-state">Die Suche benötigt JavaScript. Alle Inhalte erreichen
+      Sie auch über die Navigation oder die <a href="/">Startseite</a>.</p>
+    </noscript>
+  </div>
+</section>

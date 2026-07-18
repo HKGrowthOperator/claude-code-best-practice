@@ -1,0 +1,112 @@
+<!--META
+{
+  "path": "/spenden/",
+  "title": "Spenden für Sri Lanka — Living Charity e. V.",
+  "description": "Spenden an Living Charity e. V.: Bankverbindung mit IBAN- und BIC-Kopierfunktion, Verwendungszweck und transparente Hinweise — für Sri-Lanka-Hilfe und Vereinsarbeit.",
+  "breadcrumb": "Spenden"
+}
+-->
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><span aria-current="page">Spenden</span></li>
+    </ol>
+  </nav>
+  <header class="page-head page-head--wide">
+    <p class="overline">Spenden &amp; Unterstützung</p>
+    <h1>Ihre Unterstützung kann direkt helfen.</h1>
+    <p class="lead">Jeder Beitrag kann dazu beitragen, Lebensmittel, Versorgung
+    und konkrete Hilfsmaßnahmen für Menschen in Sri Lanka zu ermöglichen.</p>
+  </header>
+</div>
+
+{{@impact5}}
+
+<section class="section section--sm">
+  <div class="container">
+    <div class="split" style="align-items:start">
+      <div class="reveal">
+        {{@donation-panel}}
+      </div>
+      <div class="flow-lg reveal">
+        <div>
+          <h3>Allgemein oder gezielt?</h3>
+          <p><strong>Allgemeine Spende:</strong> Der Verein setzt sie dort ein,
+          wo sie am dringendsten gebraucht wird — Verwendungszweck
+          „Spende Living Charity".</p>
+          <p><strong>Sri-Lanka-Hilfe:</strong> Ergänzen Sie den Verwendungszweck
+          um „Sri Lanka", wenn Ihre Spende der aktuellen Hilfe zugutekommen soll.</p>
+          <p><strong>Plant Ceylon:</strong> Das Baumprojekt hat eine
+          <a href="/plant-ceylon/">eigene Projektseite</a> mit allen Details.</p>
+        </div>
+        <div>
+          <h3>Spendenbescheinigung</h3>
+          <p>{{site.donation.certificateNote}}</p>
+        </div>
+        <div>
+          <h3>Was mit Ihrer Spende passiert</h3>
+          <p>Den Ablauf, an dem wir uns ausrichten, zeigen wir auf der
+          <a href="/transparenz/">Transparenzseite</a>; Fortschritte
+          veröffentlichen wir unter <a href="/aktuelles/">Aktuelles</a>.</p>
+        </div>
+        <div>
+          <h3>Fragen zur Spende?</h3>
+          <p>Schreiben Sie an <a href="mailto:{{site.org.email}}">{{site.org.email}}</a>
+          oder nutzen Sie das <a href="/kontakt/?thema=spende">Kontaktformular</a> —
+          wir antworten persönlich.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper section--sm">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="overline">Gut zu wissen</p>
+      <h2>Häufige Fragen zum Spenden</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Ist meine Spende sicher?</summary>
+        <div class="faq__body"><p>Die Überweisung läuft direkt über Ihre Bank auf das
+        Vereinskonto bei der {{site.bank.bankName}} — ohne Zwischenhändler. Diese
+        Website verarbeitet bei einer Überweisung keine Daten von Ihnen.</p></div>
+      </details>
+      <details>
+        <summary>Kann ich online mit Karte oder PayPal spenden?</summary>
+        <div class="faq__body"><p>Derzeit nicht — wir verzichten bewusst auf die
+        Darstellung von Zahlungswegen, die noch nicht eingerichtet sind. Sobald
+        ein Spendendienst geprüft und eingerichtet ist, finden Sie ihn hier mit
+        allen Angaben zu Anbieter, Datenschutz und möglichen Gebühren.</p></div>
+      </details>
+      <details>
+        <summary>Wie erfahre ich, was meine Spende bewirkt hat?</summary>
+        <div class="faq__body"><p>Über die Projektseiten und den Bereich
+        <a href="/aktuelles/">Aktuelles</a>. Dort dokumentieren wir Fortschritte
+        mit Bildern, Berichten und Belegen, sobald sie vorliegen.</p></div>
+      </details>
+      <details>
+        <summary>Kann ich auch anders helfen als mit Geld?</summary>
+        <div class="faq__body"><p>Ja — mit Zeit, Können, Sachspenden oder als
+        Unternehmen. Sprechen Sie uns über das
+        <a href="/kontakt/">Kontaktformular</a> an.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark cta-final">
+  <div class="container">
+    <div class="reveal">
+      <h2>Lieber erst den Verein kennenlernen?</h2>
+      <p>Verständlich. Schauen Sie sich an, wer wir sind und woran wir arbeiten.</p>
+    </div>
+    <div class="cta-final__actions reveal">
+      <a class="btn btn--primary" href="/ueber-uns/">Über Living Charity <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href="/unsere-arbeit/">Unsere Arbeit</a>
+    </div>
+  </div>
+</section>

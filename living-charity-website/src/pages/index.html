@@ -1,0 +1,221 @@
+<!--META
+{
+  "path": "/",
+  "title": "Living Charity e. V. — Hilfe, die Menschen direkt erreicht",
+  "description": "Living Charity e. V. (Bergneustadt, seit 2010) unterstützt Menschen in akuten Notlagen und verbindet Spender in Deutschland mit konkreter Hilfe in Sri Lanka."
+}
+-->
+
+<!-- ============ 3. Hero ============ -->
+<section class="hero hero--immersive section-dark">
+  <div class="hero__media" aria-hidden="true">
+    <!-- Vom Auftraggeber übergebenes Bildmaterial (bisherige Website).
+         Bildrechte/Einwilligungen vor Livegang dokumentieren: LB-21 -->
+    <img src="/assets/img/srilanka-familie-unterkunft.jpg" width="1600" height="1200"
+         alt="" fetchpriority="high">
+  </div>
+  <div class="container">
+    <p class="overline">Living Charity e.&nbsp;V. · Hilfe für Menschen in Not</p>
+    <h1>Hilfe, die Menschen direkt erreicht.</h1>
+    <p class="hero__sub">Living Charity e.&nbsp;V. unterstützt Menschen in akuten
+    Notlagen und verbindet Spenderinnen und Spender in Deutschland mit
+    konkreter Hilfe in Sri Lanka.</p>
+    <div class="hero__actions">
+      <a class="btn btn--accent" href="{{site.cta.sriLanka.href}}">{{site.cta.sriLanka.label}} <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href="{{site.cta.secondary.href}}">{{site.cta.secondary.label}}</a>
+    </div>
+    <p class="hero__trust">Eingetragener Verein seit 2010 · Amtsgericht Köln · VR 16395</p>
+  </div>
+  <p class="hero__credit">Familie in Sri Lanka — dokumentarische Aufnahme</p>
+</section>
+
+<!-- ============ 1b. Faktenzeile (ausschließlich bestätigte Angaben) ============ -->
+<section class="fact-band" aria-label="Der Verein in Kürze">
+  <div class="container">
+    <ul class="fact-band__grid">
+      <li><strong>Seit 2010</strong><span>Eingetragener Verein</span></li>
+      <li><strong>Bergneustadt</strong><span>Sitz in Deutschland</span></li>
+      <li><strong>Sri Lanka</strong><span>Schwerpunkt der Hilfe</span></li>
+      <li><strong>VR 16395</strong><span>Amtsgericht Köln</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 4. 5-Euro-Impact ============ -->
+{{@impact5}}
+
+<!-- ============ 5. Vorstellung Living Charity ============ -->
+<section class="section">
+  <div class="container">
+    <div class="split split--asym">
+      <div class="flow reveal">
+        <p class="overline">Seit 2010 engagiert</p>
+        <h2>Solidarität wird wirksam, wenn aus Unterstützung konkrete Hilfe entsteht.</h2>
+        <p>{{site.mission.short}}</p>
+        <p>{{site.mission.second}}</p>
+      </div>
+      <div class="info-card reveal">
+        <h3>Auf einen Blick</h3>
+        <ul style="padding-left:1.1rem; display:grid; gap:.6rem">
+          <li>Eingetragener Verein seit dem {{site.org.registeredDate}}</li>
+          <li>{{site.org.register.court}} · {{site.org.register.number}}</li>
+          <li>Sitz in {{site.org.address.city}}</li>
+          <li>Direkt erreichbar: <a href="mailto:{{site.org.email}}">{{site.org.email}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. Sri-Lanka-Bereich ============ -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="overline">Schwerpunkt</p>
+      <h2>Unterstützung für Menschen in Sri Lanka</h2>
+      <p>Überschwemmungen und andere akute Notlagen können Familien innerhalb
+      kurzer Zeit die Grundlage ihres Alltags nehmen. Living Charity sammelt
+      Unterstützung für Lebensmittel und notwendige Versorgung.</p>
+    </div>
+    <div class="grid grid--cards reveal-stagger">
+      <div class="reveal">
+        <h3 style="margin-bottom:.4rem">Lebensmittelhilfe</h3>
+        <p class="text-muted">Grundversorgung für Familien, die durch eine akute
+        Notlage ihre Lebensgrundlage verloren haben.</p>
+      </div>
+      <div class="reveal">
+        <h3 style="margin-bottom:.4rem">Unterstützung nach akuten Notlagen</h3>
+        <p class="text-muted">Hilfe, die nach Überschwemmungen und anderen
+        Ereignissen dort ansetzt, wo sie unmittelbar gebraucht wird.</p>
+      </div>
+      <!-- Dritter Wirkungspunkt „Langfristige Projekte vor Ort": wird aktiviert,
+           sobald reale langfristige Projekte belegt sind
+           (interner Status: confirmation-required, siehe docs/launch-blockers.md) -->
+    </div>
+    <p style="margin-top:var(--space-6)"><a class="arrow-link" href="/sri-lanka/">Mehr zur Sri-Lanka-Hilfe <span aria-hidden="true">→</span></a></p>
+  </div>
+</section>
+
+<!-- ============ 7. Aktuelles Hilfsprojekt ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="overline overline--brand">Im Fokus</p>
+      <h2>Aktuelle Hilfsaktion</h2>
+    </div>
+    {{@projects-grid}}
+    <p class="text-sm text-muted" style="margin-top:var(--space-5)">Berichte aus
+    der Vereinsarbeit erscheinen künftig unter
+    <a href="/aktuelles/">Aktuelles</a>.</p>
+  </div>
+</section>
+
+<!-- ============ 8. Plant-Ceylon-Teaser ============ -->
+<section class="section section--sand">
+  <div class="container">
+    <div class="split">
+      <div class="flow reveal">
+        <p class="overline">Langfristiges Projekt</p>
+        <h2>{{site.plantCeylon.headline}}</h2>
+        <p>{{site.plantCeylon.intro}}</p>
+        <p class="text-sm text-muted">{{site.plantCeylon.legalNote}}</p>
+        <p class="hero__actions" style="margin-top:var(--space-5)">
+          <a class="btn btn--primary" href="/plant-ceylon/">Plant Ceylon kennenlernen <span class="btn__arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost external-link" href="{{site.plantCeylon.url}}" target="_blank" rel="noopener">Zur Projektseite plantceylon.com</a>
+        </p>
+      </div>
+      <div class="reveal">
+        {{@plant-steps}}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. Transparenter Ablauf ============ -->
+<section class="section">
+  <div class="container">
+    <div class="grid grid--halves">
+      <div class="section-head reveal" style="margin-bottom:0">
+        <p class="overline">Transparenz</p>
+        <h2>So soll Unterstützung nachvollziehbar werden</h2>
+        <p>{{site.mission.transparenz}}</p>
+        <!-- Ablauf: interner Status confirmationRequired: true (docs/launch-blockers.md) -->
+      </div>
+      <ol class="steps reveal">
+        <li><h3>Bedarf wird dokumentiert</h3><p>Ein Bedarf oder Projekt wird erfasst und beschrieben.</p></li>
+        <li><h3>Spenden werden zugeordnet</h3><p>Jede Unterstützung wird einem Hilfszweck zugeordnet.</p></li>
+        <li><h3>Hilfe wird organisiert</h3><p>Die Unterstützung wird vor Ort organisiert.</p></li>
+        <li><h3>Belege werden gesammelt</h3><p>Bilder, Berichte und Belege werden zusammengetragen.</p></li>
+        <li><h3>Fortschritte werden veröffentlicht</h3><p>Der Stand wird auf dieser Website dokumentiert.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. Beweise & Dokumentation ============ -->
+<section class="section section--paper">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="overline">Nachweise</p>
+      <h2>Nicht nur versprechen. Fortschritt zeigen.</h2>
+      <p>Jede künftige Projektseite unterscheidet sichtbar zwischen
+      Originalaufnahmen, Projektberichten, externen Quellen und Illustrationen —
+      damit Sie einordnen können, worauf sich jede Aussage stützt.</p>
+    </div>
+    <div class="proof-grid reveal-stagger">
+      <div class="proof-item reveal"><span class="source-badge source-badge--original">Originalaufnahme</span><h3>Fotos &amp; Videos vor Ort</h3><p>Unbearbeitetes Material mit Ort und Datum — wird je Hilfsaktion ergänzt.</p></div>
+      <div class="proof-item reveal"><span class="source-badge">Projektbericht</span><h3>Updates &amp; Mittelverwendung</h3><p>Was wurde getan, was wurde eingesetzt, was steht an.</p></div>
+      <div class="proof-item reveal"><span class="source-badge source-badge--extern">Externe Quelle</span><h3>Öffentliche Aufrufe &amp; Register</h3><p>Zitierte Aussagen Dritter werden als solche gekennzeichnet und verlinkt.</p></div>
+      <div class="proof-item reveal"><span class="source-badge source-badge--illustration">Illustration</span><h3>Klar getrennt</h3><p>Illustrationen und Platzhalter tragen nie das Etikett einer Originalaufnahme.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. Vorstand ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="overline">Der Verein</p>
+      <h2>Menschen hinter Living Charity</h2>
+      <p>Verantwortung hat bei uns Namen. Der Vorstand ist Ihr direkter
+      Ansprechpartner.</p>
+    </div>
+    {{@team-list}}
+  </div>
+</section>
+
+<!-- ============ 12. Mitmachen ============ -->
+<section class="section section--sm section--sand">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="overline">Mitmachen</p>
+      <h2>Möglichkeiten zu helfen</h2>
+    </div>
+    <ul class="help-list reveal">
+      <li><a href="/spenden/"><span><strong>Geld spenden</strong><p>Einmalig oder regelmäßig — jede Spende wird einem Hilfszweck zugeordnet.</p></span><span class="help-list__arrow" aria-hidden="true">→</span></a></li>
+      <li><a href="/projekte/"><span><strong>Projekt unterstützen</strong><p>Gezielt für eine Hilfsaktion oder ein Projekt wie Plant Ceylon geben.</p></span><span class="help-list__arrow" aria-hidden="true">→</span></a></li>
+      <li><a href="/kontakt/?thema=allgemein"><span><strong>Sachspenden anbieten</strong><p>Bitte vorab abstimmen — so kommt an, was wirklich gebraucht wird.</p></span><span class="help-list__arrow" aria-hidden="true">→</span></a></li>
+      <li><a href="/kontakt/?thema=ehrenamt"><span><strong>Ehrenamtlich helfen</strong><p>Zeit und Können einbringen — vor Ort oder aus der Ferne.</p></span><span class="help-list__arrow" aria-hidden="true">→</span></a></li>
+      <li><a href="/kontakt/?thema=kooperation"><span><strong>Als Unternehmen kooperieren</strong><p>Projektpartnerschaften und Aktionen mit nachvollziehbarer Wirkung.</p></span><span class="help-list__arrow" aria-hidden="true">→</span></a></li>
+      <li><a href="/sri-lanka/"><span><strong>Hilfsaktion teilen</strong><p>Erzählen Sie von der Sri-Lanka-Hilfe — Aufmerksamkeit ist auch Unterstützung.</p></span><span class="help-list__arrow" aria-hidden="true">→</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 13. Aktuelle Berichte: bewusst kein zweiter Empty-State auf der
+     Startseite (Design-Review P2.7) — Berichte erscheinen unter /aktuelles/ und
+     werden dort verlinkt, sobald der erste echte Beitrag vorliegt. ============ -->
+
+<!-- ============ 14. Kontakt-CTA ============ -->
+<section class="section section-dark cta-final">
+  <div class="container">
+    <div class="reveal">
+      <h2>Fragen zu Projekten oder Spenden?</h2>
+      <p>Wir antworten persönlich — schreiben Sie uns einfach.</p>
+    </div>
+    <div class="cta-final__actions reveal">
+      <a class="btn btn--primary" href="/kontakt/">Kontakt aufnehmen <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href="/spenden/">Jetzt helfen</a>
+    </div>
+  </div>
+</section>

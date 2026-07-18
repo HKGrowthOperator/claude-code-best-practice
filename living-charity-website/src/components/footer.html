@@ -1,0 +1,32 @@
+<footer class="site-footer">
+  <div class="container">
+    <p class="site-footer__word" aria-hidden="true">Living Charity</p>
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="brand" href="/">
+      <span class="brand__tile"><img class="brand__mark" src="/assets/img/logo-mark.png" alt="" width="540" height="395"></span>
+          <span class="brand__name">Living Charity
+            <span class="brand__sub">Eingetragener Verein</span>
+          </span>
+        </a>
+        <address style="margin-top:1.25rem">
+          {{site.org.name}}<br>
+          {{site.org.address.street}}<br>
+          {{site.org.address.zip}} {{site.org.address.city}}<br>
+          <a href="mailto:{{site.org.email}}">{{site.org.email}}</a>
+          <!-- Telefonzeile + Click-to-Call: aktivieren, sobald bestätigt
+               (site.json → org.phone; interner Status: confirmation-required) -->
+        </address>
+        <p class="site-footer__register">
+          Eingetragen beim {{site.org.register.court}} · {{site.org.register.number}} · seit {{site.org.registeredDate}}
+        </p>
+        <!-- Social-Media-Icons erst mit verifizierten Profilen (org.socialLinks) -->
+      </div>
+      {{@footer-nav}}
+    </div>
+    <div class="site-footer__bottom">
+      <p>© <span data-current-year>2026</span> {{site.org.name}}</p>
+      <p>Hilfe, die Menschen direkt erreicht.</p>
+    </div>
+  </div>
+</footer>

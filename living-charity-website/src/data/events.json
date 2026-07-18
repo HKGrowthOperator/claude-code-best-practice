@@ -1,0 +1,18 @@
+{
+  "_kommentar": "Veranstaltungen. Entspricht in WordPress dem CPT 'events' (Namenskonvention: docs/wordpress-blueprint.md §1). Keine Demo-Termine — leere Liste rendert den ehrlichen Leerzustand. Vergangene Termine wandern automatisch in 'Rückblicke' (Datum < heute).",
+  "eventTypes": ["Benefizveranstaltung", "Informationsabend", "Sammelaktion", "Mitgliederversammlung", "Sonstiges"],
+  "events": [],
+  "templateEvent": {
+    "slug": "veranstaltung",
+    "title": "[INHALT VON LIVING CHARITY ERFORDERLICH] Veranstaltungstitel",
+    "type": "Benefizveranstaltung",
+    "start": null,
+    "end": null,
+    "location": "[INHALT VON LIVING CHARITY ERFORDERLICH] Veranstaltungsort",
+    "description": "[INHALT VON LIVING CHARITY ERFORDERLICH] Beschreibung: Was erwartet Besucher, wofür wird gesammelt?",
+    "registrationRequired": false,
+    "registrationContact": null,
+    "relatedProject": null,
+    "image": null
+  }
+}

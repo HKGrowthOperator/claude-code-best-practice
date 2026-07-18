@@ -1,0 +1,128 @@
+<!-- wp:html -->
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><span aria-current="page">Kontakt</span></li>
+    </ol>
+  </nav>
+  <header class="page-head">
+    <p class="overline">Kontakt</p>
+    <h1>Fragen zu Projekten oder Spenden?</h1>
+    <p class="lead">Schreiben Sie uns — wir antworten persönlich und so schnell
+    wir können.</p>
+  </header>
+</div>
+
+<section class="section section--sm">
+  <div class="container">
+    <div class="split" style="align-items:start">
+      <!-- Kontaktformular. Vorabversion: kein Versand (data-endpoint="none") —
+           nach Absenden Weiterleitung auf /danke/. Serverseitige Verarbeitung:
+           docs/migration-guide.md, Schritt 4. -->
+      <form class="form reveal" data-contact-form data-endpoint="none" method="post" action="#">
+        <h2>Nachricht senden</h2>
+        <p class="form__status" role="status" aria-live="polite"></p>
+
+        <div class="form__row form__row--halves">
+          <div class="field">
+            <label for="kontakt-name">Name</label>
+            <input type="text" id="kontakt-name" name="name" autocomplete="name" required aria-describedby="err-name">
+            <p class="field__error" id="err-name">Bitte geben Sie Ihren Namen an.</p>
+          </div>
+          <div class="field">
+            <label for="kontakt-email">E-Mail-Adresse</label>
+            <input type="email" id="kontakt-email" name="email" autocomplete="email" required aria-describedby="err-email">
+            <p class="field__error" id="err-email">Bitte geben Sie eine gültige E-Mail-Adresse an (z. B. name@beispiel.de).</p>
+          </div>
+        </div>
+
+        <div class="form__row form__row--halves">
+          <div class="field">
+            <label for="kontakt-telefon">Telefon <span class="field__optional">(optional)</span></label>
+            <input type="tel" id="kontakt-telefon" name="telefon" autocomplete="tel">
+            <p class="field__hint">Nur, wenn Sie einen Rückruf möchten.</p>
+          </div>
+          <div class="field">
+            <label for="kontakt-thema">Thema</label>
+            <select id="kontakt-thema" name="thema" required aria-describedby="err-thema">
+              <option value="">Bitte wählen …</option>
+              <option value="spende">Spende</option>
+              <option value="sri-lanka">Sri-Lanka-Hilfe</option>
+              <option value="plant-ceylon">Plant Ceylon</option>
+              <option value="ehrenamt">Ehrenamtliche Unterstützung</option>
+              <option value="kooperation">Kooperation</option>
+              <option value="allgemein">Allgemeine Anfrage</option>
+            </select>
+            <p class="field__error" id="err-thema">Bitte wählen Sie ein Thema aus.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="kontakt-nachricht">Ihre Nachricht</label>
+          <textarea id="kontakt-nachricht" name="nachricht" required aria-describedby="err-nachricht"></textarea>
+          <p class="field__error" id="err-nachricht">Bitte schreiben Sie uns kurz Ihr Anliegen.</p>
+        </div>
+
+        <!-- Honeypot gegen Spam — für Menschen unsichtbar -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="kontakt-firma">Firma (bitte leer lassen)</label>
+          <input type="text" id="kontakt-firma" name="firma" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="checkbox-field field">
+          <input type="checkbox" id="kontakt-datenschutz" name="datenschutz" required aria-describedby="err-datenschutz">
+          <div>
+            <label for="kontakt-datenschutz">Ich habe die
+              <a href="/datenschutz/">Datenschutzerklärung</a> gelesen und bin damit
+              einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage
+              verarbeitet werden. Die Einwilligung kann ich jederzeit widerrufen.</label>
+            <p class="field__error" id="err-datenschutz">Bitte bestätigen Sie die Datenschutzhinweise.</p>
+          </div>
+        </div>
+
+        <noscript>
+          <p class="error-state">Ohne JavaScript kann dieses Formular nicht
+          gesendet werden. Schreiben Sie uns bitte direkt an
+          <a href="mailto:info@livingcharity.de">info@livingcharity.de</a>.</p>
+        </noscript>
+        <div>
+          <button type="submit" class="btn btn--primary">Absenden <span class="btn__arrow" aria-hidden="true">→</span></button>
+          <p class="field__hint" style="margin-top:.75rem">Ihre Daten werden nur zur
+          Beantwortung Ihrer Anfrage verwendet und nicht weitergegeben.</p>
+        </div>
+      </form>
+
+      <div class="flow reveal">
+        <div class="info-card">
+          <h3>Direkt erreichen</h3>
+          <address>
+            Living Charity e. V.<br>
+            Kölner Straße 64<br>
+            51702 Bergneustadt<br><br>
+            <a href="mailto:info@livingcharity.de">info@livingcharity.de</a>
+          </address>
+          <!-- Telefon/Click-to-Call: aktivieren, sobald Nummer bestätigt ist
+               (site.json → org.phone). Kein erfundener Wert. -->
+        </div>
+
+        <div class="info-card" id="anfahrt">
+          <h3>Standort &amp; Anfahrt</h3>
+          <p>Sie finden uns an der Kölner Straße 64 in
+          51702 Bergneustadt.</p>
+          <div class="map-consent" style="margin-top:1rem">
+            <div>
+              <p>Aus Datenschutzgründen laden wir keine externe Karte automatisch.
+              Der Link öffnet OpenStreetMap in einem neuen Tab — dort gelten die
+              Datenschutzbestimmungen von OpenStreetMap.</p>
+              <a class="btn btn--ghost external-link" rel="noopener" target="_blank"
+                 href="https://www.openstreetmap.org/search?query=K%C3%B6lner%20Stra%C3%9Fe%2064%2C%2051702%20Bergneustadt">
+                 Karte auf OpenStreetMap öffnen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
