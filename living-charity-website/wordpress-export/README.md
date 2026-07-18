@@ -3,7 +3,7 @@
 Dieser Ordner wird von `node src/utils/export-wp.mjs` erzeugt und enthält die
 Vorabversion in Gutenberg-kompatibler Form. Er ist der **Schnellweg** (Design
 1:1 über Custom-HTML-Blöcke + Theme-CSS). Die vollwertige, redaktionsfreundliche
-Block-Theme-Migration bleibt in `wordpress-blueprint/migration-guide.md`
+Block-Theme-Migration bleibt in `docs/migration-guide.md`
 beschrieben — der Schnellweg ist damit kompatibel und kann schrittweise dorthin
 überführt werden.
 
@@ -18,7 +18,7 @@ beschrieben — der Schnellweg ist damit kompatibel und kann schrittweise dorthi
 Die derzeit an die Entwicklungs-Sitzung angebundene WordPress-Instanz ist
 **„SPD – Roshani Thanapalasingham"** (spdroshanithanapalas2338.live-website.com) —
 eine **fremde Website**, nicht Living Charity. **Dorthin darf nichts gepusht
-werden.** Beide Push-Wege unten verifizieren deshalb zuerst den Site-Namen.
+werden.** Push-Weg A (Skript) und Weg B (MCP) verifizieren deshalb zuerst den Site-Namen; bei Weg C (manuell) müssen SIE das tun: vor dem Einfügen im WP-Admin oben links den Site-Namen prüfen — er muss zu Living Charity gehören.
 
 ## Push-Weg A: per Skript (REST-API, empfohlen)
 
@@ -36,6 +36,9 @@ node src/utils/push-wp.mjs            # legt alle Seiten als ENTWÜRFE an
 Das Skript bricht ab, wenn der Site-Name nicht zu Living Charity passt
 (`--force` überschreibt das bewusst). `--publish` veröffentlicht direkt —
 erst verwenden, wenn die Marker-Prüfung (`node src/utils/check.mjs`) leer ist.
+Hinweis: Die Meta-Descriptions landen bei Weg A im WordPress-Feld „Auszug"
+(excerpt) — nach der Installation des SEO-Plugins einmalig in dessen
+Description-Felder übernehmen (Weg B setzt sie direkt via wp_update_seo_meta).
 
 ## Push-Weg B: per Claude-Sitzung (WordPress-MCP)
 
@@ -54,13 +57,15 @@ die SPD-Instanz anbindet):
 
 ## Push-Weg C: manuell (ohne Zugänge)
 
-Je Seite im WP-Admin: neue Seite → Codeeditor → Inhalt aus `pages/<slug>.html`
-einfügen; CSS unter Design → Customizer → Zusätzliches CSS aus
-`theme-assets/main.css`.
+Zuerst Zielinstanz prüfen (Site-Name im WP-Admin = Living Charity, NICHT
+„SPD – Roshani Thanapalasingham"). Dann je Seite: neue Seite → Codeeditor →
+Inhalt aus `pages/<slug>.html` einfügen; CSS unter Design → Customizer →
+Zusätzliches CSS aus `theme-assets/main.css`; Meta-Descriptions aus
+`manifest.json` ins SEO-Plugin übertragen.
 
 ## Nach jedem Push (alle Wege)
 
 - Kontaktformular durch Formular-Plugin-Block ersetzen (Feldstruktur:
-  `wordpress-blueprint/migration-guide.md`, Schritt 4)
+  `docs/migration-guide.md`, Schritt 4)
 - Seiten bleiben Entwürfe, bis die Inhalts-Marker aufgelöst sind
 - Permalinks `/%postname%/` aktivieren, damit die internen Links stimmen
