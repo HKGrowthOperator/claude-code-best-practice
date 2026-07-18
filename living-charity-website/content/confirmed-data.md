@@ -22,6 +22,7 @@ zu bestätigen (interne Freigabeliste: /docs/launch-blockers.md).
 | IBAN | DE18 3845 0000 1000 2149 63 | confirmation-required (Website + öffentlicher Spendenaufruf; mod-97 rechnerisch gültig) |
 | BIC | WELADED1GMB | confirmation-required (Website + Spendenaufruf) |
 | Telefon | — nicht vorhanden | fehlt (kein erfundener Wert eingesetzt) |
+| Logo | Herz aus zwei Händen (Rot #B50000, Schwarz #161616) + Wortmarke LIVING CHARITY | confirmed (Originaldatei übergeben 18.07.2026; Vektorfassung ausstehend) |
 
 ## Freigegebene redaktionelle Kerntexte (aus dem Briefing, verbindlich)
 
