@@ -1,52 +1,93 @@
 {
-  "_kommentar": "Globale Einstellungen. Entspricht in WordPress der Options-Seite 'Vereinsdaten' (siehe wordpress-blueprint/content-model.md). Werte mit needsConfirmation=true tragen im Frontend sichtbare Marker bzw. sind deaktiviert.",
+  "_kommentar": "Globale Einstellungen. Entspricht in WordPress der Options-Seite 'Vereinsdaten'. Felder mit status: 'confirmation-required' erscheinen im Frontend OHNE Warnhinweis, stehen aber auf der internen Freigabeliste (docs/launch-blockers.md).",
   "org": {
     "name": "Living Charity e. V.",
     "shortName": "Living Charity",
+    "legalForm": "Eingetragener Verein",
     "foundedYear": "2010",
-    "register": {
-      "court": "Amtsgericht Köln",
-      "number": "VR 16395"
-    },
+    "registeredDate": "16. Juni 2010",
+    "register": { "court": "Amtsgericht Köln", "number": "VR 16395", "status": "confirmed-public" },
     "address": {
       "street": "Kölner Straße 64",
       "zip": "51702",
       "city": "Bergneustadt",
-      "country": "DE"
+      "country": "DE",
+      "status": "confirmation-required"
     },
     "email": "info@livingcharity.de",
+    "emailStatus": "confirmation-required",
     "phone": null,
-    "phoneNote": "Click-to-Call ist vorbereitet und wird aktiviert, sobald eine bestätigte Telefonnummer vorliegt.",
-    "socialLinks": [],
-    "socialNote": "Nur verifizierte Profile eintragen; leer = keine Icons im Frontend."
+    "board": [
+      { "name": "Navaratnam Sivananthan", "role": "Vorsitzender", "status": "confirmed-public" },
+      { "name": "Ordin Thanapalasingham", "role": "Schatzmeister", "status": "confirmed-public" },
+      { "name": "Seevaratnam Sathianandan", "role": "Schriftführer", "status": "confirmation-required" }
+    ],
+    "socialLinks": []
   },
   "bank": {
-    "_hinweis": "Sensibel. Nur auf der Spendenseite ausspielen. IBAN-Prüfsumme rechnerisch gültig (mod 97 = 1), trotzdem kundenseitig gegen Kontoauszug bestätigen.",
+    "_hinweis": "Nur auf der Spendenseite ausspielen. IBAN mod-97 rechnerisch gültig; identisch mit öffentlichem Spendenaufruf. Vor Livegang gegen Kontoauszug bestätigen.",
     "accountHolder": "Living Charity e. V.",
     "bankName": "Sparkasse Gummersbach-Bergneustadt",
     "iban": "DE18 3845 0000 1000 2149 63",
     "bic": "WELADED1GMB",
-    "needsConfirmation": true
+    "status": "confirmation-required"
   },
-  "domain": {
-    "canonicalBase": "https://www.livingcharity.de",
-    "needsConfirmation": true,
-    "note": "Wunschdomain vor Livegang bestätigen; bis dahin nur als Canonical-Vorbereitung."
+  "claim5": {
+    "_regel": "Fremde, transparent zitierte Aussage — kein Leistungsversprechen von Living Charity. Formulierung nicht verschärfen.",
+    "figure": "5 €",
+    "headline": "Schon ein kleiner Beitrag kann einen Tag Hilfe bedeuten.",
+    "body": "Nach Angaben des öffentlichen Spendenaufrufs von Dr. Umes Arunagirinathan kann bereits ein Beitrag von 5 Euro dabei helfen, eine Familie in Sri Lanka einen Tag lang mit Nahrung zu versorgen.",
+    "note": "Die tatsächliche Verwendung richtet sich nach dem aktuellen Bedarf und der jeweiligen Hilfsaktion.",
+    "sourceLabel": "Quelle und Spendenaufruf ansehen",
+    "sourceUrl": "https://de.linkedin.com/posts/dr-umes-arunagirinathan-991b21125_spendenaufruf-f%C3%BCr-die-flutopfer-in-sri-lanka-activity-7400661832572772353-tqWa",
+    "status": "public-source-cited"
   },
+  "mission": {
+    "short": "Living Charity e. V. ist ein seit 2010 eingetragener Verein mit Sitz in Bergneustadt. Der Verein sammelt Spenden und organisiert Unterstützung für Menschen in akuten Notlagen. Ein besonderer Schwerpunkt liegt auf Hilfsaktionen für Menschen in Sri Lanka.",
+    "goal": "Living Charity möchte Menschen in schwierigen Lebenssituationen praktisch unterstützen, Solidarität fördern und Spenden möglichst direkt in konkrete Hilfsmaßnahmen überführen.",
+    "second": "Unser Ziel ist es, Hilfsbedarf sichtbar zu machen, Unterstützer miteinander zu verbinden und verfügbare Mittel verantwortungsvoll für konkrete Maßnahmen einzusetzen.",
+    "secondStatus": "confirmation-required",
+    "sriLanka": "Ein Schwerpunkt der aktuellen Arbeit liegt auf der Unterstützung von Menschen in Sri Lanka. Insbesondere nach Überschwemmungen und anderen akuten Notlagen werden Spenden für Lebensmittel und direkte Versorgungshilfe gesammelt.",
+    "transparenz": "Vertrauen entsteht durch nachvollziehbare Hilfe. Deshalb sollen auf dieser Website Projekte, Ansprechpartner, Spendenwege und verfügbare Nachweise so klar wie möglich dargestellt werden."
+  },
+  "plantCeylon": {
+    "_regel": "Projektclaims des Betreibers — als Vorhaben formulieren ('soll'), nicht als bestätigte Tatsache. Rechtliche Zuordnung offen: docs/launch-blockers.md + content/plant-ceylon-verification.md.",
+    "url": "https://plantceylon.com/",
+    "price": "Derzeit 44 €",
+    "headline": "Einen Baum pflanzen. Wirkung sichtbar machen.",
+    "intro": "Plant Ceylon verbindet die Pflanzung tropischer Bäume mit einem persönlichen Nachweis. Unterstützer wählen eine Baumart, die in Sri Lanka gepflanzt und mit einem Namen oder einer Widmung dokumentiert werden soll.",
+    "legalNote": "Die genaue rechtliche und finanzielle Zuordnung des Projekts wird vor der Veröffentlichung transparent ergänzt.",
+    "proofNote": "Der persönliche Nachweis wird nach erfolgter Pflanzung erstellt und in der Regel innerhalb von bis zu 14 Tagen übermittelt.",
+    "trees": ["Kokospalme", "Mangobaum", "Bananenpflanze", "Jackfruchtbaum", "Papayapflanze", "Ananaspflanze", "Rambutanbaum", "Mangostanbaum"],
+    "steps": [
+      { "title": "Baum auswählen", "text": "Wählen Sie eine tropische Pflanze für sich selbst oder als persönliches Geschenk." },
+      { "title": "Pflanzung vor Ort", "text": "Ein lokales Team wählt entsprechend der Baumart einen geeigneten Standort und bereitet die Pflanzung vor." },
+      { "title": "Persönlichen Nachweis erhalten", "text": "Nach der Pflanzung soll ein persönlicher Bild- oder Videonachweis mit Baum, Standort und gewünschtem Namen beziehungsweise einer Widmung übermittelt werden." },
+      { "title": "Langfristig unterstützen", "text": "Die Früchte der gepflanzten Bäume sollen langfristig Nahrung bereitstellen und Menschen beziehungsweise Gemeinschaften vor Ort unterstützen." }
+    ],
+    "status": "verification-required"
+  },
+  "domain": { "canonicalBase": "https://www.livingcharity.de", "status": "confirmation-required" },
   "cta": {
     "primary": { "label": "Jetzt helfen", "href": "/spenden/" },
-    "secondary": { "label": "Living Charity kennenlernen", "href": "/ueber-uns/" },
-    "projects": { "label": "Projekte ansehen", "href": "/projekte/" },
-    "contact": { "label": "Kontakt aufnehmen", "href": "/kontakt/" }
+    "sriLanka": { "label": "Für Sri Lanka spenden", "href": "/spenden/" },
+    "secondary": { "label": "Unsere Arbeit kennenlernen", "href": "/unsere-arbeit/" }
   },
-  "legal": {
-    "impressumReady": false,
-    "datenschutzReady": false
+  "contactTopics": [
+    { "value": "spende", "label": "Spende" },
+    { "value": "sri-lanka", "label": "Sri-Lanka-Hilfe" },
+    { "value": "plant-ceylon", "label": "Plant Ceylon" },
+    { "value": "ehrenamt", "label": "Ehrenamtliche Unterstützung" },
+    { "value": "kooperation", "label": "Kooperation" },
+    { "value": "allgemein", "label": "Allgemeine Anfrage" }
+  ],
+  "donation": {
+    "certificateNote": "Informationen zur Ausstellung einer Spendenbescheinigung erhalten Sie auf Anfrage über info@livingcharity.de.",
+    "certificateNoteStatus": "confirmation-required",
+    "amounts": [5, 10, 25, 50]
   },
   "features": {
-    "showEvents": true,
     "showTestimonials": false,
-    "showTransparencyPage": false,
-    "donationProvider": "none"
+    "donationProvider": "bank-transfer"
   }
 }
