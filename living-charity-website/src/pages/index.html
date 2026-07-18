@@ -96,6 +96,9 @@
       <h2>Aktuelle Hilfsaktion</h2>
     </div>
     {{@projects-grid}}
+    <p class="text-sm text-muted" style="margin-top:var(--space-5)">Berichte aus
+    der Vereinsarbeit erscheinen künftig unter
+    <a href="/aktuelles/">Aktuelles</a>.</p>
   </div>
 </section>
 
@@ -191,16 +194,9 @@
   </div>
 </section>
 
-<!-- ============ 13. Aktuelle Berichte ============ -->
-<section class="section section--sm">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="overline">Aktuelles</p>
-      <h2>Berichte aus der Vereinsarbeit</h2>
-    </div>
-    {{@posts-list}}
-  </div>
-</section>
+<!-- ============ 13. Aktuelle Berichte: bewusst kein zweiter Empty-State auf der
+     Startseite (Design-Review P2.7) — Berichte erscheinen unter /aktuelles/ und
+     werden dort verlinkt, sobald der erste echte Beitrag vorliegt. ============ -->
 
 <!-- ============ 14. Kontakt-CTA ============ -->
 <section class="section section-dark cta-final">
