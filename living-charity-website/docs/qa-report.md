@@ -96,3 +96,27 @@ Nav-Links bei 1440 px, Datenschutz-Fehlermeldung sichtbar + verknüpft,
 Kopier-Live-Region meldet korrekt, check.mjs 0 harte Fehler.
 Verbleibende P2/P3-Punkte der Reviews: in docs/reviews/ dokumentiert,
 bewusst nicht alle umgesetzt (Aufwand/Nutzen-Abwägung, keine Blocker).
+
+---
+
+## Nachtrag v4 (18.07.2026): Restliche Design-P2s + plantceylon.com-Anbindung
+
+**Anbindung Plant Ceylon:** Prominente externe CTAs zu plantceylon.com im
+Seitenkopf und Abschluss von /plant-ceylon/ sowie im Startseiten-Teaser
+(gekennzeichnet, neuer Tab, Preis als Projektangabe eingeordnet).
+
+**Design-Review P2 (Rest) umgesetzt:**
+
+| Punkt | Fix |
+| --- | --- |
+| P2.3 Markenrot-Inflation | `.card__link` auf Ink, nur Pfeil rot; rote Volltextlinks bleiben singulären Sektions-CTAs vorbehalten |
+| P2.4 Overline-Strich auf Dunkelflächen | neues Token `--brand-on-dark` (#e2b3b0, 9.7:1 auf Ink) für Strich und Links in `.section-dark` |
+| P2.5 /spenden/-Hero zu schmal | `page-head--wide` (H1 28ch, Lead 60ch) |
+| P2.6 Achtfache Preiswiederholung Baumarten | Preis einmal als Satz („nach Angaben der Projektseite"), Arten als zweispaltige Linienliste; rechte H2 demotiert |
+| P2.7 Doppelter Empty-State Startseite | „Berichte aus der Vereinsarbeit"-Sektion entfernt; einzeilige Notiz mit Link zu /aktuelles/ in der Hilfsaktions-Sektion |
+| P2.8 Rotes „Externe Quelle"-Badge | auf neutralen Hinweiston #6d6046 (≈5.7:1 auf Ivory) gestellt — Rot bleibt dem Quellenlink |
+
+**Re-Verifikation:** 25 Viewport-Prüfungen (5 Kernseiten × 5 Breakpoints)
+überlauffrei, 0 Konsolenfehler, check.mjs 0 harte Fehler; Dunkel-Overline
+rendert `rgb(226, 179, 176)`, Baumarten-Liste 8 Einträge.
+Offen bleiben nur P3-Ideen (docs/reviews/) und die Client-Launch-Blocker.
