@@ -2,6 +2,7 @@
 # Vor Livegang ersetzen durch:
 #   User-agent: *
 #   Allow: /
+#   Disallow: /preview/
 #   Sitemap: https://www.livingcharity.de/sitemap.xml
 User-agent: *
 Disallow: /
