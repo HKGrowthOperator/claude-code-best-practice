@@ -1,0 +1,7 @@
+# VORABVERSION: Indexierung gesperrt.
+# Vor Livegang ersetzen durch:
+#   User-agent: *
+#   Allow: /
+#   Sitemap: https://www.livingcharity.de/sitemap.xml
+User-agent: *
+Disallow: /
