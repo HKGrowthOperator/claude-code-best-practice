@@ -1,0 +1,49 @@
+<!--META
+{
+  "path": "/aktuelles/beitrag/",
+  "title": "Beitrags-Vorlage (dynamisch) — Living Charity e. V.",
+  "description": "Dynamische Vorlage für einzelne Beiträge von Living Charity e. V.",
+  "breadcrumb": "Beitrag",
+  "noindex": true
+}
+-->
+
+<!-- ============================================================
+     DYNAMISCHE BEITRAGSVORLAGE
+     In WordPress: single.php / Block-Template "Einzelner Beitrag".
+     Feldnamen in [eckigen Klammern] siehe content-model.md.
+     ============================================================ -->
+
+<div class="container container--text">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><a href="/aktuelles/">Aktuelles</a></li>
+      <li><span aria-current="page">Beitrags-Vorlage</span></li>
+    </ol>
+  </nav>
+  <article>
+    <header class="page-head">
+      <p class="card__meta" style="margin-bottom:var(--space-3)">
+        <span class="badge">[category] Neuigkeit / Rückblick / Projekt-Update</span>
+        <time datetime="">[date] — echtes Veröffentlichungsdatum</time>
+      </p>
+      <h1><span class="content-todo">[INHALT VON LIVING CHARITY ERFORDERLICH]</span> Beitragstitel [title]</h1>
+      <p class="lead">[excerpt] — Teaser in ein bis zwei Sätzen.</p>
+    </header>
+
+    <div class="section--sm flow-lg">
+      <!-- [image]: optionales Beitragsbild mit Alt-Text und Bildnachweis;
+           ohne Bild wird keine leere Bildfläche gerendert. -->
+      <div class="flow">
+        <p>[body] — der Beitragstext. Kurze Absätze, Zwischenüberschriften ab
+        etwa 300 Wörtern, verständliche Sprache. Zahlen nur mit Quelle.</p>
+        <p class="text-sm text-muted">Bezieht sich der Beitrag auf ein Projekt
+        [relatedProject], wird hier automatisch die Projektkarte verlinkt.</p>
+      </div>
+      <hr class="rule">
+      <p class="text-sm text-muted">Veröffentlicht von {{site.org.name}} ·
+      <a href="/aktuelles/">Alle Beiträge</a></p>
+    </div>
+  </article>
+</div>
