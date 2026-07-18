@@ -1,0 +1,133 @@
+<!--META
+{
+  "path": "/projekte/projekt/",
+  "title": "Projekt-Vorlage (dynamisch) — Living Charity e. V.",
+  "description": "Dynamische Vorlage für einzelne Projektseiten von Living Charity e. V.",
+  "breadcrumb": "Projekt",
+  "noindex": true
+}
+-->
+
+<!-- ============================================================
+     DYNAMISCHE PROJEKTVORLAGE
+     In WordPress: single-lc_project.php bzw. Block-Template
+     "Einzelnes Projekt". Jede Sektion prüft, ob ihr Feld gefüllt
+     ist — leere Felder erscheinen NIE als leere Blöcke.
+     Feldnamen in [eckigen Klammern] = Felder aus
+     wordpress-blueprint/content-model.md → lc_project.
+     ============================================================ -->
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><a href="/projekte/">Projekte</a></li>
+      <li><span aria-current="page">Projekt-Vorlage</span></li>
+    </ol>
+  </nav>
+  <header class="page-head">
+    <p class="card__meta" style="margin-bottom:var(--space-3)">
+      <span class="badge badge--geplant">Status [status]</span>
+    </p>
+    <h1><span class="content-todo">[INHALT VON LIVING CHARITY ERFORDERLICH]</span> Projekttitel [title]</h1>
+    <p class="lead">Kurzbeschreibung [excerpt]: In ein bis zwei Sätzen — wem wird
+    wobei geholfen? <span class="content-todo">Echtes Projekt erforderlich</span></p>
+  </header>
+</div>
+
+<section class="section--sm">
+  <div class="container">
+    <!-- Faktenleiste: nur gefüllte Felder rendern -->
+    <dl class="project-facts reveal">
+      <div><dt>Region / Ort</dt><dd>[region]</dd></div>
+      <div><dt>Themenbereich</dt><dd>[topic]</dd></div>
+      <div><dt>Zielgruppe</dt><dd>[audience]</dd></div>
+      <div><dt>Start</dt><dd>[startDate]</dd></div>
+      <div><dt>Ende (optional)</dt><dd>[endDate]</dd></div>
+      <div><dt>Ansprechpartner</dt><dd>[contactPerson]</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section section--sm">
+  <div class="container">
+    <div class="split">
+      <div class="flow-lg reveal">
+        <div>
+          <h2>Ausgangslage</h2>
+          <p>[situation] — die konkrete Situation vor Ort, respektvoll und ohne
+          entwürdigende Darstellung beschrieben.</p>
+        </div>
+        <div>
+          <h2>Was wir tun</h2>
+          <p>[measure] — die geplante bzw. laufende Maßnahme.</p>
+        </div>
+        <div>
+          <h2>Unser Ziel</h2>
+          <p>[goal] — konkret und überprüfbar formuliert.</p>
+        </div>
+      </div>
+      <div class="flow reveal">
+        <figure class="arch-media">
+          <svg viewBox="0 0 480 600" role="img" aria-label="Bildfläche für Projektfotos" preserveAspectRatio="xMidYMid slice">
+            <rect width="480" height="600" fill="#e4efe9"/>
+            <path d="M0 600 C120 470 360 520 480 400 L480 600 Z" fill="#cfe2d8"/>
+          </svg>
+          <figcaption>Galerie [gallery] — echte Projektfotos mit Bildrechten erforderlich</figcaption>
+        </figure>
+        <!-- [video]: Video nur als datenschutzfreundliche Zwei-Klick-Einbindung
+             mit lokalem Vorschaubild (siehe Datenschutz-Konzept). -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tinted section--sm">
+  <div class="container">
+    <div class="grid grid--halves">
+      <div class="reveal">
+        <h2>Aktueller Stand</h2>
+        <p>[progress] — bisheriger Fortschritt in Textform.</p>
+        <!-- Fortschrittsbalken NUR mit echten, belegten Zahlen aktivieren:
+             <div class="progress" data-progress="42" role="img" aria-label="Projektfortschritt: 42 Prozent">
+               <div class="progress__bar"></div>
+             </div>
+        -->
+        <h3 style="margin-top:var(--space-6)">Updates</h3>
+        <p class="text-muted">[updates] — chronologische Kurzmeldungen mit Datum.
+        Ohne Updates wird diese Überschrift nicht gerendert.</p>
+        <h3 style="margin-top:var(--space-6)">Wirkung &amp; Nachweise</h3>
+        <p class="text-muted">[impactFigures] + [sources] — Wirkungskennzahlen
+        erscheinen ausschließlich mit Beleg (Quelle, Zeitraum, Zählweise).
+        [finalReport] — der Abschlussbericht ersetzt diese Sektion nach
+        Projektende. [documents] — Dokumente als Download-Liste.</p>
+      </div>
+      <div class="reveal">
+        <div class="donation-box">
+          <p class="donation-box__label">Dieses Projekt unterstützen</p>
+          <p style="margin-block:var(--space-3)">[neededSupport] — was gerade
+          gebraucht wird (Geld, Sachspenden, Zeit).</p>
+          <p class="text-sm text-muted">Verwendungszweck für projektbezogene
+          Spenden: [donationPurpose]</p>
+          <a class="btn btn--primary" style="margin-top:var(--space-4)" href="/spenden/">Zur Spendenseite <span class="btn__arrow" aria-hidden="true">→</span></a>
+        </div>
+        <p class="text-sm text-muted" style="margin-top:var(--space-4)">
+        Projektpartner [partners] werden hier mit Namen und Rolle genannt —
+        nur mit dokumentierter Freigabe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark cta-final">
+  <div class="container">
+    <div class="reveal">
+      <h2>Fragen zu diesem Projekt?</h2>
+      <p>Wir antworten persönlich — kein Kontaktformular-Nirwana.</p>
+    </div>
+    <div class="cta-final__actions reveal">
+      <a class="btn btn--accent" href="/kontakt/">Kontakt aufnehmen <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href="/projekte/">Alle Projekte</a>
+    </div>
+  </div>
+</section>
