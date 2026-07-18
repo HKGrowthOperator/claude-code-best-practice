@@ -34,7 +34,8 @@
     <div class="split" style="align-items:start">
       <div class="reveal">
         <div class="donation-panel">
-      <p class="donation-panel__label">Spenden per Überweisung</p>
+      <p class="donation-panel__label">Spendenkonto</p>
+      <h2 class="donation-panel__title">Per Überweisung spenden</h2>
       <p class="text-sm text-muted" style="margin-top:.5rem">Wählen Sie einen Betrag als Orientierung — überwiesen wird ganz normal über Ihre Bank.</p>
       <div class="amount-picker" role="group" aria-label="Spendenbetrag als Orientierung wählen"><button type="button" aria-pressed="true" data-amount="5">5 €</button><button type="button" aria-pressed="false" data-amount="10">10 €</button><button type="button" aria-pressed="false" data-amount="25">25 €</button><button type="button" aria-pressed="false" data-amount="50">50 €</button><button type="button" aria-pressed="false" data-amount="frei">Freier Betrag</button></div>
       <dl>
@@ -45,8 +46,9 @@
         <dt>Verwendungszweck</dt><dd id="purpose-value">Spende Living Charity</dd>
       </dl>
       <div class="donation-panel__actions">
-        <button type="button" class="btn btn--primary copy-btn" data-copy-target="iban-value" data-copy-plain="DE18384500001000214963">IBAN kopieren<span class="copy-btn__feedback" role="status">Kopiert ✓</span></button>
-        <button type="button" class="btn btn--ghost copy-btn" data-copy-target="bic-value" data-copy-plain="WELADED1GMB">BIC kopieren<span class="copy-btn__feedback" role="status">Kopiert ✓</span></button>
+        <button type="button" class="btn btn--primary copy-btn" data-copy-target="iban-value" data-copy-plain="DE18384500001000214963" data-copy-label="IBAN">IBAN kopieren<span class="copy-btn__feedback" aria-hidden="true">Kopiert ✓</span></button>
+        <button type="button" class="btn btn--ghost copy-btn" data-copy-target="bic-value" data-copy-plain="WELADED1GMB" data-copy-label="BIC">BIC kopieren<span class="copy-btn__feedback" aria-hidden="true">Kopiert ✓</span></button>
+        <span class="visually-hidden" role="status" data-copy-status></span>
       </div>
       <div style="display:flex; gap:1rem; align-items:center; margin-top:var(--space-5); flex-wrap:wrap">
         <div class="qr-slot" aria-hidden="true"><span>QR-Überweisung<br>(Girocode) folgt nach Bestätigung der Bankverbindung</span></div>
@@ -56,7 +58,7 @@
       </div>
       <div class="flow-lg reveal">
         <div>
-          <h2>Allgemein oder gezielt?</h2>
+          <h3>Allgemein oder gezielt?</h3>
           <p><strong>Allgemeine Spende:</strong> Der Verein setzt sie dort ein,
           wo sie am dringendsten gebraucht wird — Verwendungszweck
           „Spende Living Charity".</p>
@@ -66,17 +68,17 @@
           <a href="/plant-ceylon/">eigene Projektseite</a> mit allen Details.</p>
         </div>
         <div>
-          <h2>Spendenbescheinigung</h2>
+          <h3>Spendenbescheinigung</h3>
           <p>Informationen zur Ausstellung einer Spendenbescheinigung erhalten Sie auf Anfrage über info@livingcharity.de.</p>
         </div>
         <div>
-          <h2>Was mit Ihrer Spende passiert</h2>
+          <h3>Was mit Ihrer Spende passiert</h3>
           <p>Den Ablauf, an dem wir uns ausrichten, zeigen wir auf der
           <a href="/transparenz/">Transparenzseite</a>; Fortschritte
           veröffentlichen wir unter <a href="/aktuelles/">Aktuelles</a>.</p>
         </div>
         <div>
-          <h2>Fragen zur Spende?</h2>
+          <h3>Fragen zur Spende?</h3>
           <p>Schreiben Sie an <a href="mailto:info@livingcharity.de">info@livingcharity.de</a>
           oder nutzen Sie das <a href="/kontakt/?thema=spende">Kontaktformular</a> —
           wir antworten persönlich.</p>
@@ -122,7 +124,7 @@
   </div>
 </section>
 
-<section class="section section-forest cta-final">
+<section class="section section-dark cta-final">
   <div class="container">
     <div class="reveal">
       <h2>Lieber erst den Verein kennenlernen?</h2>
