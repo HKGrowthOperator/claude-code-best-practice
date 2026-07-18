@@ -64,7 +64,9 @@
     "second": "Unser Ziel ist es, Hilfsbedarf sichtbar zu machen, Unterstützer miteinander zu verbinden und verfügbare Mittel verantwortungsvoll für konkrete Maßnahmen einzusetzen.",
     "secondStatus": "confirmation-required",
     "sriLanka": "Ein Schwerpunkt der aktuellen Arbeit liegt auf der Unterstützung von Menschen in Sri Lanka. Insbesondere nach Überschwemmungen und anderen akuten Notlagen werden Spenden für Lebensmittel und direkte Versorgungshilfe gesammelt.",
-    "transparenz": "Vertrauen entsteht durch nachvollziehbare Hilfe. Deshalb sollen auf dieser Website Projekte, Ansprechpartner, Spendenwege und verfügbare Nachweise so klar wie möglich dargestellt werden."
+    "transparenz": "Vertrauen entsteht durch nachvollziehbare Hilfe. Deshalb sollen auf dieser Website Projekte, Ansprechpartner, Spendenwege und verfügbare Nachweise so klar wie möglich dargestellt werden.",
+    "extended": "Living Charity verbindet Unterstützerinnen und Unterstützer in Deutschland mit konkreten Hilfsmaßnahmen vor Ort. Spenden sollen dort eingesetzt werden, wo Menschen kurzfristig Nahrung, Versorgung oder andere notwendige Hilfe benötigen. Der Verein arbeitet dafür mit persönlichen Kontakten und Helfern zusammen.",
+    "extendedStatus": "confirmation-required"
   },
   "plantCeylon": {
     "_regel": "Projektclaims des Betreibers — als Vorhaben formulieren ('soll'), nicht als bestätigte Tatsache. Rechtliche Zuordnung offen: docs/launch-blockers.md + content/plant-ceylon-verification.md.",
@@ -102,7 +104,8 @@
         "text": "Die Früchte der gepflanzten Bäume sollen langfristig Nahrung bereitstellen und Menschen beziehungsweise Gemeinschaften vor Ort unterstützen."
       }
     ],
-    "status": "verification-required"
+    "status": "verification-required",
+    "pageIntro": "Über Plant Ceylon können Unterstützer einen tropischen Baum auswählen, der in Sri Lanka gepflanzt und persönlich dokumentiert werden soll."
   },
   "domain": {
     "canonicalBase": "https://www.livingcharity.de",
