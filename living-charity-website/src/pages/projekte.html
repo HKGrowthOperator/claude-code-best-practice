@@ -1,0 +1,63 @@
+<!--META
+{
+  "path": "/projekte/",
+  "title": "Projekte & Spendenzwecke — Living Charity e. V.",
+  "description": "Alle Projekte von Living Charity e. V. mit Ort, Status und Ziel — nachvollziehbar dokumentiert vom eingetragenen Verein aus Bergneustadt.",
+  "breadcrumb": "Projekte"
+}
+-->
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><span aria-current="page">Projekte</span></li>
+    </ol>
+  </nav>
+  <header class="page-head">
+    <p class="overline">Projekte</p>
+    <h1>Woran wir arbeiten</h1>
+    <p class="lead">Jedes Projekt hat einen Ort, ein Ziel und einen aktuellen Stand.
+    Wir zeigen nur, was wir belegen können — und kennzeichnen, was noch in
+    Vorbereitung ist.</p>
+  </header>
+</div>
+
+<section class="section section--sm">
+  <div class="container">
+    {{@projects-grid}}
+  </div>
+</section>
+
+<section class="section section--tinted">
+  <div class="container">
+    <div class="grid grid--halves">
+      <div class="reveal">
+        <p class="overline">So lesen Sie unsere Projektseiten</p>
+        <h2>Ein Status, der etwas bedeutet</h2>
+        <p>Jedes Projekt trägt genau einen dieser Status. So sehen Sie auf einen
+        Blick, wo Ihre Unterstützung gerade am meisten bewirkt.</p>
+      </div>
+      <div class="flow reveal">
+        <p><span class="badge badge--geplant">Geplant</span> — Vorbereitung läuft, Unterstützung wird gesammelt.</p>
+        <p><span class="badge badge--aktiv">Aktiv</span> — die Maßnahme wird gerade umgesetzt.</p>
+        <p><span class="badge badge--laufend">Laufende Unterstützung</span> — dauerhafte Hilfe ohne festes Enddatum.</p>
+        <p><span class="badge badge--abgeschlossen">Abgeschlossen</span> — Ziel erreicht, Abschlussbericht folgt auf der Projektseite.</p>
+        <p><span class="badge badge--pausiert">Pausiert</span> — vorübergehend angehalten, mit Begründung auf der Projektseite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark cta-final">
+  <div class="container">
+    <div class="reveal">
+      <h2>Sie möchten ein Projekt unterstützen?</h2>
+      <p>Allgemein oder projektbezogen — beides ist möglich.</p>
+    </div>
+    <div class="cta-final__actions reveal">
+      <a class="btn btn--accent" href="/spenden/">Jetzt unterstützen <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href="/kontakt/">Frage stellen</a>
+    </div>
+  </div>
+</section>
