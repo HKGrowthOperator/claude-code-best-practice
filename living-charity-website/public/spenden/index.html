@@ -108,8 +108,9 @@
         <dt>Verwendungszweck</dt><dd id="purpose-value">Spende Living Charity</dd>
       </dl>
       <div class="donation-panel__actions">
-        <button type="button" class="btn btn--primary copy-btn" data-copy-target="iban-value" data-copy-plain="DE18384500001000214963">IBAN kopieren<span class="copy-btn__feedback" role="status">Kopiert ✓</span></button>
-        <button type="button" class="btn btn--ghost copy-btn" data-copy-target="bic-value" data-copy-plain="WELADED1GMB">BIC kopieren<span class="copy-btn__feedback" role="status">Kopiert ✓</span></button>
+        <button type="button" class="btn btn--primary copy-btn" data-copy-target="iban-value" data-copy-plain="DE18384500001000214963" data-copy-label="IBAN">IBAN kopieren<span class="copy-btn__feedback" aria-hidden="true">Kopiert ✓</span></button>
+        <button type="button" class="btn btn--ghost copy-btn" data-copy-target="bic-value" data-copy-plain="WELADED1GMB" data-copy-label="BIC">BIC kopieren<span class="copy-btn__feedback" aria-hidden="true">Kopiert ✓</span></button>
+        <span class="visually-hidden" role="status" data-copy-status></span>
       </div>
       <div style="display:flex; gap:1rem; align-items:center; margin-top:var(--space-5); flex-wrap:wrap">
         <div class="qr-slot" aria-hidden="true"><span>QR-Überweisung<br>(Girocode) folgt nach Bestätigung der Bankverbindung</span></div>
