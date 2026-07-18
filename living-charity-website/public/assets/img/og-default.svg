@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Social-Preview-Platzhalter. Vor Livegang durch 1200x630-PNG/JPG mit echtem
+       Logo und Foto ersetzen (siehe /content/image-requirements.md, Bild S1).
+       Hinweis: Einige Plattformen rendern SVG-OG-Bilder nicht — PNG erzeugen! -->
+  <rect width="1200" height="630" fill="#faf6ef"/>
+  <path d="M0 630 C300 480 900 540 1200 400 L1200 630 Z" fill="#e4efe9"/>
+  <path d="M80 200 V150 a60 60 0 0 1 120 0 V200 h-30 V155 a30 30 0 0 0 -60 0 V200 Z" fill="#175b4f" transform="translate(0,-40)"/>
+  <circle cx="140" cy="70" r="13" fill="#b95c28"/>
+  <text x="80" y="330" font-family="Georgia, serif" font-size="76" font-weight="700" fill="#22251f">Living Charity e. V.</text>
+  <text x="80" y="410" font-family="Georgia, serif" font-size="40" font-style="italic" fill="#175b4f">Hilfe, die dort ankommt, wo sie gebraucht wird.</text>
+  <text x="80" y="530" font-family="sans-serif" font-size="26" fill="#5c6156">Eingetragener Verein · Bergneustadt · seit 2010</text>
+</svg>
