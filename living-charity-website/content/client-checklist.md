@@ -12,6 +12,7 @@ Sortiert nach Dringlichkeit; LB-Nummern verweisen auf docs/launch-blockers.md.
 - [ ] **Datenschutzerklärung** auf Basis des dokumentierten Technikstands → anwaltlich prüfen (LB-02)
 - [ ] **Plant-Ceylon-Klärung**: vollständige Prüfliste /content/plant-ceylon-verification.md (LB-04)
 - [ ] **Dokumentarische Fotos** (Hero, Sri-Lanka, Vereinsleben) mit Rechten/Einwilligungen (LB-09, Details: image-requirements.md)
+- [ ] **Fotos der Altseite klären**: Auf der Altseite sind echte Sri-Lanka-Aufnahmen zu sehen (Familie, Trauerszene, Schulkinder, Hero-Foto). Herkunft, Bildrechte und Einwilligungen klären — falls frei, sind sie erste Kandidaten für H1/S1/P-Bildflächen; Originaldateien anliefern
 - [ ] **Wunschdomain bestätigen** (livingcharity.de?) + Domainzugang (LB-11)
 - [ ] **Hostingzugang** (Anbieter, SSL) und **WordPress-Zugang** (Admin der Zielinstanz — Achtung: die derzeit angebundene Instanz „SPD – Roshani Thanapalasingham" ist NICHT das Ziel)
 - [ ] **Ansprechpartner für Freigaben** (Name, E-Mail, Erreichbarkeit)
@@ -33,7 +34,7 @@ Sortiert nach Dringlichkeit; LB-Nummern verweisen auf docs/launch-blockers.md.
 
 - [ ] **Partner/Sponsoren** mit Logo-Freigaben (CPT partners vorbereitet)
 - [ ] **Stimmen/Erfahrungen** mit schriftlicher Freigabe (Feature-Flag, deaktiviert)
-- [ ] **Verifizierte Social-Media-Profile**
+- [ ] **Verifizierte Social-Media-Profile** — die Altseite zeigt Instagram-/Facebook-/Twitter-Icons; klären, ob dahinter echte, vereinseigene Profile liegen (dann URLs liefern), sonst entfallen die Icons
 - [ ] **Online-Spendendienst**: Anbieter-Entscheidung + Vertrag + Zugangsdaten (docs/donation-provider.md)
 - [ ] **Veranstaltungen**: echte Termine → CPT events + ggf. eigener Seitenbereich
 - [ ] **Bestehende Plugins/Themes** der Ziel-Installation (Liste)
