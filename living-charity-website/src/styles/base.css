@@ -65,22 +65,22 @@ small, .text-sm { font-size: var(--text-sm); }
   font-weight: 700;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
-  color: var(--forest);
+  color: var(--brand);
 }
-.overline::before { content: ""; width: 1.75rem; height: 2px; background: var(--terracotta); flex: none; }
-.overline--srilanka { color: var(--terracotta-deep); }
-.section-forest .overline { color: var(--on-forest-muted); }
+.overline::before { content: ""; width: 1.75rem; height: 2px; background: var(--brand); flex: none; }
+.overline--brand { color: var(--brand-strong); }
+.section-dark .overline { color: var(--on-dark-muted); }
 
 a {
-  color: var(--forest);
+  color: var(--brand);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
   transition: color var(--duration-quick) var(--ease-out);
 }
-a:hover { color: var(--forest-soft); }
+a:hover { color: var(--brand-strong); }
 
-::selection { background: var(--sage); color: var(--ink); }
+::selection { background: var(--stone); color: var(--ink); }
 
 /* ---------- Fokus & Tastatur ---------- */
 
@@ -92,12 +92,12 @@ a:hover { color: var(--forest-soft); }
   z-index: 100;
   padding: 0.75rem 1.25rem;
   background: var(--ink);
-  color: var(--on-forest);
+  color: var(--on-dark);
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: top var(--duration-quick) var(--ease-out);
 }
-.skip-link:focus-visible { top: 1rem; color: var(--on-forest); }
+.skip-link:focus-visible { top: 1rem; color: var(--on-dark); }
 
 .visually-hidden {
   position: absolute !important;
@@ -123,12 +123,12 @@ a:hover { color: var(--forest-soft); }
 .section--sand { background: var(--sand); }
 .section--paper { background: var(--paper); border-block: 1px solid var(--line); }
 
-.section-forest { background: var(--forest); color: var(--on-forest); }
-.section-forest :is(h1, h2, h3, h4) { color: var(--on-forest); }
-.section-forest p { line-height: calc(var(--leading-body) + 0.07); letter-spacing: 0.01em; }
-.section-forest a { color: #cfe0d6; }
-.section-forest a:hover { color: var(--on-forest); }
-.section-forest .text-muted { color: var(--on-forest-muted); }
+.section-dark { background: var(--ink); color: var(--on-dark); }
+.section-dark :is(h1, h2, h3, h4) { color: var(--on-dark); }
+.section-dark p { line-height: calc(var(--leading-body) + 0.07); letter-spacing: 0.01em; }
+.section-dark a { color: #e2b3b0; }
+.section-dark a:hover { color: var(--on-dark); }
+.section-dark .text-muted { color: var(--on-dark-muted); }
 
 .section-head { margin-bottom: var(--space-7); max-width: 52rem; }
 .section-head .overline { margin-bottom: var(--space-4); }
@@ -177,4 +177,4 @@ hr.rule { border: 0; border-top: 1px solid var(--line); margin-block: var(--spac
 }
 
 /* Muted-Text auf Sand-Flächen braucht einen dunkleren Ton (Kontrast ≥ 4.5:1) */
-.section--sand { --text-muted: #575f5a; }
+.section--sand { --text-muted: #605b56; }
