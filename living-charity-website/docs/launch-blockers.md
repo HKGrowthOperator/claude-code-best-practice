@@ -16,7 +16,7 @@ Auftraggeber freigegeben ist.
 | LB-05 | 5-Euro-Claim: schriftliche Freigabe von Dr. Umes Arunagirinathan für die zitierte Verwendung einholen (öffentliche Quelle ist verlinkt, Freigabe ist Empfehlung des Briefings) | Impact-Modul (3 Seiten) | Auftraggeber |
 | LB-06 | Kontaktformular: serverseitige Verarbeitung + Versand erst mit WordPress-Integration (bis dahin Weiterleitung auf /danke/ mit ehrlichem Hinweis) | /kontakt/ | WP-Integration |
 | LB-07 | Anschrift, E-Mail-Postfach und Schriftführer-Angabe bestätigen | Footer, Kontakt, Impressum, Über uns | Verein |
-| LB-08 | Logo: echte Vereins-Bildmarke fehlt — aktuell neutrale typografische Platzhalter-Marke „LC" | Header, Footer, Favicon, OG-Bild | Verein |
+| LB-08 | Logo: Original-Vektordatei + verbindliche Farbwerte fehlen — die echte Bildmarke (Kreis mit Wellenlinien, per Screenshot belegt) ist vorerst als nachgezeichnete SVG-Näherung hinterlegt | Header, Footer, Favicon, OG-Bild | Verein |
 | LB-09 | Hero-/Projektbilder: „Originale Projektaufnahme wird ergänzt." — echte dokumentarische Fotos mit Rechten/Einwilligungen nötig | Startseite, Unterseiten | Verein |
 | LB-10 | robots.txt steht auf Disallow (Vorabversion) — vor Livegang freischalten | /robots.txt | Umsetzung bei Livegang |
 | LB-11 | Wunschdomain bestätigen (Canonical-Basis derzeit www.livingcharity.de) | alle Canonicals, sitemap.xml | Verein |
