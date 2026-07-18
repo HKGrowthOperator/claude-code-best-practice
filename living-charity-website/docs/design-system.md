@@ -1,81 +1,88 @@
-# Designsystem — Living Charity e. V.
+# Designsystem — „Editorial Humanitarian Premium" (v2)
 
-Gestaltungsziel: menschlich, ruhig, vertrauenswürdig, hochwertig, warm —
-keine Bank, keine Behörde, kein Fundraising-Portal, kein Charity-Template.
-Markenstimme in drei Worten: **bodenständig · warm · verlässlich.**
+Die Seite wirkt wie eine Mischung aus hochwertigem redaktionellem Magazin,
+transparenter NGO-Projektseite, ruhiger Premium-Unternehmenswebsite und
+dokumentarischer Fotoreportage — nicht wie ein Charity-Template, eine
+KI-Landingpage, ein SaaS-Startup oder ein grelles Spendenportal.
 
 Single Source of Truth: `src/styles/tokens.css`. Dieses Dokument erklärt die
 Entscheidungen; Werte stehen nur dort.
 
-## Leitmotiv: der Bogen
+## Farbwelt (verbindliche Briefing-Palette)
 
-Wiederkehrendes Formelement ist der **Rundbogen** (`.arch-media`,
-Platzhalter-Bildmarke, Favicon): ein stilles Bild für Tür, Obhut und Ankommen —
-ohne religiöse Codierung und ohne Kitsch. Er macht die Seite wiedererkennbar,
-wo generische Charity-Seiten austauschbare Kartenraster zeigen. Sparsam
-einsetzen: Hero, ausgewählte Bildflächen, Bildmarke.
+`--ink #17201D` · `--forest #173F35` · `--forest-soft #2E6656` ·
+`--sage #AFC2B5` · `--sand #E9E2D5` · `--ivory #F7F5EF` · `--paper #FFFFFF` ·
+`--terracotta #B86548` · `--text #202622` · `--text-muted #68716C` ·
+`--line #DDE2DD` · `--success #267858` · `--warning #A16A27` · `--error #A63E38`
 
-## Farbwelt (vorläufig, an echtes Logo anzupassen)
-
-- **Primary — tiefes Petrol-Grün:** Vertrauen und Ruhe, bewusst kein
-  „NGO-Signalrot" und kein Bankenblau.
-- **Warm-Weiß statt Steril-Weiß** als Grundfläche; abgesetzte Sektionen in
-  einem wärmeren Sandton.
-- **Terrakotta-Akzent** nur für den Spenden-CTA, Overline-Linien und kleine
-  Signale — der Akzent bleibt selten, damit er führt.
-- **Dunkelgrüne „Ink"-Flächen** für Footer und Abschluss-CTA geben der Seite
-  einen ruhigen, hochwertigen Rahmen.
-- Statusfarben (Erfolg/Warnung/Fehler) sind gedeckt und stets mit Text
-  kombiniert — keine Information nur über Farbe.
-- Alle Paarungen rechnerisch geprüft: ≥ 4.5:1 (Protokoll in qa-report.md).
+Verwendung: Ivory als Seitenhintergrund, Forest für Header/Footer/
+Schwerpunktbereiche (Sri-Lanka-Sektion, CTA), Paper für redaktionelle
+Inhaltsflächen, Sand als warme Abstufung, **Terracotta ausschließlich als
+sparsamer Akzent** (Sri-Lanka-Kennzeichnungen, 5-€-Zahl, Spenden-CTA,
+Overline-Striche). Keine Neonfarben, keine Verläufe, keine Glow-Effekte.
+Ergänzt um `--terracotta-deep #9D4F34` (Akzent mit Textkontrast ≥ 4.5:1 auf
+Ivory) und helle Töne für Forest-Flächen (`--on-forest*`) — Kontrastprotokoll
+in docs/accessibility-report.md.
 
 ## Typografie
 
-- **Alegreya (Variable, Serif)** für Überschriften: humanistisch, literarisch,
-  warm — charaktervoll ohne Mode-Font-Reflex. Kursive für betonte Satzteile im Hero.
-- **Source Sans 3 (Variable)** für Fließtext: ruhig, sehr gut lesbar,
+- **Headlines: Manrope** (Variable, 200–800) — klar, humanistisch-geometrisch,
+  ohne SaaS-Pathos; Skala bewusst kontrolliert (H1 max. ~54 px).
+- **Fließtext: Source Sans 3** (Variable) — ruhig, sehr gut lesbar,
   vollständige Umlaut-/ß-Unterstützung.
-- Beide lokal gehostet (WOFF2, Latin-Subset, zusammen ~117 KB), `font-display: swap`,
-  Preload für die zwei Hauptschnitte. Lizenz: SIL OFL (siehe
-  `public/assets/fonts/LICENSE.md`).
-- Fluide Skala mit `clamp()`; Verhältnis ≥ 1.25 zwischen Stufen; Fließtext
-  17–19 px; Zeilenlänge über `--container-text` (~70 Zeichen) begrenzt.
-- Versalien nur für kleine Overline-Etiketten mit Sperrung — nie für Fließtext.
-- Deutsche Komposita: `hyphens: auto` + `overflow-wrap` verhindern Überlauf.
+- **Redaktioneller Akzent: Newsreader Italic** (Variable mit optischer
+  Größenachse) — ausschließlich für die 5-€-Zahl und mögliche Zitate.
+- Alle Fonts lokal gehostet (WOFF2, SIL OFL, Lizenzdatei in
+  public/assets/fonts/), `font-display: swap`, Preload für die zwei
+  Hauptschnitte.
+- Editorial-Textbreite 680 px (`--container-text`), Inhaltsmaximum 1280 px.
+- `hyphens: auto` + `min-width: 0` auf Grid-Kindern verhindern, dass lange
+  deutsche Komposita („Spendenbescheinigung") Layouts sprengen.
 
-## Raum & Layout
+## Layout
 
-- Vertikaler Rhythmus über `--space-*`-Stufen; Sektionsabstand fluid
-  (`clamp(4rem … 7.5rem)`).
-- Container: 72 rem Standard, 44 rem für Lesetexte.
-- Layouts sind links ausgerichtet und leicht asymmetrisch (Hero 7:5,
-  Text-Bild-Splits) — kein zentrierter Template-Stapel.
-- Karten nur, wo Karten die richtige Affordanz sind (verlinkbare Inhalte);
-  `auto-fit/minmax` für bruchfreie Responsivität.
+12-Spalten-Denken auf Desktop mit kontrollierter Asymmetrie (Hero 6.5:5.5,
+Vorstellungs-Split 7:5); großzügiger Weißraum mit fluiden Sektionsabständen;
+feine Linien (`--line`) statt Schatten (nur zwei minimale Schattenstufen);
+Radien 4–12 px; **keine Pill-Buttons** (Radius 6 px); Hover-Bewegungen
+maximal 2 px. Karten nur, wo sie Affordanz sind — keine „Kartenwüsten":
+Sektionen wechseln zwischen Splits, Listen, Proof-Rastern und Forest-Flächen.
+
+## Wiederkehrende Identitätsträger
+
+1. **Trust-Strip** (Ink) mit Registerdaten als oberste Zeile jeder Seite.
+2. **Overline mit Terrakotta-Strich** als Sektionsauftakt.
+3. **5-€-Ziffer in Newsreader-Kursive** — die eine typografische Geste.
+4. **Quellen-Badges** (Originalaufnahme / Projektbericht / Externe Quelle /
+   Illustration) als sichtbares Beweissystem — Design und Glaubwürdigkeit
+   greifen ineinander.
+5. **Dokumentarische Bildflächen** mit Bildzeile (Caption + Badge) statt
+   dekorativer Bilder.
+
+## Bildsprache
+
+Große echte dokumentarische Fotografie (Anforderungen:
+content/image-requirements.md). Bis Originalmaterial vorliegt: neutrale
+Flächen mit ehrlicher Beschriftung „Originale Projektaufnahme wird ergänzt."
+und „Platzhalter"-Badge. **Nie** KI-Bilder als Projektfotografie — technisch
+erzwungen (check.mjs blockt `ChatGPT_Image` und plantceylon-CDN-Dateien).
 
 ## Bewegung
 
-Erlaubt: weiche Reveals (Opacity + 14 px Translate, gestaffelt), Header-Schatten
-nach Scrollbeginn, Pfeil-Mikrobewegung in Buttons, sanftes Karten-Lift,
-animierter Projektfortschritt (nur echte Daten).
-Nicht verwendet (bewusst): Parallax-Übertreibung, Glassmorphism, Partikel,
-Scroll-Jacking, 3D, Cursor-Effekte.
-`prefers-reduced-motion` schaltet alles ab; ohne JavaScript ist alles sofort
-sichtbar (`no-js`-Fallback).
+Erlaubt und umgesetzt: dezente Reveal-Fades (10 px, gestaffelt),
+Header-Schatten nach Scrollbeginn, 2-px-Hover, Pfeil-Mikrobewegung,
+Fortschrittsanimation nur mit echten Daten. Nicht verwendet: Partikel, 3D,
+Parallax-Exzesse, Scroll-Jacking, schwebende Karten, Cursor-Effekte,
+Glasmorphismus, Neon-Glows. `prefers-reduced-motion` schaltet alles ab;
+ohne JavaScript ist alles sofort sichtbar.
 
-## Komponentenüberblick
+## Komponentenkatalog
 
-Buttons (primary/accent/ghost) · Sticky-Header + mobile Navigation ·
-Hero mit Bogen-Bildfläche · Vertrauensleiste · Sektionskopf mit Overline ·
-Karten (Projekt/Beitrag/Veranstaltung) mit Status-Badges · Schritt-Liste ·
-Text-Bild-Split · Teamkarte · Spendenbox mit IBAN-Kopierknopf · Formularfelder
-mit Fehlerzuständen · FAQ-Aufklapper · Abschluss-CTA (Ink) · Footer ·
-Breadcrumbs · Leerzustand · Infokarte · Zwei-Klick-Karte · Fortschrittsbalken ·
-interne Inhalts-Marker (`.content-todo`, nur Vorabversion).
-
-## Interne Inhalts-Marker
-
-`.content-todo` / `.content-todo-block` (gelb, gestrichelt, Präfix „⚠ intern")
-kennzeichnen unbestätigte Inhalte sichtbar, ohne das Layout zu zerstören.
-Sie sind Teil des Workflows (content-status.md) und werden vor Livegang
-vollständig entfernt — `node src/utils/check.mjs` zählt sie.
+Trust Bar · Header · Mobile Navigation · Editorial Hero · 5-Euro Impact ·
+Project Feature/Card · Project Evidence Gallery (doc-media) · Source Card ·
+External Source Badge · Donation Panel · Bank Details (dl) · Copy Buttons
+(IBAN/BIC) · Betragsauswahl · Girocode-Slot · Plant Selector (tree-grid) ·
+Four-Step Process (steps) · Team Profile · Update Card · Document Download ·
+Contact Form · CTA Section · Footer · Breadcrumbs · Empty State ·
+Loading State · Error State · Suche.
+Zuordnung zu WordPress-Blöcken: docs/wordpress-blueprint.md.
