@@ -1,0 +1,45 @@
+<!--META
+{
+  "path": "/aktuelles/",
+  "title": "Aktuelles — Living Charity e. V.",
+  "description": "Neuigkeiten, Projekt-Updates und Rückblicke von Living Charity e. V. — ehrlich datiert und klar gekennzeichnet.",
+  "breadcrumb": "Aktuelles"
+}
+-->
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><span aria-current="page">Aktuelles</span></li>
+    </ol>
+  </nav>
+  <header class="page-head">
+    <p class="overline">Aktuelles</p>
+    <h1>Neues aus dem Verein</h1>
+    <p class="lead">Hier berichten wir über Projektfortschritte, Veranstaltungen
+    und Entscheidungen im Verein. Jeder Beitrag trägt sein echtes Datum und ist
+    als Neuigkeit, Rückblick oder Projekt-Update gekennzeichnet.</p>
+  </header>
+</div>
+
+<section class="section section--sm">
+  <div class="container">
+    {{@posts-list}}
+  </div>
+</section>
+
+<section class="section section--tinted section--sm">
+  <div class="container">
+    <div class="grid grid--halves">
+      <div class="reveal">
+        <h2>Veranstaltungen</h2>
+        <p>Termine des Vereins finden Sie gesammelt auf der Veranstaltungsseite —
+        kommende Termine und Rückblicke sauber getrennt.</p>
+      </div>
+      <div class="reveal" style="justify-self:start">
+        <a class="btn btn--primary" href="/veranstaltungen/">Zu den Veranstaltungen <span class="btn__arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
