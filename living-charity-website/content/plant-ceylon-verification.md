@@ -27,6 +27,7 @@ nachweislich vollständig von Living Charity betriebenes Vereinsprojekt.
 
 - [ ] Wo liegen die Pflanzflächen?
 - [ ] Wer besitzt oder nutzt die Flächen?
+- [ ] Wem gehört der Baum?
 - [ ] Wer pflanzt die Bäume?
 - [ ] Wer pflegt die Bäume?
 - [ ] Wie lange wird die Pflege übernommen?
