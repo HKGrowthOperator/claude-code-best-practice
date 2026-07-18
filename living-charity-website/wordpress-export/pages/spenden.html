@@ -1,0 +1,149 @@
+<!-- wp:html -->
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Sie sind hier">
+    <ol>
+      <li><a href="/">Startseite</a></li>
+      <li><span aria-current="page">Spenden</span></li>
+    </ol>
+  </nav>
+  <header class="page-head">
+    <p class="overline">Spenden &amp; Unterstützung</p>
+    <h1>Ihre Spende, nachvollziehbar eingesetzt</h1>
+    <p class="lead">Mit Ihrer Spende ermöglichen Sie die Projekte von Living
+    Charity e.&nbsp;V. Sie entscheiden: allgemein für die Vereinsarbeit oder
+    gezielt für ein Projekt. Auf dieser Seite finden Sie alles, was Sie dafür
+    brauchen — und wen Sie bei Fragen erreichen.</p>
+    <p><span class="content-todo">[INHALT VON LIVING CHARITY ERFORDERLICH]
+    Kurzabsatz: Wofür verwendet der Verein Spenden konkret (laut Satzung)?</span></p>
+  </header>
+</div>
+
+<section class="section section--sm">
+  <div class="container">
+    <div class="split">
+      <!-- Spendenkomponente (DonationProvider: "bank-transfer") -->
+      <div class="reveal">
+        <h2 style="margin-bottom:var(--space-5)">Per Überweisung spenden</h2>
+        <div class="donation-box">
+      <p class="donation-box__label">Spendenkonto</p>
+      <dl>
+        <dt>Kontoinhaber</dt><dd>Living Charity e. V.</dd>
+        <dt>Bank</dt><dd>Sparkasse Gummersbach-Bergneustadt</dd>
+        <dt>IBAN</dt><dd><span class="iban" id="iban-value">DE18 3845 0000 1000 2149 63</span></dd>
+        <dt>BIC</dt><dd>WELADED1GMB</dd>
+        <dt>Verwendungszweck</dt><dd><span class="content-todo">[INHALT VON LIVING CHARITY ERFORDERLICH] gewünschte Verwendungszwecke</span></dd>
+      </dl>
+      <button type="button" class="btn btn--primary copy-btn" data-copy-target="iban-value" data-copy-plain="DE18384500001000214963">
+        IBAN kopieren
+        <span class="copy-btn__feedback" role="status">Kopiert ✓</span>
+      </button>
+      <p style="margin-top:1rem"><span class="content-todo">Bankverbindung vor Livegang gegen Kontoauszug prüfen [BITTE DURCH DEN AUFTRAGGEBER BESTÄTIGEN]</span></p>
+    </div>
+        <p class="text-sm text-muted" style="margin-top:var(--space-4)">
+          Tipp: Geben Sie im Verwendungszweck Ihre Adresse an, wenn Sie eine
+          Zuwendungsbestätigung wünschen —
+          <span class="content-todo">[BITTE DURCH DEN AUFTRAGGEBER BESTÄTIGEN]
+          ob und ab welchem Betrag Zuwendungsbestätigungen ausgestellt werden
+          (abhängig vom Gemeinnützigkeitsstatus)</span>
+        </p>
+      </div>
+      <div class="flow-lg reveal">
+        <div>
+          <h3>Allgemein oder projektbezogen?</h3>
+          <p><strong>Allgemeine Spende:</strong> Der Verein setzt sie dort ein, wo
+          sie am dringendsten gebraucht wird.</p>
+          <p><strong>Projektbezogene Spende:</strong> Nennen Sie im Verwendungszweck
+          das Projekt — die Übersicht finden Sie unter
+          <a href="/projekte/">Projekte</a>. Kann ein Projektzweck nicht mehr
+          erfüllt werden, informieren wir Sie über die weitere Verwendung.
+          <span class="content-todo">[BITTE DURCH DEN AUFTRAGGEBER BESTÄTIGEN] Regel zur Umwidmung</span></p>
+        </div>
+        <div>
+          <h3>Was mit Ihrer Spende passiert</h3>
+          <p>Den Ablauf von Eingang bis Wirkung beschreiben wir Schritt für
+          Schritt auf der <a href="/#hauptinhalt">Startseite</a> unter
+          „So wirkt Ihre Unterstützung". Fortschritte dokumentieren wir je
+          Projekt unter <a href="/projekte/">Projekte</a> und im Bereich
+          <a href="/aktuelles/">Aktuelles</a>.</p>
+        </div>
+        <div>
+          <h3>Fragen zur Spende?</h3>
+          <p>Schreiben Sie an <a href="mailto:info@livingcharity.de">info@livingcharity.de</a> —
+          wir antworten persönlich.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Online-Spenden: DonationProvider-Schnittstelle (bewusst nicht aktiv) -->
+<section class="section section--tinted section--sm">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="overline">In Vorbereitung</p>
+      <h2>Online spenden</h2>
+    </div>
+    <div class="content-todo-block reveal">
+      <strong>[BITTE DURCH DEN AUFTRAGGEBER BESTÄTIGEN] — Zahlungsanbieter</strong>
+      Die technische Schnittstelle für einen Spendendienst (z. B. Zahlungsanbieter
+      oder Spendenplattform) ist vorbereitet (siehe
+      wordpress-blueprint/donation-provider.md), aber bewusst nicht aktiv:
+      Es wird keine Zahlungsabwicklung ohne bestätigten Anbieter, Vertrag und
+      Zugangsdaten implementiert. Bei einer externen Weiterleitung wird künftig
+      klar erkennbar sein: zu welchem Dienst weitergeleitet wird, dass dessen
+      Datenschutzbestimmungen gelten, ob Gebühren entstehen und wann die Spende
+      als abgeschlossen gilt.
+    </div>
+  </div>
+</section>
+
+<section class="section section--sm">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="overline">Gut zu wissen</p>
+      <h2>Häufige Fragen zum Spenden</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Erhalte ich eine Spendenbescheinigung?</summary>
+        <div class="faq__body"><p><span class="content-todo">[BITTE DURCH DEN AUFTRAGGEBER BESTÄTIGEN]
+        Diese Antwort hängt vom Gemeinnützigkeitsstatus ab (Freistellungsbescheid).
+        Erst nach Vorlage des Bescheids wird hier eine verbindliche Aussage
+        veröffentlicht — vorher bewusst keine.</span></p></div>
+      </details>
+      <details>
+        <summary>Ist meine Spende sicher?</summary>
+        <div class="faq__body"><p>Die Überweisung läuft direkt über Ihre Bank auf das
+        Vereinskonto bei der Sparkasse Gummersbach-Bergneustadt — ohne Zwischenhändler. Diese
+        Website speichert bei einer Überweisung keine Daten von Ihnen.</p></div>
+      </details>
+      <details>
+        <summary>Wie erfahre ich, was meine Spende bewirkt hat?</summary>
+        <div class="faq__body"><p>Über die Projektseiten und den Bereich
+        <a href="/aktuelles/">Aktuelles</a>. Wenn Sie uns beim Spenden Ihre
+        E-Mail-Adresse mitteilen, informieren wir Sie auf Wunsch direkt —
+        ohne automatischen Newsletter.</p></div>
+      </details>
+      <details>
+        <summary>Kann ich auch anders helfen als mit Geld?</summary>
+        <div class="faq__body"><p>Ja — mit Zeit, Können, Sachspenden oder als
+        Unternehmen. Alle Möglichkeiten finden Sie unter
+        <a href="/mitmachen/">Mitmachen</a>.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark cta-final">
+  <div class="container">
+    <div class="reveal">
+      <h2>Lieber erst den Verein kennenlernen?</h2>
+      <p>Verständlich. Schauen Sie sich an, wer wir sind und woran wir arbeiten.</p>
+    </div>
+    <div class="cta-final__actions reveal">
+      <a class="btn btn--accent" href="/ueber-uns/">Über Living Charity <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href="/projekte/">Projekte ansehen</a>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
