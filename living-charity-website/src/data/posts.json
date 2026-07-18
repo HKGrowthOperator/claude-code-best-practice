@@ -1,0 +1,15 @@
+{
+  "_kommentar": "Beiträge (Aktuelles). Entspricht in WordPress dem nativen Post-Typ mit den Kategorien unten. Keine erfundenen Beiträge — leere Liste rendert den ehrlichen Leerzustand.",
+  "categories": ["Neuigkeit", "Rückblick", "Projekt-Update", "Pressemitteilung"],
+  "posts": [],
+  "templatePost": {
+    "slug": "beitrag",
+    "title": "[INHALT VON LIVING CHARITY ERFORDERLICH] Beitragstitel",
+    "category": "Neuigkeit",
+    "date": null,
+    "excerpt": "[INHALT VON LIVING CHARITY ERFORDERLICH] Teasertext in ein bis zwei Sätzen.",
+    "body": "[INHALT VON LIVING CHARITY ERFORDERLICH] Beitragstext.",
+    "image": null,
+    "relatedProject": null
+  }
+}
